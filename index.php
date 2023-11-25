@@ -1,38 +1,25 @@
-<?php include 'header_sidebar_footer/header_NoOptions.html';?>
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="\WebtechFinals\stylesheets\index.css">
+<link href="stylesheets/index.css" rel="stylesheet" id="">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-    <title>Singko Video Streaming Log In</title>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-</head>
-<body>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="images/user.png" id="icon" alt="User Icon" />
+    </div>
 
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
 
    
-<div class="grid-container">
-        <div class="grid-item">
-            <div class="text-container">
-                <h1>Video Streaming</h1>
-
-                <div class ="login_container">
-                <form action="login_users.php" method="post">
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" required><br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required><br>
-
-                </form>
-            </div>
-                <div class="log-button-container">
-                <a href="login_users.php">Login</a>
-                </div>
-            </div>
-        </div>
-    </div> 
-<?php include 'header_sidebar_footer/footer.html';?>
    
-</body>
-</html>
+  </div>
+</div>
