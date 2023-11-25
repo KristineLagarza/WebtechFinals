@@ -1,35 +1,56 @@
-body {
-    background-color: #003049;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    padding: 10px;
+	display: grid;
+	column-gap: 20px;
+	padding: 20px;
+	row-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
 
 .grid-item {
     background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    padding: 20px;
-    text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
+
 
 .text-container {
     padding: 10px;
 }
 
-.log-button-container {
-    padding: 10px;
-}
-
+.login_container {
+    margin-top: 20px; /* Adjust the margin as needed */
+    text-align: center;
+  }
+  
+  .login_container a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #003166; 
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 5px; 
+    font-weight: bold;
+  }
+  
+  .login_container a:hover {
+    background: #f6c500;
+      color: black;
+  }
+    
 a {
     text-decoration: none;
     color: white;
@@ -41,3 +62,5 @@ a {
 a:hover {
     background-color: #0056b3;
 }
+
+
