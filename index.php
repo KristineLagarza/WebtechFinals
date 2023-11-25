@@ -49,7 +49,7 @@
 
 <footer>
             <div id = "container-footer">
-            <p> &copy; <?php echo date("Y"); ?> SLU | IT Department | SYNTX | All Rights Reserved.</p>
+            
         </div>
     </footer>
 
