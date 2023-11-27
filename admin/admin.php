@@ -4,7 +4,7 @@
     include (../header_sidebar_footer/sidebar.html)
     include (../header_sidebar_footer/footer.html)
 
-?>
+
 if ($_SERVER[REQUEST_METHOD] == 'POST'){
     $username = $_POST['Username'];
     $password = $_POST['Password'];
@@ -30,3 +30,5 @@ if ($_SERVER[REQUEST_METHOD] == 'POST'){
     }
 
 }
+?>
+
