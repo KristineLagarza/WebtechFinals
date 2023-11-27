@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+</head>
+<body>
+    <div id="viewport">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <header>
+                <a href="#">Content Manager</a>
+            </header>
+            <ul class="nav">
+                <li>
+                    <a href="#">
+                        <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="zmdi zmdi-link"></i> Arrangement
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="zmdi zmdi-widgets"></i> Upload
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="zmdi zmdi-calendar"></i> Live Stream
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="zmdi zmdi-info-outline"></i> History
+                    </a>
+                </li>
+                <li class="active"> <!-- Highlight the Record item -->
+                    <a href="#">
+                        <i class="zmdi zmdi-settings"></i> Record
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="zmdi zmdi-comment-more"></i> Log out
+                    </a>
+                </li>
+            </ul>
+             <li id="record-option">
+                    <a href="#" id="start-recording">
+                        <i class="zmdi zmdi-videocam"></i> Start Recording
+                    </a>
+                </li>
+        </div>
+        <div id="content">
+            <!-- ... (existing code) ... -->
+            <div id="video-container">
+                <video id="recorded-video" controls style="display: none;"></video>
+            </div>
+        </div>
+        <!-- Content -->
+        <div id="content">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <i class="zmdi zmdi-notifications text-danger"></i>
+                            </a>
+                        </li>
+                        <li><a href="#">Manager</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <h1 class="centered-text">RECORD AIRED SHOW</h1>
+            </div>
+           
+    </div>
+    <script>
+        let recorder;
+
+document.getElementById('start-recording').addEventListener('click', function () {
+    navigator.mediaDevices.getDisplayMedia({ video: true })
+        .then(function (stream) {
+            recorder = RecordRTC(stream, {
+                type: 'video',
+                mimeType: 'video/webm'
+            });
+
+            recorder.startRecording();
+        })
+        .catch(function (error) {
+            console.error('Unable to capture screen:', error);
+        });
+});
+
+// Function to stop recording
+function stopRecording() {
+    recorder.stopRecording(function () {
+        let blob = recorder.getBlob();
+        let recordedVideo = document.getElementById('recorded-video');
+
+        recordedVideo.src = URL.createObjectURL(blob);
+        recordedVideo.style.display = 'block';
+
+        // Perform additional actions like sending the recorded video to the server
+    });
+}
+    </script>
+</body>
+</html>
