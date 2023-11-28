@@ -1,9 +1,19 @@
 <?php
+session_start();
     include ('../admin/db.php')
-    include (../header_sidebar_footer/header.html)
-    include (../header_sidebar_footer/sidebar.html)
-    include (../header_sidebar_footer/footer.html)
+    include ('../header_sidebar_footer/header.html')
+    include ('../header_sidebar_footer/sidebar.html')
+    include ('../header_sidebar_footer/footer.html')
 
+
+    if (isset($_SESSION['username']) && $_SESSION['user_type'] == 'admin') {
+
+      echo "Welcome, Admin!";
+    } else {
+      // Redirect to login page if not logged in or not an admin
+      header("location: index.php");
+      exit();
+    }
 
 if ($_SERVER[REQUEST_METHOD] == 'POST'){
     $username = $_POST['Username'];
