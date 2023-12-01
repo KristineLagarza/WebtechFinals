@@ -1,9 +1,9 @@
 <?php
 session_start();
-    include ('../admin/db.php')
-    include ('../header_sidebar_footer/header.html')
-    include ('../header_sidebar_footer/sidebar.html')
-    include ('../header_sidebar_footer/footer.html')
+    include ('./admin/connect_db.php')
+    include ('./header_sidebar_footer/header.html')
+    include ('./header_sidebar_footer/sidebar.html')
+    include ('./header_sidebar_footer/footer.html')
 
 
     if (isset($_SESSION['username']) && $_SESSION['user_type'] == 'admin') {

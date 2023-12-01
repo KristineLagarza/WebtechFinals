@@ -1,76 +1,95 @@
+<?php
+    session_start();
+    include("connection_db.php");
+
+    /* Validation */
+    if (isset($_SESSION['username'])) {
+        $type = $_SESSION['type'];
+        if ($type == 'Student') {
+            header("Location: ./admin/accounts_view.php");
+            exit();
+        } elseif ($type == 'ContentManager') {
+            header("Location: ./contentmanager/contentmanager.php");
+            exit();
+        }
+    }
+
+    if (isset($_POST['submit'])) {
+        $Username = $_POST['username'];
+        $Password = $_POST['password'];
+
+        // Use prepared statements to prevent SQL injection
+        $sql = "SELECT * FROM user WHERE Username = ? AND Password = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ss", $Username, $Password);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($row = mysqli_fetch_assoc($result)) {
+            $_SESSION['username'] = $row['Username'];
+            $_SESSION['type'] = $row['type'];
+
+            switch ($row['type']) {
+                case 'Admin':
+                    header("Location: ./admin/accounts_view.php");
+                    exit();
+                case 'ContentManager':
+                    header("Location: ./contentmanager/contentmanager.php");
+                    exit();
+                default:
+                    // Handle unknown user type
+                    break;
+            }
+        } else {
+            header("Location: index.php?id=$Username&error=Invalid Credentials");
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="stylesheets/index.css" rel="stylesheet" id="">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<!------ Include the above in your HEAD tag ---------->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <?php include ('./header_sidebar_footer/header_NoOptions.html') ?>
+        </header>
+        <div class="notification">
+            <?php if (isset($_GET['error'])) { ?>
+                <div id="alert-danger" role="alert">
+                    <?php echo $_GET['error']; ?>
+                </div>
+            <?php } ?>
+        </div>
 
-<body>
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+        <div class="containerlogin">
+            <div class="logreg-box">
+                <div class="form-box login">
+                    <form class="login-form" action="login.php" method="POST">
+                        <h2>Sign In</h2>
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="images/user.png" id="icon" alt="User Icon" />
-    </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-id-card'></i></span>
+                            <input type="text" name="username" required>
+                            <label>ID Number</label>
+                        </div>
 
-    <!-- Login Form -->
-    <form method = "post">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-    
-  </div>
-</div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-lock' ></i></span>
+                            <input type="password" name="password" required>
+                            <label>Password</label>
+                        </div>
 
-</body>
+                        <input type="submit" class="btn" value="Sign In" name="submit">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <?php include ('./header_sidebar_footer/footer.html') ?>
+    </body>
 </html>
-<?php
-session_start();
 
-// Include the database connection
-include_once 'db_connect.php';
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-   
-    $sql = "SELECT * FROM user WHERE Username = '$username' AND Password = '$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
- 
-      $user = $result->fetch_assoc();
-      $_SESSION['username'] = $username;
-      $_SESSION['UserType'] = $user['UserType'];
-
-   
-      if ($user['user_type'] == 'admin') {
-          header("location: admin.php");
-      } elseif ($user['user_type'] == 'content_manager') {
-          header("location: contentmanager.php");
-      } else {
-          header("location: index.php");
-      }
-
-      exit();
-  } else {
-
-      header("location: index.php?error=1");
-      exit();
-  }
-} else {
-
-  header("location: index.php");
-  exit();
-}
-?>

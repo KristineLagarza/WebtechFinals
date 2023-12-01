@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: ./login_users.php");
+    header("Location: ./index.php");
     exit();
 }
 
@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
         $row = mysqli_fetch_assoc($resultCheckAdmin);
 
         if ($row['type'] === 'Admin') {
-            header("Location: ../accounts_management.php?id=$id&error=Admin users cannot be ARCHIVED!");
+            header("Location: ../accounts_view.php?id=$id&error=Admin users cannot be ARCHIVED!");
             exit();
         }
     }

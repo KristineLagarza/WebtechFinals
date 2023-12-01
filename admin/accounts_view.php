@@ -2,14 +2,14 @@
     global $data, $result, $conn, $row;
     session_start();
     if (!isset($_SESSION['username'])) {
-        header("Location: ../login_users.php");
+        header("Location: ../index.php");
         exit();
     }
     //if user is not admin then destroy session
     if ($_SESSION['type'] !== 'Admin') {
         session_destroy();
     }
-    include "../db.php";
+    include "../connect_db.php";
     include "crud_for_accounts/read.php";
 ?>
 <!DOCTYPE html>

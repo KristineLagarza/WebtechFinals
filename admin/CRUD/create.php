@@ -29,7 +29,7 @@ if (isset($_POST['create'])) {
     }
 
     // Check if the username already exists
-    $sql_check_username = "SELECT COUNT(*) FROM users WHERE username = '$username'";
+    $sql_check_username = "SELECT COUNT(*) FROM user WHERE username = '$username'";
     $result_check_username = mysqli_query($conn, $sql_check_username);
 
     if ($result_check_username) {
@@ -44,11 +44,11 @@ if (isset($_POST['create'])) {
     }
     $account_status = 'Active';
     // Insert into USERS table first
-    $sql_users = "INSERT INTO users (username, password, type, status) 
+    $sql_user = "INSERT INTO user (username, password, type, status) 
                   VALUES ('$username', '$password', '$usertype', '$account_status')";
-    $result_users = mysqli_query($conn, $sql_users);
+    $result_user = mysqli_query($conn, $sql_user);
 
-    if ($result_users) {
+    if ($result_user) {
         // Get the auto-generated userID
         $userID = mysqli_insert_id($conn);
 
@@ -78,20 +78,20 @@ if (isset($_POST['create'])) {
                 $sql_admin .= ")";
 
                 $result_admin = mysqli_query($conn, $sql_admin);
-
+            
                 if ($result_admin) {
                     // Successfully inserted into admin table
-                    header("Location: ../accounts_management.php?success=User created successfully");
+                    header("Location: ../accounts_view.php?success=User created successfully");
                     exit();
                 } else {
                     // Insert into admin table failed
                     $error_message = mysqli_error($conn); // Get the actual error message
-                    header("Location: ../accounts_management.php?action=add-user?error=$error_message&$user_data");
+                    header("Location: ../accounts_view.php?action=add-user?error=$error_message&$user_data");
                     exit();
                 }
                 break;
 
-            case 'Faculty':
+            case 'ContentManager':
                 // Insert into content_manager table
                 $sql_content_manager = "INSERT INTO content_manager (userID, fname, lname, email";
 
@@ -119,25 +119,25 @@ if (isset($_POST['create'])) {
 
                 if ($result_content_manager) {
                     // Successfully inserted into content_manager table
-                    header("Location: ../accounts_management.php?success=User created successfully");
+                    header("Location: ../accounts_view.php?success=User created successfully");
                     exit();
                 } else {
                     // Insert into content_manager table failed
                     $error_message = mysqli_error($conn); // Get the actual error message
-                    header("Location: ../accounts_management.php?action=add-user?error=$error_message&$user_data");
+                    header("Location: ../accounts_view.php?action=add-user?error=$error_message&$user_data");
                     exit();
                 }
                 break;
-                
+
             default:
                 // Handle other user types or errors
-                header("Location: ../accounts_management.php?action=add-user?error=Invalid user type&$user_data");
+                header("Location: ../accounts_view.php?action=add-user?error=Invalid user type&$user_data");
                 exit();
         }
     } else {
         // Insert into users table failed
         $error_message = mysqli_error($conn); // Get the actual error message
-        header("Location: ../accounts_management.php?action=add-user?error=$error_message&$user_data");
+        header("Location: ../accounts_view.php?action=add-user?error=$error_message&$user_data");
         exit();
     }
 }
