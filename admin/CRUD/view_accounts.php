@@ -1,6 +1,6 @@
 <?php
     global $conn, $result;
-    include "../connection_db.php"; // Adjust the path if needed
+    include "./connection_db.php"; // Adjust the path if needed
 
     // Check if a user ID is provided in the URL
     if (isset($_GET['id'])) {

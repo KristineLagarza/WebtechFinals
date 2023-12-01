@@ -1,6 +1,6 @@
 <?php
 global $conn;
-include "../connection_db.php";
+include "./connection_db.php";
 
     // Combine all queries using UNION
     $sql = "SELECT

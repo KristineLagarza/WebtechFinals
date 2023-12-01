@@ -1,7 +1,7 @@
 <?php
 global $conn;
 if (isset($_POST['create'])) {
-    include "../connection_db.php";
+    include "./connection_db.php";
 
     // Validate function
     function validate($data) {
