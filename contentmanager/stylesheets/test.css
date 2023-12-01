@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+body {
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+/* HiGHLIGHTING IDEBAR WHEN CHOSEN*/
+
+.nav .active {
+    background-color: #003049; /* Change this to your desired highlight color */
+}
+
+/* Toggle Styles */
+
+#viewport {
+  padding-left: 250px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#content {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+/* Sidebar Styles */
+
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #457B9D;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#sidebar header {
+  background-color: #003049;
+  font-size: 20px;
+  line-height: 52px;
+  text-align: center;
+}
+
+#sidebar header a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+#sidebar header a:hover {
+  color: #fff;
+}
+
+#sidebar .nav{
+  
+}
+
+#sidebar .nav a{
+  background: none;
+  border-bottom: 1px solid #455A64;
+  color: #CFD8DC;
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+#sidebar .nav a:hover{
+  background: none;
+  color: #ECEFF1;
+}
+
+#sidebar .nav a i{
+  margin-right: 16px;
+}
+
+/* CSS FOR IMAGE CONTENT*/
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%; /* Ensures the image doesn't exceed its container */
+    display: block; /* Removes extra space beneath the image */
+    margin: 0 auto; /* Centers the image horizontally */
+}
+
+.centered-text {
+    text-align: center;
+    font-weight: bold;
+}
+/*css for uploadhtml*/
+/* Style for upload button */
+.upload-container {
+    text-align: center;
+    margin-top: 50px; /* Adjust the margin as needed */
+}
+
+.upload-button {
+    position: relative;
+    display: inline-block;
+    border: 2px dashed #ccc; /* Example border style */
+    padding: 20px;
+    cursor: pointer;
+}
+
+.upload-button i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #999; /* Example color for the icon */
+}
+
+/* Style for hiding the file input */
+.file-input {
+    display: none;
+}
+
+/*confirm button*/
+.confirm-button {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2ecc71; /* Example color for the button */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/**/
+ /* Add CSS styles for video centering */
+ .video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Adjust the height as needed */
+}
+
+#user-video {
+    max-width: 100%;
+    max-height: 100%;
+}
+#start-stream {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#end-stream {
+    background-color: red;
+    display: none;
+    margin: 0 auto;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*VIEWER CSS*/
+        /* Add your custom styles here */
+        /* Adjustments for the sidebar */
+        #sidebar {
+            width: 250px;
+            background-color: #f5f5f5;
+            /* Add other styling as needed */
+        }
+        /* Adjustments for the content area */
+        #content {
+            padding: 20px;
+            /* Add other styling as needed */
+        }
+
+
+/*Video boxes for arrangement*/
+ /* CSS for video boxes */
+ .video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.video-box {
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+ /* Add your custom styles here */
+        /* Adjustments for the sidebar */
+        #sidebar {
+          width: 250px;
+          background-color: #f5f5f5;
+          /* Add other styling as needed */
+      }
+      /* Adjustments for the content area */
+      #content {
+          padding: 20px;
+          /* Add other styling as needed */
+          text-align: center; /* To center the video */
+      }
+      video {
+          width: 80%; /* Adjust the width of the video player */
+      }
