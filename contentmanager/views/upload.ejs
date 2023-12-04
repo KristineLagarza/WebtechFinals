@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="stylesheets/test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+   
+</head>
+<body>
+    <div id="viewport">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <header>
+                <a href="#">Content Manager</a>
+            </header>
+            <ul class="nav">
+                <li>
+                    <a href="/dashboard">
+                        <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/arrangement">
+                        <i class="zmdi zmdi-link"></i> Arrangement
+                    </a>
+                </li>
+                <li>
+                    <a href="/upload">
+                        <i class="zmdi zmdi-widgets"></i> Upload
+                    </a>
+                </li>
+                <li>
+                    <a href="/live">
+                        <i class="zmdi zmdi-calendar"></i> Live Stream
+                    </a>
+                </li>
+                <li>
+                    <a href="/history">
+                        <i class="zmdi zmdi-info-outline"></i> History
+                    </a>
+                </li>
+                <li>
+                    <a href="/record">
+                        <i class="record.html"></i> Record
+                    </a>
+                </li>
+                <li>
+                    <a href="/login">
+                        <i class="zmdi zmdi-comment-more"></i> Log out
+                    </a>
+                </li>
+                </ul>
+              </div>
+           
+        </div>
+        <!-- Content -->
+        <div id="content">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <i class="zmdi zmdi-notifications text-danger"></i>
+                            </a>
+                        </li>
+                        <li><a href="#">Manager</a></li>
+                    </ul>
+                </div>
+            </nav>
+           
+            <!-- Upload Section -->
+            <div class="container-fluid">
+                <h1 class="centered-text">UPLOAD VIDEO HERE</h1>
+                <div class="upload-container">
+                    <label for="file-upload" class="upload-button">
+                        <input id="file-upload" class="file-input" type="file" multiple>
+                        <i class="zmdi zmdi-upload"></i> <!-- Use an icon class from your icon library -->
+                        <br><p id="file-text" style="color: green;">Select MP3 or MP4 files to upload</p>
+                    </label>
+                    <div id="upload-message" style="display: none;">
+                        <p id="error-message" style="color: red;"></p>
+                        <p id="confirmation-message" style="color: green;"></p>
+                    </div>
+                    <button id="confirm-upload" class="confirm-button" style="display: none;">OK</button>
+                </div>
+            </div>
+    </div>
+    <script>
+         document.getElementById('file-upload').addEventListener('change', function(event) {
+            var files = event.target.files;
+            var confirmButton = document.getElementById('confirm-upload');
+            var errorMessage = document.getElementById('error-message');
+            var confirmationMessage = document.getElementById('confirmation-message');
+            var fileText = document.getElementById('file-text');
+            var uploadMessage = document.getElementById('upload-message');
+
+            if (files && files.length > 0) {
+                var validFiles = Array.from(files).every(file => {
+                    return file.type === 'audio/mp3' || file.type === 'video/mp4';
+                });
+
+                if (validFiles) {
+                    confirmButton.style.display = 'block';
+                    errorMessage.textContent = '';
+                    confirmationMessage.textContent = 'Ready to upload.';
+                    fileText.style.color = 'green';
+                    uploadMessage.style.display = 'block';
+                } else {
+                    confirmButton.style.display = 'none';
+                    confirmationMessage.textContent = '';
+                    errorMessage.textContent = 'Please select only MP3 or MP4 files.';
+                    uploadMessage.style.display = 'block';
+                }
+            } else {
+                confirmButton.style.display = 'none';
+                errorMessage.textContent = '';
+                confirmationMessage.textContent = '';
+                fileText.style.color = 'green';
+                uploadMessage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
