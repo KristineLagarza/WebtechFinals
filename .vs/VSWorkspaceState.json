@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\admin",
+    "\\admin\\stylesheets",
     "\\contentmanager",
-    "\\contentmanager\\routes",
-    "\\contentmanager\\views"
+    "\\contentmanager\\public",
+    "\\contentmanager\\public\\stylesheets"
   ],
-  "SelectedNode": "\\contentmanager\\routes\\index.js",
+  "SelectedNode": "\\admin",
   "PreviewInSolutionExplorer": false
 }
