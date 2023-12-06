@@ -142,108 +142,16 @@
                                                 <p>Duration: 3:25</p>
                                             </div>
                                             <button id="confirm-videos">Confirm</button>
-
-                                             <!-- Dropdown for selecting time frame -->
-                                            <div class="timeframe-dropdown">
-                                                <label for="timeframe">Select Timeframe:</label>
-                                                <select id="timeframe">
-                                                    <option value="8am">8:00 AM</option>
-                                                    <option value="8am">8:02 AM</option>
-                                                    <option value="9am">9:00 AM</option>
-                                                    <option value="10am">10:00 AM</option>
-                                                    <option value="11am">11:00 AM</option>
-                                                    <option value="12pm">12:00 PM</option>
-                                                    <!-- Add more options for different hours -->
-                                                    <!-- ... -->
-                                                    <option value="1pm">1:00 PM</option>
-                                                    <option value="2pm">2:00 PM</option>
-                                                    <option value="3pm">3:00 PM</option>
-                                                    <option value="4pm">4:00 PM</option>
-                                                    <option value="5pm">5:00 PM</option>
-                                                    <option value="6pm">6:00 PM</option>
-                                                </select>
-                                                <button id="add-video-btn">Add Video</button>
-                                            </div>
-                                            <!-- Dropdown for selecting time frame -->
-<div class="timeframe-dropdown">
-    <label for="timeframe">Select Timeframe:</label>
-    <select id="timeframe">
-        <option value="8am">8:00 AM</option>
-        <option value="8:02am">8:02 AM</option>
-        <!-- Add more options for different hours -->
-        <!-- ... -->
-    </select>
-    <button id="add-video-btn">Add Video</button>
-</div>
-
-<!-- Video container -->
-<div class="video-container">
-    <video id="video-player" controls width="480">
-        Your browser does not support HTML5 video.
-    </video>
-</div>
-
            
         </div>
     </div>
-
-    <input type="file" id="file-input">
-    <video id="video-player" controls width="480">
-        Your browser does not support HTML5 video.
-    </video>
     <script>
-         // JavaScript for handling video addition based on selected timeframe
-         document.getElementById('add-video-btn').addEventListener('click', function() {
-            // Get the selected timeframe value
-            var selectedTime = document.getElementById('timeframe').value;
-            
-            // Create a new video box for the selected time
-            var newVideoBox = document.createElement('div');
-            newVideoBox.classList.add('video-box');
-
-            // Create a video element
-            var videoElement = document.createElement('video');
-            videoElement.controls = true;
-            videoElement.width = '180';
-            videoElement.innerHTML = 'Your browser does not support HTML5 video.';
-            // Set the video source - replace 'video1.mp4' with your actual video source
-            videoElement.innerHTML = '<source src="video1.mp4" type="video/mp4">';
-
-            // Create a paragraph for video duration
-            var durationParagraph = document.createElement('p');
-            durationParagraph.textContent = 'Duration: 3:25';
-
-            // Append the video element and duration paragraph to the new video box
-            newVideoBox.appendChild(videoElement);
-            newVideoBox.appendChild(durationParagraph);
-
-            // Append the new video box to the video container (replace 'video-container' with your actual container)
-            document.querySelector('.video-container').appendChild(newVideoBox);
-
-            // You can perform additional actions based on adding videos
-            alert('Video added for ' + selectedTime);
-        });
         // JavaScript for handling confirmation
         document.getElementById('confirm-videos').addEventListener('click', function() {
             // Handle confirmation logic here
             alert('Videos confirmed!');
             // You can perform additional actions based on confirmation
         });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const fileInput = document.getElementById('file-input');
-            const videoPlayer = document.getElementById('video-player');
-        
-            fileInput.addEventListener('change', function(event) {
-                const file = event.target.files[0];
-        
-                if (file) {
-                    const videoURL = URL.createObjectURL(file);
-                    videoPlayer.src = videoURL;
-                }
-            });
-        });
-        
     </script>
 </body>
 </html>

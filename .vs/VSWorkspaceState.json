@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\admin",
-    "\\admin\\stylesheets",
     "\\contentmanager",
     "\\contentmanager\\public",
-    "\\contentmanager\\public\\stylesheets"
+    "\\contentmanager\\public\\stylesheets",
+    "\\contentmanager\\views"
   ],
-  "SelectedNode": "\\admin",
   "PreviewInSolutionExplorer": false
 }
