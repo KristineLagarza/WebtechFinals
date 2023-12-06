@@ -53,6 +53,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheets/style.css">
     </head>
     <body>
     <?php include ('./header_sidebar_footer/header2.php') ?>
@@ -65,7 +66,7 @@
             <?php } ?>
         </div>
 
-        <div class="containerlogin">
+
             <div class="logreg-box">
                 <div class="form-box login">
                     <form class="login-form" action="login.php" method="POST">
@@ -74,7 +75,7 @@
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-id-card'></i></span>
                             <input type="text" name="username" required>
-                            <label>ID Number</label>
+                            <label>Username</label>
                         </div>
 
                         <div class="input-box">
@@ -88,8 +89,8 @@
                 </div>
 
             </div>
-        </div>
-        <?php include ('../WebtechFinals/header_sidebar_footer/footer.php') ?>
+
+        <?php include ('../WebtechFinals-1/header_sidebar_footer/footer.php') ?>
     </body>
 </html>
 

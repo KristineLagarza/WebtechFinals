@@ -12,7 +12,7 @@
 
 
     <footer>
-      <p>&copy; 2023 SYNTAX VIDEO STREAMING. All rights reserved.</p>
+      <p>&copy; 2023 Singko VIDEO STREAMING. All rights reserved.</p>
     </footer>
     
   
