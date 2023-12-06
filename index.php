@@ -89,7 +89,7 @@
 
             </div>
         </div>
-        <?php include ('./header_sidebar_footer/footer.html') ?>
+        <?php include ('../WebtechFinals/header_sidebar_footer/footer.php') ?>
     </body>
 </html>
 

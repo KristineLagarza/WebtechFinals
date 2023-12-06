@@ -1,7 +1,7 @@
 <?php
 global $conn;
 if (isset($_POST['create'])) {
-    include "./connection_db.php";
+    include "../connection_db.php";
 
     // Validate function
     function validate($data) {
@@ -24,7 +24,7 @@ if (isset($_POST['create'])) {
 
     // Check if any required field is empty
     if (empty($fname) || empty($lname) || empty($email) || empty($username) || empty($password) || empty($usertype)) {
-        header("Location: accounts_management.php?action=add-user?error=All required fields must be filled&$user_data");
+        header("Location: accounts_view.php?action=add-user?error=All required fields must be filled&$user_data");
         exit(); // Terminate script execution
     }
 
@@ -38,19 +38,24 @@ if (isset($_POST['create'])) {
 
         if ($username_count > 0) {
             // Username already exists, handle the error
-            header("Location: ../accounts_management.php?action=add-user?error=Username already exists&$user_data");
+            header("Location: ../accounts_view.php?action=add-user?error=Username already exists&$user_data");
             exit();
         }
     }
     $account_status = 'Active';
-    // Insert into USERS table first
+    // Insert into USER table first
     $sql_user = "INSERT INTO user (username, password, type, status) 
                   VALUES ('$username', '$password', '$usertype', '$account_status')";
     $result_user = mysqli_query($conn, $sql_user);
 
-    if ($result_user) {
-        // Get the auto-generated userID
-        $userID = mysqli_insert_id($conn);
+    if (!$result_user) {
+        $error_message = mysqli_error($conn);
+        header("Location: ../accounts_view.php?action=add-user&error=User creation failed: $error_message&$user_data");
+        exit();
+    }
+    
+    // Get the auto-generated userID
+    $userID = mysqli_insert_id($conn);
 
         switch ($usertype) {
             case 'Admin':
@@ -79,17 +84,15 @@ if (isset($_POST['create'])) {
 
                 $result_admin = mysqli_query($conn, $sql_admin);
             
-                if ($result_admin) {
-                    // Successfully inserted into admin table
-                    header("Location: ../accounts_view.php?success=User created successfully");
-                    exit();
-                } else {
-                    // Insert into admin table failed
-                    $error_message = mysqli_error($conn); // Get the actual error message
-                    header("Location: ../accounts_view.php?action=add-user?error=$error_message&$user_data");
+                if (!$result_admin) {
+                    $error_message = mysqli_error($conn);
+                    header("Location: ../accounts_view.php?action=add-user&error=Admin creation failed: $error_message&$user_data");
                     exit();
                 }
+        
+                // Continue with the rest of your code...
                 break;
+        
 
             case 'ContentManager':
                 // Insert into content_manager table
@@ -117,9 +120,9 @@ if (isset($_POST['create'])) {
 
                 $result_content_manager = mysqli_query($conn, $sql_content_manager);
 
-                if ($result_content_manager) {
-                    // Successfully inserted into content_manager table
-                    header("Location: ../accounts_view.php?success=User created successfully");
+                if (!$result_content_manager) {
+                    $error_message = mysqli_error($conn);
+                    header("Location: ../accounts_view.php?action=add-user&error=Content Manager creation failed: $error_message&$user_data");
                     exit();
                 } else {
                     // Insert into content_manager table failed
@@ -131,7 +134,7 @@ if (isset($_POST['create'])) {
 
             default:
                 // Handle other user types or errors
-                header("Location: ../accounts_view.php?action=add-user?error=Invalid user type&$user_data");
+                header("Location: ../accounts_view.php?action=add-user&error=Invalid user type&$user_data");
                 exit();
         }
     } else {
@@ -140,5 +143,5 @@ if (isset($_POST['create'])) {
         header("Location: ../accounts_view.php?action=add-user?error=$error_message&$user_data");
         exit();
     }
-}
+
 ?>

@@ -16,7 +16,7 @@
             t.email,
             t.address,
             t.contactNum
-            FROM teacher t
+            FROM content_manager t
             INNER JOIN users u ON t.userID = u.userID
             WHERE u.userID = $userID
             UNION ALL

@@ -84,6 +84,16 @@
                                placeholder="Enter SLU email" required>
                     </div>
                     <div class="form-group">
+                        <label for="Username">Username</label>
+                        <input type="text"
+                               class="form-control"
+                               id="username"
+                               name="username"
+                               value="<?php if(isset($_GET['username']))
+                                   echo($_GET['username']); ?>"
+                               placeholder="Add Username." required>
+                    </div>
+                    <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="password"
                                class="form-control"
@@ -213,6 +223,7 @@
                         <table class="table table-striped" id="table">
                             <thead>
                             <tr>
+                                <th scope="col">Username</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">First Name</th>
                                 <th scope="col">Role</th>
@@ -255,6 +266,9 @@
             <div class="container">
                 <div class="box">
                     <div class="document-content">
+                    <div class="link-right">
+                            <a href="accounts_view.php?action=add-user" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add New User</a>
+                        </div>
                         <?php if (isset($_GET['success'])) { ?>
                             <div class="alert alert-success" role="alert">
                                 <?php echo $_GET['success']; ?>
@@ -271,7 +285,7 @@
                             </div>
                         <?php } ?>
                         <?php
-                         $result = mysqli_query($conn, "SELECT * FROM account");
+                         $result = mysqli_query($conn, "SELECT * FROM user");
 
                         if ($result === false) {
                                  // Handle the error, you can print the error message or log it
@@ -295,6 +309,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Username.</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Level</th>
