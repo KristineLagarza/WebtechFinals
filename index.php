@@ -8,7 +8,7 @@
         if ($type == 'Admin') {
             header("Location: ./admin/accounts_view.php");
             exit();
-        } elseif ($type == 'ContentManager') {
+        } elseif ($type == 'content_manager') {
             header("Location: ./contentmanager/contentmanager.php");
             exit();
         }
@@ -34,7 +34,7 @@
                 case 'Admin':
                     header("Location: ./admin/accounts_view.php");
                     exit();
-                case 'ContentManager':
+                case 'content_manager':
                     header("Location: ./contentmanager/contentmanager.php");
                     exit();
                 default:
@@ -55,7 +55,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-    <?php include ('./header_sidebar_footer/header_NoOptions.html') ?>
+    <?php include ('./header_sidebar_footer/header2.php') ?>
         </header>
         <div class="notification">
             <?php if (isset($_GET['error'])) { ?>

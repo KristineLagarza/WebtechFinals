@@ -17,9 +17,7 @@
             <div class="wrapper">
                 <div class="sidebar">
                     <ul>
-                        <p>Core</p>
-                        <li><a href="admin_dashboard.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts & User Management</a></li>
+                        <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li class="hover-link"><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
                         <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>

@@ -2,7 +2,6 @@
 global $conn;
 if (isset($_POST['create'])) {
     include "../connection_db.php";
-
     // Validate function
     function validate($data) {
         $data = trim($data);
@@ -58,7 +57,7 @@ if (isset($_POST['create'])) {
     $userID = mysqli_insert_id($conn);
 
         switch ($usertype) {
-            case 'Admin':
+            case 'admin':
                 // Insert into admin table
                 $sql_admin = "INSERT INTO admin (userID, fname, lname, email";
 
@@ -89,54 +88,52 @@ if (isset($_POST['create'])) {
                     header("Location: ../accounts_view.php?action=add-user&error=Admin creation failed: $error_message&$user_data");
                     exit();
                 }
-        
-                // Continue with the rest of your code...
                 break;
         
-
-            case 'ContentManager':
-                // Insert into content_manager table
-                $sql_content_manager = "INSERT INTO content_manager (userID, fname, lname, email";
-
-                if ($address !== null) {
-                    $sql_content_manager .= ", address";
-                }
-
-                if ($contactNum !== null) {
-                    $sql_content_manager .= ", contactNum";
-                }
-
-                $sql_content_manager .= ") VALUES ('$userID', '$fname', '$lname', '$email'";
-
-                if ($address !== null) {
-                    $sql_content_manager .= ", '$address'";
-                }
-
-                if ($contactNum !== null) {
-                    $sql_content_manager .= ", '$contactNum'";
-                }
-
-                $sql_content_manager .= ")";
-
-                $result_content_manager = mysqli_query($conn, $sql_content_manager);
-
-                if (!$result_content_manager) {
-                    $error_message = mysqli_error($conn);
-                    header("Location: ../accounts_view.php?action=add-user&error=Content Manager creation failed: $error_message&$user_data");
+                case 'content_manager':
+                    // Insert into content_manager table
+                    $sql_content_manager = "INSERT INTO content_manager (userID, fname, lname, email";
+            
+                    if ($address !== null) {
+                        $sql_content_manager .= ", address";
+                    }
+            
+                    if ($contactNum !== null) {
+                        $sql_content_manager .= ", contactNum";
+                    }
+            
+                    $sql_content_manager .= ") VALUES ('$userID', '$fname', '$lname', '$email'";
+            
+                    if ($address !== null) {
+                        $sql_content_manager .= ", '$address'";
+                    }
+            
+                    if ($contactNum !== null) {
+                        $sql_content_manager .= ", '$contactNum'";
+                    }
+            
+                    $sql_content_manager .= ")";
+            
+                    $result_content_manager = mysqli_query($conn, $sql_content_manager);
+            
+                    break;
+            
+                default:
+                    // Handle other user types or errors
+                    header("Location: ../accounts_view.php?action=add-user&error=Invalid user type&$user_data");
                     exit();
-                } else {
-                    // Insert into content_manager table failed
-                    $error_message = mysqli_error($conn); // Get the actual error message
-                    header("Location: ../accounts_view.php?action=add-user?error=$error_message&$user_data");
-                    exit();
-                }
-                break;
-
-            default:
-                // Handle other user types or errors
-                header("Location: ../accounts_view.php?action=add-user&error=Invalid user type&$user_data");
+            }
+            
+            if (!$result_content_manager) {
+                $error_message = mysqli_error($conn);
+                header("Location: ../accounts_view.php?action=add-user&error=Content Manager creation failed: $error_message&$user_data");
                 exit();
-        }
+            } else {
+                // Insert into teacher table failed
+                $error_message = mysqli_error($conn); // Get the actual error message
+                header("Location: ../accounts_view.php?action=add-user?error=$error_message&$user_data");
+                exit();
+            }
     } else {
         // Insert into users table failed
         $error_message = mysqli_error($conn); // Get the actual error message

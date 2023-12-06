@@ -17,7 +17,7 @@
             t.address,
             t.contactNum
             FROM content_manager t
-            INNER JOIN users u ON t.userID = u.userID
+            INNER JOIN user u ON t.userID = u.userID
             WHERE u.userID = $userID
             UNION ALL
             SELECT
@@ -30,7 +30,7 @@
             a.address,
             a.contactNum
             FROM admin a
-            INNER JOIN users u ON a.userID = u.userID
+            INNER JOIN user u ON a.userID = u.userID
             WHERE u.userID = $userID " ;
 
         $result = mysqli_query($conn, $sql);

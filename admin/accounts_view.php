@@ -30,7 +30,7 @@
             <div class="wrapper">
                 <div class="sidebar">
                     <ul>
-                        <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts & User Management</a></li>
+                    <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li class="hover-link"><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
                         <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>
@@ -70,7 +70,7 @@
                         <select name="type" class="form-box" required>
                             <option value="">Select User Type</option>
                             <option value="Admin">Admin</option>
-                            <option value="Content_Manager">Content Manager</option>
+                            <option value="content_manager">Content Manager</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -142,7 +142,7 @@
                 <div class="wrapper">
                     <div class="sidebar">
                         <ul>
-                            <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts & User Management</a></li>
+                            <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts Management</a></li>
                             <li class="hover-link"><a href="#"><i class="fa-solid fa-user-pen"></i> Update User </a></li>
                             <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                         </ul>
@@ -208,7 +208,7 @@
                     <div class="sidebar">
                         <ul>
                             <li><a href="adminhome.php"><i class="fas fa-home"></i>Dashboard</a></li>
-                            <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts & User Management</a></li>
+                            <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                             <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
                             <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                         </ul>
@@ -256,7 +256,7 @@
             <div class="wrapper">
                 <div class="sidebar">
                     <ul>
-                        <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts & User Management</a></li>
+                        <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
                         <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>
