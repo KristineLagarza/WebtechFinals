@@ -1,22 +1,24 @@
 <?php
     global $data, $result, $conn, $row;
     session_start();
-    if (!isset($_SESSION['username'])) {
+   /* if (!isset($_SESSION['username'])) {
         header("Location: ../index.php");
         exit();
     }
     //if user is not admin then destroy session
     if ($_SESSION['type'] !== 'Admin') {
         session_destroy();
-    }
-    include "../connect_db.php";
-    include "crud_for_accounts/read.php";
+    }*/
+    include "../connection_db.php";
+    include "CRUD/read.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="../admin/stylesheets/content_style.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/header_footer_sidebar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Management</title>
 </head>
@@ -28,15 +30,13 @@
             <div class="wrapper">
                 <div class="sidebar">
                     <ul>
-                        <p>Core</p>
-                        <li><a href="admin_dashboard.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-home"></i>Dashboard</a></li>
                         <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts & User Management</a></li>
                         <li class="hover-link"><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
                         <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>
                 </div>
             </div>
-            <?php include ('./header_sidebar_footer/header.html') ?>
+            <?php include ('../header_sidebar_footer/header.php') ?>
             <div class="container">
                 <form action="CRUD/create.php" method="post">
                     <h4 class="display-4 text-center">Create an Account</h4><hr><br>
@@ -82,16 +82,6 @@
                                value="<?php if(isset($_GET['email']))
                                    echo($_GET['email']); ?>"
                                placeholder="Enter SLU email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="Username">User ID</label>
-                        <input type="text"
-                               class="form-control"
-                               id="username"
-                               name="username"
-                               value="<?php if(isset($_GET['username']))
-                                   echo($_GET['username']); ?>"
-                               placeholder="Add SLU ID no." required>
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
@@ -142,15 +132,13 @@
                 <div class="wrapper">
                     <div class="sidebar">
                         <ul>
-                            <p>Core</p>
-                            <li><a href="admin_dashboard.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-home"></i>Dashboard</a></li>
                             <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts & User Management</a></li>
                             <li class="hover-link"><a href="#"><i class="fa-solid fa-user-pen"></i> Update User </a></li>
                             <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                         </ul>
                     </div>
                 </div>
-                <?php include ('./header_sidebar_footer/header.html') ?>
+                <?php include ('./header_sidebar_footer/header.php') ?>
                 <div class="container">
                     <?php
                     if (isset($_GET['userID'])) {
@@ -209,7 +197,6 @@
                 <div class="wrapper">
                     <div class="sidebar">
                         <ul>
-                            <p>Core</p>
                             <li><a href="adminhome.php"><i class="fas fa-home"></i>Dashboard</a></li>
                             <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts & User Management</a></li>
                             <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
@@ -217,7 +204,7 @@
                         </ul>
                     </div>
                 </div>
-                <?php include ('./header_sidebar_footer/header.html') ?>
+                <?php include ('./header_sidebar_footer/header.php') ?>
                 <div class="container">
                     <div class="box">
                         <br>
@@ -226,7 +213,6 @@
                         <table class="table table-striped" id="table">
                             <thead>
                             <tr>
-                                <th scope="col">ID No.</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">First Name</th>
                                 <th scope="col">Role</th>
@@ -254,26 +240,21 @@
                 </div>
                 <?php
             }
-        }  else {
+        }  
         ?>
             <div class="wrapper">
                 <div class="sidebar">
                     <ul>
-                        <p>Core</p>
-                        <li><a href="admin_dashboard.php"><i class="fas fa-home"></i>Dashboard</a></li>
                         <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts & User Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
                         <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>
                 </div>
             </div>
-            <?php include ('./header_sidebar_footer/header.html') ?>
+            <?php include ('../header_sidebar_footer/header.php') ?>
             <div class="container">
                 <div class="box">
                     <div class="document-content">
-                        <div class="link-right">
-                            <a href="accounts_view.php?action=add-user" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add New User</a>
-                        </div>
                         <?php if (isset($_GET['success'])) { ?>
                             <div class="alert alert-success" role="alert">
                                 <?php echo $_GET['success']; ?>
@@ -289,12 +270,31 @@
                                 <?php echo $_GET['error']; ?>
                             </div>
                         <?php } ?>
-                        <?php if (mysqli_num_rows($result)) { ?>
-                            <table class="table table-striped" id="table">
+                        <?php
+                         $result = mysqli_query($conn, "SELECT * FROM account");
+
+                        if ($result === false) {
+                                 // Handle the error, you can print the error message or log it
+                             echo "Error: " . mysqli_error($conn);
+                        } else {
+                                // Check if there are rows in the result set
+                                if (mysqli_num_rows($result) > 0) {
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    }
+                        } else {
+                            // No rows found
+                            echo "No rows found.";
+                            }
+
+                            // Free the result set
+                            mysqli_free_result($result);
+                                }
+                        ?>
+                             <table class="table table-striped" id="table">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">ID No.</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Level</th>
@@ -323,13 +323,12 @@
                                 <?php } ?>
                                 </tbody>
                             </table>
-                        <?php } ?>
+                        <?php  ?>
                     </div>
                 </div>
             </div>
-        <?php } ?>
-    </div><br><br><br>
-    <?php include ('./header_sidebar_footer/footer.html') ?>
+    </div><br><br>
+    <?php include ('../header_sidebar_footer/footer.php') ?>
     </div>
 </body>
 </html>

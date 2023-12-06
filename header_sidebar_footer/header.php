@@ -1,3 +1,6 @@
+<?php
+include "../connection_db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
   <link rel="stylesheet" href="\WebtechFinals\stylesheets\header_footer_sidebar.css">
 </head>
 <body>
-
+<!--
   <div class="Container">
     <nav>
       <ul class='navbar'>
@@ -23,7 +26,7 @@
           <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
       </ul>
   </nav>
-
+-->
 
 </body>
 </html>

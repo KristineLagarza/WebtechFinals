@@ -1,18 +1,18 @@
 <?php
 global $conn;
-include "./connection_db.php";
+include "../connection_db.php";
 
     // Combine all queries using UNION
     $sql = "SELECT
     'content_manager' AS type,
-    t.userID,
+    c.userID,
     u.username,
     u.status,
     t.fname,
     t.lname,
     t.email
-    FROM teacher t
-    INNER JOIN users u ON t.userID = u.userID 
+    FROM account t
+    INNER JOIN user u ON c.userID = u.userID 
     WHERE u.status = 'Active'
     UNION ALL
     SELECT
@@ -24,7 +24,7 @@ include "./connection_db.php";
     a.lname,
     a.email
     FROM admin a
-    INNER JOIN users u ON a.userID = u.userID WHERE u.status = 'Active' GROUP BY u.userID ORDER BY lname ";
+    INNER JOIN user u ON a.userID = u.userID WHERE u.status = 'Active' GROUP BY u.userID ORDER BY lname ";
     $result = mysqli_query($conn, $sql);
 
     $data = array(); // Initialize an array to store the data

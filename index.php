@@ -3,9 +3,9 @@
     include("connection_db.php");
 
     /* Validation */
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['Username'])) {
         $type = $_SESSION['type'];
-        if ($type == 'Student') {
+        if ($type == 'Admin') {
             header("Location: ./admin/accounts_view.php");
             exit();
         } elseif ($type == 'ContentManager') {
@@ -14,7 +14,7 @@
         }
     }
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['Admin'])) {
         $Username = $_POST['username'];
         $Password = $_POST['password'];
 
@@ -27,7 +27,7 @@
         $result = mysqli_stmt_get_result($stmt);
 
         if ($row = mysqli_fetch_assoc($result)) {
-            $_SESSION['username'] = $row['Username'];
+            $_SESSION['Username'] = $row['Username'];
             $_SESSION['type'] = $row['type'];
 
             switch ($row['type']) {
