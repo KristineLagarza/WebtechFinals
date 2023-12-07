@@ -12,8 +12,11 @@ body {
     background-color: #157099; /* Change this to your desired highlight color */
 }
 
-/* Toggle Styles */
 
+.video-container video {
+    width: 450px; /* Adjust the width as needed */
+}
+/* Toggle Styles */
 #viewport {
     padding-left: 250px;
     -webkit-transition: all 0.5s ease;

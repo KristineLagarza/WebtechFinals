@@ -66,92 +66,170 @@
                     </ul>
                 </div>
             </nav>
-            <div class="container-fluid">
-                <h1 class="centered-text">VIDEOS TO SHOW AND DURATION</h1>
+        </div>
+
+        <div class="container-fluid">
+    <h1 class="centered-text">VIDEOS TO SHOW AND DURATION</h1>
+    <label for="air-times">Select Air Time:</label>
+    <select id="air-times">
+        <option value="8">8:00 AM</option>
+        <option value="9">9:00 AM</option>
+        <option value="10">10:00 AM</option>
+        <option value="11">11:00 AM</option>
+        <option value="12">12:00 PM</option>
+        <option value="13">1:00 PM</option>
+        <option value="14">2:00 PM</option>
+        <option value="15">3:00 PM</option>
+        <option value="16">4:00 PM</option>
+        <option value="17">5:00 PM</option>
+        <option value="18">6:00 PM</option>
+    </select>
+    <body>
+  <!-- Big video container for compiled videos -->
+            <div class="big-video-container">
+                <!-- Videos will be compiled here -->
             </div>
-            <div class="video-container">
-                <!-- Video boxes -->
-                <div class="video-box">
-                    <video controls width="180">
-                        <source src="video1.mp4" type="video/mp4">
+   
+   <div class="container-fluid">
+                <!-- 11 video containers with associated file inputs -->
+                <!-- Correcting data-container-id attributes -->
+                <div class="video-container" id="video-container-1">
+                    <input type="file" class="file-input" data-container-id="video-container-1">
+                    <video class="video-player" controls width="280">
                         Your browser does not support HTML5 video.
                     </video>
-                    <p>Duration: 3:25</p>
                 </div>
-                <div class="video-container">
-                    <!-- Video boxes -->
-                    <div class="video-box">
-                        <video controls width="180">
-                            <source src="video1.mp4" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-                        <p>Duration: 3:25</p>
-                    </div>
-                    <div class="video-container">
-                        <!-- Video boxes -->
-                        <div class="video-box">
-                            <video controls width="180">
-                                <source src="video1.mp4" type="video/mp4">
-                                Your browser does not support HTML5 video.
-                            </video>
-                            <p>Duration: 3:25</p>
-                        </div>
-                        <div class="video-container">
-                            <!-- Video boxes -->
-                            <div class="video-box">
-                                <video controls width="180">
-                                    <source src="video1.mp4" type="video/mp4">
-                                    Your browser does not support HTML5 video.
-                                </video>
-                                <p>Duration: 3:25</p>
-                            </div>
-                            <div class="video-container">
-                                <!-- Video boxes -->
-                                <div class="video-box">
-                                    <video controls width="180">
-                                        <source src="video1.mp4" type="video/mp4">
-                                        Your browser does not support HTML5 video.
-                                    </video>
-                                    <p>Duration: 3:25</p>
-                                </div>
-                                <div class="video-container">
-                                    <!-- Video boxes -->
-                                    <div class="video-box">
-                                        <video controls width="180">
-                                            <source src="video1.mp4" type="video/mp4">
-                                            Your browser does not support HTML5 video.
-                                        </video>
-                                        <p>Duration: 3:25</p>
-                                    </div>
-                                    <div class="video-container">
-                                        <!-- Video boxes -->
-                                        <div class="video-box">
-                                            <video controls width="180">
-                                                <source src="video1.mp4" type="video/mp4">
-                                                Your browser does not support HTML5 video.
-                                            </video>
-                                            <p>Duration: 3:25</p>
-                                        </div>
-                                        <div class="video-container">
-                                            <!-- Video boxes -->
-                                            <div class="video-box">
-                                                <video controls width="180">
-                                                    <source src="video1.mp4" type="video/mp4">
-                                                    Your browser does not support HTML5 video.
-                                                </video>
-                                                <p>Duration: 3:25</p>
-                                            </div>
-                                            <button id="confirm-videos">Confirm</button>
-           
+                <div class="video-container" id="video-container-2">
+                    <input type="file" class="file-input" data-container-id="video-container-2">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <!-- ... Repeat for video-container-3 to video-container-11 -->
+                <div class="video-container" id="video-container-3">
+                    <input type="file" class="file-input" data-container-id="video-container-3">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <div class="video-container" id="video-container-4">
+                    <input type="file" class="file-input" data-container-id="video-container-4">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-5">
+                    <input type="file" class="file-input" data-container-id="video-container-5">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-6">
+                    <input type="file" class="file-input" data-container-id="video-container-6">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-7">
+                    <input type="file" class="file-input" data-container-id="video-container-7">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-8">
+                    <input type="file" class="file-input" data-container-id="video-container-8">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-9">
+                    <input type="file" class="file-input" data-container-id="video-container-9">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-10">
+                    <input type="file" class="file-input" data-container-id="video-container-10">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-11">
+                    <input type="file" class="file-input" data-container-id="video-container-11">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="compiled-video-frame">
+            <!-- Videos will be compiled here -->
         </div>
-    </div>
+                   <!-- Confirm Compilation button -->
+        <button id="confirmCompilation">Confirm Compilation</button>
+                
+</body>
+</div>
     <script>
-        // JavaScript for handling confirmation
-        document.getElementById('confirm-videos').addEventListener('click', function() {
-            // Handle confirmation logic here
-            alert('Videos confirmed!');
-            // You can perform additional actions based on confirmation
+    // Function to compile uploaded videos into a single frame
+            function compileVideos() {
+                const videoContainer = document.querySelector('.big-video-container');
+
+                // Get all uploaded video elements
+                const uploadedVideos = document.querySelectorAll('.video-player');
+
+                // Create a container to hold all compiled videos
+                const compiledVideosContainer = document.createElement('div');
+                compiledVideosContainer.classList.add('compiled-videos');
+
+                // Loop through each uploaded video and append it to the compilation container
+                uploadedVideos.forEach((video) => {
+                    const clonedVideo = video.cloneNode(true); // Clone the uploaded video
+                    compiledVideosContainer.appendChild(clonedVideo);
+                });
+
+                // Clear previous videos before appending new ones
+                videoContainer.innerHTML = '';
+
+                // Append the compilation container to the main compiled video frame
+                videoContainer.appendChild(compiledVideosContainer);
+            }
+
+            // Event listener for the Confirm Compilation button
+            document.getElementById('confirmCompilation').addEventListener('click', function() {
+                compileVideos(); // Call the compileVideos function when the button is clicked
+            });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const fileInputs = document.querySelectorAll('.file-input');
+
+    // Function to handle file input change for video players
+    function handleFileInput(fileInput) {
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const containerId = fileInput.getAttribute('data-container-id');
+            const videoPlayer = document.querySelector(`#${containerId} .video-player`);
+
+            if (file && videoPlayer) {
+                const videoURL = URL.createObjectURL(file);
+                videoPlayer.src = videoURL;
+            }
         });
-    </script>
+    }
+
+    // Inside the DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing code for handling file inputs...
+
+    // Call compileVideos function when the DOM content has loaded
+    compileVideos();
+});
+
+
+    // Add event listeners for file input changes for each video container
+    fileInputs.forEach(handleFileInput);
+});
+
+</script>
+  
 </body>
 </html>
