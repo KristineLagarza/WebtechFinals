@@ -54,6 +54,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stylesheets/style.css">
+        
     </head>
     <body>
     <?php include ('./header_sidebar_footer/header2.php') ?>
@@ -67,9 +68,12 @@
         </div>
 
 
-            <div class="logreg-box">
+            <div class="container">
                 <div class="form-box login">
                     <form class="login-form" action="login.php" method="POST">
+                    <div class="img">
+                    <img src="images/user.png" id="icon" alt="User Icon" />
+                </div>
                         <h2>Sign In</h2>
 
                         <div class="input-box">

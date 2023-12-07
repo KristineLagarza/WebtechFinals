@@ -1,14 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:500');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Merriweather", sans-serif;
 }
 div#alert-danger{
     font-size: 30px;
-    color: #721c24;
+    color: red;
     background-color: #f8d7da;
     border-color: #f5c6cb;
     border-width: 25vh;
@@ -40,18 +37,38 @@ body .notification{
     margin: 20px 0;
 }
 
-.logreg-box .form-box {
+.container .form-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    max-width: 300px; 
+    height: 80%; 
+    max-height: 900px;
     padding: 10% 10%;
+    margin: auto;
+    margin-top: 14vh;;
     background: transparent;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     color: #000000;
+    border: 2px solid lightblue;
+    background-color: skyblue; 
+    border-radius: 50px; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+.container .form-box .img {
+    text-align: center;
+}
+
+.container .form-box .img img {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; 
+}
+
 
 .form-box h2 {
     font-size: 32px;
@@ -101,64 +118,25 @@ body .notification{
     font-size: 19px;
 }
 
-.remember-forgot-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.remember-me input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-.remember-me label,
-.forgot-password a {
-    font-size: 14px;
-    color: #000000;
-    font-weight: 400;
-}
-
-.forgot-password a {
-    text-decoration: none;
-    transition: text-decoration 0.5s ease;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-    color: #000000;
-}
 
 .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
     width: 100%;
-    height: 45px;
     background: skyblue;
     border: none;
     outline: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    color: white;
+    color: black;
     font-weight: 500;
+    border: 2px solid black;
+    background-color: white; 
+    border-radius: 50px; 
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-}
-
-
-/* Add a CSS rule for centering the text in the content container */
-.containerlogin .content h2 {
-    text-align: center;
-    font-size: 30px; /* Adjust the font size as needed */
-}
-
-/* Add a CSS rule for centering the text in the content container */
-.containerlogin .content .text {
-    text-align: center;
-}
-
-/* Add a CSS rule to make text smaller on smaller screens */
-.containerlogin .content .text h2 {
-    font-size: 30px; /* Adjust the font size as needed */
 }
 
 /* Desktop screens (large screens) */
@@ -237,7 +215,7 @@ body .notification{
     }
 
     .header {
-        margin-bottom: 20px; /* Add space at the bottom of the navigation bar */
+        margin-bottom: 20px; 
     }
 }
 
@@ -245,7 +223,7 @@ body .notification{
 /* Phones and small screens */
 @media screen and (max-width: 768px) {
     .containerlogin {
-        margin-top: 10px; /* Add space on top */
+        margin-top: 10px; 
         padding-top: 20px;
         width: 95%;
         height: 40%;
@@ -255,51 +233,37 @@ body .notification{
         display: none;
     }
 
-    /* Adjust the .form-box to occupy the full width and height */
-    .containerlogin .logreg-box .form-box {
+
+    .containerlogin .container .form-box {
         width: 100%;
-        height: 100%; /* Set the height to 100% to cover the entire form box */
+        height: 100%; 
     }
 
-    .containerlogin .logreg-box {
+    .containerlogin .container {
         width: 100%;
     }
 
     .form-box h2 {
-        font-size: 24px; /* Adjust font size for smaller screens */
+        font-size: 24px;
     }
 
     .form-box .input-box {
-        width: 100%; /* Adjust width for smaller screens */
+        width: 100%; 
     }
-
     .input-box label {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 14px; 
     }
 
     .input-box input {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 14px; 
     }
 
-    .remember-forgot-container {
-        flex-direction: row; /* Stack elements vertically */
-        align-items: flex-start; /* Align elements to the left */
-        margin-top: 20px; /* Adjust margin for spacing */
-    }
-
-    .remember-me {
-        margin-bottom: 10px; /* Adjust margin for spacing */
-    }
-
-    .forgot-password a {
-        margin-top: 10px; /* Adjust margin for spacing */
-    }
-
+ 
     .btn {
-        margin-top: 30px; /* Adjust margin for spacing */
+        margin-top: 30px;
     }
 
-    .logreg-box .form-box {
+    .container .form-box {
         background: url(img2.jpg) no-repeat;
         background-size: cover;
         background-position: center;
