@@ -85,7 +85,7 @@ if (isset($_POST['create'])) {
             
                 if (!$result_admin) {
                     $error_message = mysqli_error($conn);
-                    header("Location: ../accounts_view.php?action=add-user&error=Admin creation failed: $error_message&$user_data");
+                    header("Location: ../accounts_view.php?action=add-user&error=admin creation failed: $error_message&$user_data");
                     exit();
                 }
                 break;

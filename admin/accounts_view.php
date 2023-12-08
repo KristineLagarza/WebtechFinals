@@ -18,25 +18,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="../admin/stylesheets/content_style.css">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/header_footer_sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Management</title>
 </head>
 <body>
+<header>  
+    <div class="Container">
+    <nav>
+      <ul class='navbar'>
+          <span class="logo-title">
+              <li class="text-logo"><a><h1>SV STREAMING PLATFORM</h1></a></li>
+          </span>
+          <input type='checkbox' id='check'/>
+          <span class="menu"><!--
+              <li><a href="my_profile.php?id=<?= $_SESSION['username'] ?>"><i class="fa-regular fa-circle-user"></i> <?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+              <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+          </span>-->
+          <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+      </ul>
+  </nav>
+</div>
+</header>
     <div id="content-background">
     <?php
         if (isset($_GET['action']) && $_GET['action'] == 'add-user') {
             ?>
             <div class="wrapper">
                 <div class="sidebar">
-                    <ul>
-                    <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts Management</a></li>
-                        <li class="hover-link"><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
-                        <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
+                <ul>
+                    <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Account Management</a></li>
+                            <li class="hover-link"><a href="#"><i class="fa-solid fa-user-pen"></i> Update Account</a></li>
+                            <li class=""><a href="deleted_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"></i> Deleted Account</a></li>
+                            <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Account</a></li>
                     </ul>
                 </div>
             </div>
-            <?php include ('../header_sidebar_footer/header.php') ?>
             <div class="container">
                 <form action="CRUD/create.php" method="post">
                     <h4 class="display-4 text-center">Create an Account</h4><hr><br>
@@ -69,7 +88,7 @@
                         <label for="usertype">User Type</label></br>
                         <select name="type" class="form-box" required>
                             <option value="">Select User Type</option>
-                            <option value="Admin">Admin</option>
+                            <option value="admin">Admin</option>
                             <option value="content_manager">Content Manager</option>
                         </select>
                     </div>
@@ -81,7 +100,7 @@
                                name="email"
                                value="<?php if(isset($_GET['email']))
                                    echo($_GET['email']); ?>"
-                               placeholder="Enter SLU email" required>
+                               placeholder="Enter Email Address" required>
                     </div>
                     <div class="form-group">
                         <label for="Username">Username</label>
@@ -91,7 +110,7 @@
                                name="username"
                                value="<?php if(isset($_GET['username']))
                                    echo($_GET['username']); ?>"
-                               placeholder="Add Username." required>
+                               placeholder="Add Username" required>
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
@@ -132,23 +151,24 @@
                 </form>
             </div><br><br><br>
             <?php
-        } elseif (isset($_GET['action']) && $_GET['action'] == 'update-user') {
+         } elseif (isset($_GET['action']) && $_GET['action'] == 'update-user') {
             if (isset($_GET['id']) && !empty($_GET['id'])) {
                 $id = $_GET['id'];
                 include "../connection_db.php";
-                include 'CRUD/update.php';
+                include "CRUD/view.php";
+                include "CRUD/update.php";
                 global $row;
                 ?>
                 <div class="wrapper">
                     <div class="sidebar">
-                        <ul>
-                            <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Accounts Management</a></li>
-                            <li class="hover-link"><a href="#"><i class="fa-solid fa-user-pen"></i> Update User </a></li>
-                            <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
-                        </ul>
+                    <ul>
+                    <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Account Management</a></li>
+                        <li class="hover-link"><a href="#"><i class="fa-solid fa-user-pen"></i> Update Account</a></li>
+                        <li class=""><a href="deleted_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"></i> Deleted Account</a></li>
+                        <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Account</a></li>
+                    </ul>
                     </div>
                 </div>
-                <?php include ('./header_sidebar_footer/header.php') ?>
                 <div class="container">
                     <?php
                     if (isset($_GET['userID'])) {
@@ -162,8 +182,12 @@
                             </div>
                         <?php } ?>
                         <div class="form-group">
+                            <label for="fname">Username</label>
+                            <input type="text" class="form-control" id="updatedUserName" name="updatedUserName" value="<?= isset($row['username']) ? $row['username'] : ''?>" required>
+                        </div>
+                        <div class="form-group">
                             <label for="fname">First name</label>
-                            <input type="text" class="form-control" id="fname" name="fname" value="<?= isset($row['fname']) ? $row['fname'] : '' ?>">
+                            <input type="text" class="form-control" id="updatedFirstName" name="updatedFirstName" value="<?= isset($row['fname']) ? $row['fname'] : ''?>" required>
                         </div>
                         <div class="form-group">
                             <label for="lname">Last name</label>
@@ -206,15 +230,15 @@
                 ?>
                 <div class="wrapper">
                     <div class="sidebar">
-                        <ul>
-                            <li><a href="adminhome.php"><i class="fas fa-home"></i>Dashboard</a></li>
-                            <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
-                            <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
-                            <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
-                        </ul>
+                    <ul>
+                        <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Account Management</a></li>
+                        <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New Account</a></li>
+                        <li class=""><a href="deleted_accounts.php"><i class="fa-solid fa-user-slash"></i> Deleted Account</a></li>
+                        <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Account</a></li>
+                    </ul>
                     </div>
                 </div>
-                <?php include ('./header_sidebar_footer/header.php') ?>
+
                 <div class="container">
                     <div class="box">
                         <br>
@@ -258,17 +282,14 @@
                     <ul>
                         <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
+                        <li class=""><a href="deleted_accounts.php"><i class="fa-solid fa-user-slash"></i> Deleted Users</a></li>
                         <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>
                 </div>
             </div>
-            <?php include ('../header_sidebar_footer/header.php') ?>
             <div class="container">
                 <div class="box">
                     <div class="document-content">
-                    <div class="link-right">
-                            <a href="accounts_view.php?action=add-user" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add New User</a>
-                        </div>
                         <?php if (isset($_GET['success'])) { ?>
                             <div class="alert alert-success" role="alert">
                                 <?php echo $_GET['success']; ?>
@@ -308,8 +329,8 @@
                              <table class="table table-striped" id="table">
                                 <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Username.</th>
+                                    <th scope="col">Number</th>
+                                    <th scope="col">Username</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Level</th>
@@ -338,7 +359,6 @@
                                 <?php } ?>
                                 </tbody>
                             </table>
-                        <?php  ?>
                     </div>
                 </div>
             </div>
