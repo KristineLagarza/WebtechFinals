@@ -1,11 +1,11 @@
 <?php
+    require("connection_db.php");
     session_start();
-    include("connection_db.php");
 
     /* Validation */
-    if (isset($_SESSION['Username'])) {
+    if (isset($_SESSION['username'])) {
         $type = $_SESSION['type'];
-        if ($type == 'Admin') {
+        if ($type == 'admin') {
             header("Location: ./admin/accounts_view.php");
             exit();
         } elseif ($type == 'content_manager') {
@@ -71,9 +71,9 @@
             <div class="container">
                 <div class="form-box login">
                     <form class="login-form" action="login.php" method="POST">
-                    <div class="img">
-                    <img src="images/user.png" id="icon" alt="User Icon" />
-                </div>
+                        <div class="img">
+                            <img src="images/user.png" id="icon" alt="User Icon" />
+                        </div>
                         <h2>Sign In</h2>
 
                         <div class="input-box">
