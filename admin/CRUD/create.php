@@ -57,38 +57,7 @@ if (isset($_POST['create'])) {
     $userID = mysqli_insert_id($conn);
 
         switch ($usertype) {
-            case 'admin':
-                // Insert into admin table
-                $sql_admin = "INSERT INTO admin (userID, fname, lname, email";
 
-                if ($address !== null) {
-                    $sql_admin .= ", address";
-                }
-
-                if ($contactNum !== null) {
-                    $sql_admin .= ", contactNum";
-                }
-
-                $sql_admin .= ") VALUES ('$userID', '$fname', '$lname', '$email'";
-
-                if ($address !== null) {
-                    $sql_admin .= ", '$address'";
-                }
-
-                if ($contactNum !== null) {
-                    $sql_admin .= ", '$contactNum'";
-                }
-
-                $sql_admin .= ")";
-
-                $result_admin = mysqli_query($conn, $sql_admin);
-            
-                if (!$result_admin) {
-                    $error_message = mysqli_error($conn);
-                    header("Location: ../accounts_view.php?action=add-user&error=admin creation failed: $error_message&$user_data");
-                    exit();
-                }
-                break;
         
                 case 'content_manager':
                     // Insert into content_manager table
@@ -117,6 +86,38 @@ if (isset($_POST['create'])) {
                     $result_content_manager = mysqli_query($conn, $sql_content_manager);
             
                     break;
+                    case 'admin':
+                        // Insert into admin table
+                        $sql_admin = "INSERT INTO admin (userID, fname, lname, email";
+        
+                        if ($address !== null) {
+                            $sql_admin .= ", address";
+                        }
+        
+                        if ($contactNum !== null) {
+                            $sql_admin .= ", contactNum";
+                        }
+        
+                        $sql_admin .= ") VALUES ('$userID', '$fname', '$lname', '$email'";
+        
+                        if ($address !== null) {
+                            $sql_admin .= ", '$address'";
+                        }
+        
+                        if ($contactNum !== null) {
+                            $sql_admin .= ", '$contactNum'";
+                        }
+        
+                        $sql_admin .= ")";
+        
+                        $result_admin = mysqli_query($conn, $sql_admin);
+                    
+                        if (!$result_admin) {
+                            $error_message = mysqli_error($conn);
+                            header("Location: ../accounts_view.php?action=add-user&error=admin creation failed: $error_message&$user_data");
+                            exit();
+                        }
+                        break;
             
                 default:
                     // Handle other user types or errors

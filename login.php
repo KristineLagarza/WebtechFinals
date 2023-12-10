@@ -6,7 +6,7 @@ if (isset($_POST['username'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    $st = $conn->prepare("SELECT * FROM user WHERE Username=? and Password=?");
+    $st = $conn->prepare("SELECT * FROM user WHERE username=? and password=?");
     $st->bind_param('ss', $username, $password);
     $st->execute();
     $result = $st->get_result();
@@ -17,7 +17,7 @@ if (isset($_POST['username'])) {
         if ($user['Type'] == 'admin') {
             $_SESSION['Username'] = $username;
             $_SESSION['Type'] = 'admin';
-            header('Location: admin/admin.php');
+            header('Location: admin/accounts_view.php');
             exit(); 
         } elseif ($user['Type'] == 'content_manager') {
             $_SESSION['Username'] = $username;
@@ -29,6 +29,6 @@ if (isset($_POST['username'])) {
 
     $st->close();
 
-    header("Location: index.php?index.php?id=$Username&error=Invalid Credentials");
+    header("Location: index.php?index.php?id=$username&error=Invalid Credentials");
 }
 ?>

@@ -215,7 +215,8 @@
                         </div>
                         <input type="text" name="userID" value="<?=$row['userID']?>" hidden >
 
-                        <button href="../accounts_view.php" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel update?')" name="cancel">Cancel</button></br></br>
+                        <button href="../admin/accounts_view.php" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel update?')" name="cancel">Cancel</button></br></br>
+                        <input type="text" name="userID" value="<?=$row['userID']?>" hidden>
                         <button type="submit" class="btn btn-primary" name="update">Update</button></br></br>
                     </form>
                 </div><br><br><br>

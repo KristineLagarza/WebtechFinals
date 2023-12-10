@@ -1,6 +1,7 @@
 <?php
     require("connection_db.php");
     session_start();
+    $errorMsg = urldecode($_GET['error']);
 
     /* Validation */
     if (isset($_SESSION['username'])) {

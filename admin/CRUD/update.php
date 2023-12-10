@@ -64,15 +64,16 @@ if (isset($_POST['userID'])) {
             exit();
         }
     } elseif (isset($_POST['update'])) {
-
-    $fname = validate($_POST['fname']);
-    $lname = validate($_POST['lname']);
-    $usertype = validate($_POST['type']);
-    $email = validate($_POST['email']);
-    $password = isset($_POST['password']) ? validate($_POST['password']) : null;
-    $id = validate($_POST['userID']);
-    $address = isset($_POST['address']) ? validate($_POST['address']) : null;
-    $contactNum = isset($_POST['contactNum']) ? validate($_POST['contactNum']) : null;
+        $username =isset($_POST['updatedUsername']) ? validate($_POST['updatedUsername']) : '';
+        $fname = isset($_POST['updatedFirstName']) ? validate($_POST['updatedFirstName']) : '';
+        $lname = isset($_POST['lname']) ? validate($_POST['lname']) : '';
+        $usertype = isset($_POST['type']) ? validate($_POST['type']) : '';
+        $email = isset($_POST['email']) ? validate($_POST['email']) : '';
+        $password = isset($_POST['password']) ? validate($_POST['password']) : null;
+        $id = isset($_POST['userID']) ? validate($_POST['userID']) : '';
+        $address = isset($_POST['address']) ? validate($_POST['address']) : '';
+        $contactNum = isset($_POST['contactNum']) ? validate($_POST['contactNum']) : '';
+        
 
     // Check if at least one field is filled (other than required fields)
     if (empty($fname) && empty($lname) && empty($email) && empty($password) && empty($address) && empty($contactNum)) {
@@ -151,7 +152,7 @@ if (isset($_POST['userID'])) {
         $resultUserUpdate = mysqli_query($conn, $sqlUserUpdate);
 
         if (!$resultUserUpdate) {
-            header("Location: ./accounts_management.php?action=update-user&id=$id&error=Password update failed");
+            header("Location: ./accounts_view.php?action=update-user&id=$id&error=Password update failed");
             exit();
         }
     }
