@@ -91,20 +91,43 @@ if (isset($_POST['update'])) {
     
     
     
-
-    // Execute the update query
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        header("Location: ../accounts_view.php?id=$id&success=Successfully Updated");
-        exit();
+        // Update admin table
+        $sqlAdmin = "UPDATE admin SET
+                    fName = '$fname',
+                    lName = '$lname',
+                    email = '$email',
+                    address = '$address',
+                    contactNum = '$contactNum'
+                    WHERE UserID=$id";
+        $resultAdmin = mysqli_query($conn, $sqlAdmin);
+    
+        // Update content_manager table
+        $sqlContentManager = "UPDATE content_manager SET
+                    fName = '$fname',
+                    lName = '$lname',
+                    email = '$email',
+                    address = '$address',
+                    contactNum = '$contactNum'
+                    WHERE UserID=$id";
+        $resultContentManager = mysqli_query($conn, $sqlContentManager);
+    
+        if ($resultAdmin && $resultContentManager) {
+            header("Location: ../accounts_view.php?id=$id&success=Successfully Updated");
+            exit();
+        } else {
+            $errorMessage = "Update query failed for admin or content_manager table: " . mysqli_error($conn);
+            echo $errorMessage;
+            header("Location: ../accounts_view.php?action=update-user&id=$id&error=$errorMessage");
+            exit();
+        }
     } else {
-        $errorMessage = "Update query failed: " . mysqli_error($conn);
+        $errorMessage = "Update query failed for user table: " . mysqli_error($conn);
         echo $errorMessage;
         header("Location: ../accounts_view.php?action=update-user&id=$id&error=$errorMessage");
         exit();
     }
-} else {
-    global $row;
 }
 ?>
