@@ -1,98 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="stylesheets/test.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-</head>
-<body>
-    <div id="viewport">
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <header>
-                <a href="#">Content Manager</a>
-            </header>
-            <ul class="nav">
-                <li>
-                    <a href="/dashboard">
-                        <i class="zmdi zmdi-view-dashboard"></i> Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="/arrangement">
-                        <i class="zmdi zmdi-link"></i> Arrangement
-                    </a>
-                </li>
-                <li>
-                    <a href="/upload">
-                        <i class="zmdi zmdi-widgets"></i> Upload
-                    </a>
-                </li>
-                <li>
-                    <a href="/live">
-                        <i class="zmdi zmdi-calendar"></i> Live Stream
-                    </a>
-                </li>
-                <li>
-                    <a href="/history">
-                        <i class="zmdi zmdi-info-outline"></i> History
-                    </a>
-                </li>
-                <li>
-                    <a href="/record">
-                        <i class="record.html"></i> Record
-                    </a>
-                </li>
-                <li>
-                    <a href="/login">
-                        <i class="zmdi zmdi-comment-more"></i> Log out
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- Content -->
-        <div id="content">
-            <nav class="navbar navbar-default">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="stylesheets/test.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    </head>
+    <body>
+        <div id="viewport">
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <header>
+                    <a href="#">Content Manager</a>
+                </header>
+                <ul class="nav">
+                    <li>
+                        <a href="/dashboard">
+                            <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arrangement">
+                            <i class="zmdi zmdi-link"></i> Arrangement
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/upload">
+                            <i class="zmdi zmdi-widgets"></i> Upload
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/live">
+                            <i class="zmdi zmdi-calendar"></i> Live Stream
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/history">
+                            <i class="zmdi zmdi-info-outline"></i> History
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/record">
+                            <i class="record.html"></i> Record
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout">
+                            <i class="zmdi zmdi-comment-more"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Content -->
+            <div id="content">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#">
+                                    <i
+                                        class="zmdi zmdi-notifications text-danger"></i>
+                                </a>
+                            </li>
+                            <li><a href="#">Manager</a></li>
+                        </ul>
+                    </div>
+                </nav>
                 <div class="container-fluid">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#">
-                                <i class="zmdi zmdi-notifications text-danger"></i>
-                            </a>
-                        </li>
-                        <li><a href="#">Manager</a></li>
-                    </ul>
+                    <h1 class="centered-text">GO LIVE NOW</h1>
                 </div>
-            </nav>
-            <div class="container-fluid">
-                <h1 class="centered-text">GO LIVE NOW</h1>
+                <div class="video-container">
+                    <video id="user-video" autoplay></video>
+                </div>
+                <button id="start-stream" onclick="startStreaming()">Go Live</button>
+                <button id="end-stream" onclick="endStreaming()"
+                    style="display: none;">End Streaming</button>
             </div>
-            <div class="video-container">
-                <video id="user-video" autoplay></video>
-            </div>
-            <button id="start-stream" onclick="startStreaming()">Go Live</button>
-            <button id="end-stream" onclick="endStreaming()" style="display: none;">End Streaming</button>
         </div>
-    </div>
-    <!-- Existing Code - Dashboard Structure -->
-    <!-- Video container for the media platform's video -->
-    <div class="media-platform-video-container">
-        <!-- You may use an iframe, video tag, or other suitable HTML elements -->
-        <!-- Example using an iframe for embedding a video from a media platform -->
-        <iframe src="AIzaSyDh12GC9LMLU5Qkix1XRAVgm0nVUONBwbM" frameborder="0" allowfullscreen></iframe>
-    </div>
+        <center>
+            <!-- Existing Code - Dashboard Structure -->
+            <!-- Video container for the media platform's video -->
+            <div class="media-platform-video-container">
+                <!-- You may use an iframe, video tag, or other suitable HTML elements -->
+                <!-- Example using an iframe for embedding a video from a media platform -->
+                <iframe src="AIzaSyDh12GC9LMLU5Qkix1XRAVgm0nVUONBwbM"
+                    frameborder="0" allowfullscreen></iframe>
+            </div>
+        </center>
 
-    <!-- Rest of your existing code -->
-    <!-- Sidebar, navigation, live streaming buttons, etc. -->
+        <!-- Rest of your existing code -->
+        <!-- Sidebar, navigation, live streaming buttons, etc. -->
 
-    <script>
+        <script>
         // Your existing JavaScript code for accessing the device's camera and live streaming functionality
     </script>
 
-
-    <script>
+        <script>
         let stream;
 
         async function startStreaming() {
@@ -116,5 +122,5 @@
             }
         }
     </script>
-</body>
+    </body>
 </html>

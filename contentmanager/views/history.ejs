@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>History</title>
     <link rel="stylesheet" href="stylesheets/test.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/login">
+                    <a href="/logout">
                         <i class="zmdi zmdi-comment-more"></i> Log out
                     </a>
                 </li>
@@ -77,7 +77,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- This table body will be dynamically populated -->
+                        <% results.forEach(function(row) { %>
+                            <tr>
+                                <td><%= row.fileName.split('.')[0] %></td>
+                                <td><%= row.username %></td>
+                                <td><%= new Date(row.dateUploaded).toISOString().replace('T', ' ').replace(/\.\d{3}Z/, '')  %></td>
+                            </tr>
+                        <% }); %>
                     </tbody>
                 </table>
             </div>

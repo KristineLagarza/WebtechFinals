@@ -8,7 +8,7 @@ var session;
 router.get('/', function(req, res, next) {
   if (!req.session.user) { // Go back to log in if user is not authenticated
     req.session.destroy();
-    response.redirect('/');
+    res.redirect('/');
   }
   res.render('arrangement', { title: 'Express' });
 });
