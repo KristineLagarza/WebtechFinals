@@ -31,13 +31,9 @@
           <span class="logo-title">
               <li class="text-logo"><a><h1>SV STREAMING PLATFORM</h1></a></li>
           </span>
-          <input type='checkbox' id='check'/>
-          <span class="menu"><!--
-              <li><a href="my_profile.php?id=<?= $_SESSION['username'] ?>"><i class="fa-regular fa-circle-user"></i> <?php echo $_SESSION['username']; ?></a></li>
+          <span class="menu">
               <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-              <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-          </span>-->
-          <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+          </span>
       </ul>
   </nav>
 </div>
@@ -354,7 +350,7 @@
                                         <td>
                                             <a href="accounts_view.php?action=view&id=<?= $row['userID'] ?>" class="btn btn-success"><i class="fa-solid fa-id-card"></i> View Profile</a>
                                             <a href="accounts_view.php?action=update-user&id=<?= $row['userID'] ?>" class="btn btn-info"><i class="fa-solid fa-user-pen"></i> Update Info</a>
-                                            <a href="CRUD/delete.php?id=<?= $row['userID'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to deactivate this user?')"><i class="fa-solid fa-user-xmark"></i> Deactivate User</a>
+                                            <a href="CRUD/delete.php?id=<?= $row['userID'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')"><i class="fa-solid fa-user-xmark"></i> Delete User</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

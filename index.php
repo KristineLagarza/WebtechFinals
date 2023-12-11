@@ -36,7 +36,7 @@
                     header("Location: ./admin/accounts_view.php");
                     exit();
                 case 'content_manager':
-                    header("Location: ./contentmanager/contentmanager.php");
+                    header("Location: ./contentmanager/dashboard.ejs");
                     exit();
                 default:
                     // Handle unknown user type

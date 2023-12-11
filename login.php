@@ -22,7 +22,7 @@ if (isset($_POST['username'])) {
         } elseif ($user['Type'] == 'content_manager') {
             $_SESSION['Username'] = $username;
             $_SESSION['Type'] = 'content_manager';
-            header('Location: contentmanager/views/index.ejs');
+            header('Location: contentmanager/views/dashboard.ejs');
             exit(); 
         }
     }

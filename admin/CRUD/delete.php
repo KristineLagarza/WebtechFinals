@@ -1,49 +1,29 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: ./.php");
-    exit();
+require_once("../connection_db.php");
+
+
+if (!$conn) {
+    die("Error: Database connection not established. " . mysqli_connect_error());
 }
 
-global $conn;
-if (isset($_GET['id'])) {
-    include "../../connection_db.php";
-    function validate($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+$id = $_GET['id'];
 
-    $id = validate($_GET['id']);
+$deleteContentManagerQuery = "DELETE FROM content_manager WHERE UserID = '$id'";
+$deleteAdminQuery = "DELETE FROM admin WHERE UserID = '$id'";
+$deleteUserQuery = "DELETE FROM user WHERE UserID = '$id'";
 
-    // Check if the user is an admin before attempting to delete
-    $sqlCheckAdmin = "SELECT type FROM users WHERE userID=$id";
-    $resultCheckAdmin = mysqli_query($conn, $sqlCheckAdmin);
+if ($conn === null) {
+    die("Connection not established.");
+}
 
-    if ($resultCheckAdmin) {
-        $row = mysqli_fetch_assoc($resultCheckAdmin);
-
-        if ($row['type'] === 'Admin') {
-            header("Location: ../accounts_view.php?id=$id&error=Admin users cannot be ARCHIVED!");
-            exit();
-        }
-    }
-
-    // If the user is not an admin, proceed with the archive operation
-    $sqlArchive = "UPDATE users SET status = 'Inactive' WHERE userID=$id";
-    $resultArchive = mysqli_query($conn, $sqlArchive);
-
-
-    if ($resultArchive) {
-        header("Location: ../accounts_view.php?id=$id&successful=Deactivated Successfully");
-        exit();
-    } else {
-        header("Location: ../accounts_view.php?id=$id&error=Unknown Error Occurred");
-        exit();
-    }
+// Execute both queries
+if ($conn->query($deleteContentManagerQuery) === TRUE 
+&& $conn->query($deleteAdminQuery) === TRUE
+&& $conn->query($deleteUserQuery) === TRUE) {
+    header('Location: ../accounts_view.php');
 } else {
-    header("Location: ../accounts_view.php");
-    exit();
+    echo "Error: " . $conn->error;
 }
+
+$conn->close();
 ?>
