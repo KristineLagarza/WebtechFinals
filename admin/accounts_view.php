@@ -1,16 +1,17 @@
 <?php
     global $data, $result, $conn, $row;
+    include "../connection_db.php";
+    include "CRUD/read.php";
     session_start();
-   /* if (!isset($_SESSION['username'])) {
+    if (!isset($_SESSION['Username'])) {
         header("Location: ../index.php");
         exit();
     }
     //if user is not admin then destroy session
-    if ($_SESSION['type'] !== 'Admin') {
+    if ($_SESSION['Type'] !== 'admin') {
         session_destroy();
-    }*/
-    include "../connection_db.php";
-    include "CRUD/read.php";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
