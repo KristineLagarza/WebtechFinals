@@ -7,6 +7,6 @@
     "\\contentmanager\\uploads",
     "\\contentmanager\\views"
   ],
-  "SelectedNode": "\\contentmanager\\views\\upload.ejs",
+  "SelectedNode": "\\contentmanager\\connection.js",
   "PreviewInSolutionExplorer": false
 }

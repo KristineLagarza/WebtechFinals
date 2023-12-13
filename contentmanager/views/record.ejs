@@ -26,6 +26,19 @@
                 .sidebar {
                     --cui-sidebar-bg: #244271 !important;
                 }
+                #video {
+               border: 1px solid #999;
+              width: 98%;
+              max-width: 860px;
+            }
+
+            #log {
+              width: 25rem;
+              height: 15rem;
+              border: 1px solid black;
+              padding: 0.5rem;
+  overflow: scroll;
+}
         </style>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
@@ -143,17 +156,91 @@
                     </ul>
                 </div>
             </header>
-            <div class="body flex-grow-1 px-3">
-                <div class="container-lg">
-                    <div class="row">
-                        <center>
-                            <h1 class="centered-text">RECORD AIRED SHOW</h1>
+             <div class="body flex-grow-1 px-3">
+        <div class="container-lg">
+            <div class="row">
+                <center>
+                    <h1 class="centered-text">RECORD AIRED SHOW</h1>
+                    <p>
+                        <button id="start">Start Capture</button>&nbsp;<button id="stop">Stop Capture</button>
+                    </p>
+                    <video id="video" autoplay></video>
+                    <br />
+                    <strong>Log:</strong>
+                    <br />
+                    <pre id="log"></pre>
+                </center>
+            </div>
+        </div>
+    </div>
                         </center>
                     </div>
                 </div>
             </div>
         </div>
 
+
+        <script>
+        const videoElem = document.getElementById("video");
+        const logElem = document.getElementById("log");
+        const startElem = document.getElementById("start");
+        const stopElem = document.getElementById("stop");
+
+        const displayMediaOptions = {
+            video: {
+                displaySurface: "window",
+            },
+            audio: false,
+        };
+
+        startElem.addEventListener(
+            "click",
+            () => {
+                startCapture();
+            },
+            false,
+        );
+
+        stopElem.addEventListener(
+            "click",
+            () => {
+                stopCapture();
+            },
+            false,
+        );
+
+        async function startCapture() {
+            logElem.innerHTML = "";
+
+            try {
+                videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+                dumpOptionsInfo();
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function stopCapture() {
+            let tracks = videoElem.srcObject.getTracks();
+
+            tracks.forEach((track) => track.stop());
+            videoElem.srcObject = null;
+        }
+
+        function dumpOptionsInfo() {
+            const videoTrack = videoElem.srcObject.getVideoTracks()[0];
+
+            console.log("Track settings:");
+            console.log(JSON.stringify(videoTrack.getSettings(), null, 2));
+            console.log("Track constraints:");
+            console.log(JSON.stringify(videoTrack.getConstraints(), null, 2));
+        }
+
+        console.log = (msg) => (logElem.textContent = `${logElem.textContent}\n${msg}`);
+        console.error = (msg) => (logElem.textContent = `${logElem.textContent}\nError: ${msg}`);
+    </script>
+
+        </script>
         <script src="/assets/coreui.bundle.min.js.download"></script>
         <script src="/assets/simplebar.min.js.download"></script>
         <script src="/assets/coreui-utils.js.download"></script>
