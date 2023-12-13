@@ -22,10 +22,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../admin/stylesheets/admin.css">
+    <link rel="stylesheet" href="../admin/stylesheets/admin.css">   
     <title>Account Management</title>
 </head>
 <body>
+
+<div id="content-background">
+    <?php
+        if (isset($_GET['action']) && $_GET['action'] == 'add-user') {
+            ?>
 <div class="topnav">
     <ul class='navbar'>
         <span class="logo-title">
@@ -40,17 +45,13 @@
         </span>
     </ul>
 </div>
-
-<div id="content-background">
-    <?php
-        if (isset($_GET['action']) && $_GET['action'] == 'add-user') {
-            ?>
 <div class="sidebar">
     <a class="active" href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i> Account Management</a>
     <a href="#"><i class="fa-solid fa-user-pen"></i> Update Account</a>
     <a href="deleted_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Deleted Account</a>
     <a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Account</a>
 </div>
+
             <div class="container">
                 <form action="CRUD/create.php" method="post">
                     <h4 class="display-4 text-center">Create an Account</h4><hr><br>
@@ -222,16 +223,6 @@
                 include "CRUD/view.php";
                 global $row;
                 ?>
-                <div class="wrapper">
-                    <div class="sidebar">
-                    <ul>
-                        <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Account Management</a></li>
-                        <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New Account</a></li>
-                        <li class=""><a href="deleted_accounts.php"><i class="fa-solid fa-user-slash"></i> Deleted Account</a></li>
-                        <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Account</a></li>
-                    </ul>
-                    </div>
-                </div>
 
                 <div class="container">
                     <div class="box">
@@ -271,13 +262,25 @@
             }
         }  
         ?>
-            <div class="wrapper">
+        <div class="topnav">
+    <ul class='navbar'>
+        <span class="logo-title">
+            <li class="logo-image">
+                <a href="#">
+                    <img src="../images/favicon.png" alt="Logo Image">
+                </a>
+            </li>
+        </span>
+        <span class="menu">
+            <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </span>
+    </ul>
+</div>
+<div class="wrapper">
                 <div class="sidebar">
                     <ul>
                         <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
-                        <li class=""><a href="deleted_accounts.php"><i class="fa-solid fa-user-slash"></i> Deleted Users</a></li>
-                        <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>
                 </div>
             </div>
@@ -319,7 +322,9 @@
                             // Free the result set
                             mysqli_free_result($result);
                                 }
+                                include "CRUD/read.php";
                         ?>
+                        
                              <table class="table table-striped" id="table">
                                 <thead>
                                 <tr>
@@ -355,9 +360,23 @@
                             </table>
                     </div>
                 </div>
+                
             </div>
     </div><br><br>
 
     </div>
 </body>
+<footer class ="footer">
+        <div class="footer-image">
+            <img src="images/favicon.png" alt="Singko">
+        </div>
+        <h5>&copy;  2023 Singko. All Rights Reserved</h5>
+        <div class="footer-right">
+          <h6>Team Singko - 9481AB - IT312/312L</h6>
+          <h6>AY 2023-2024</h6>
+          <h6>IT Department</h6>
+          <h6>School of Accountancy, Management, Computing and Information Studies</h6>
+          <h6>Saint Louis University</h6>
+        </div>
+    </footer>
 </html>
