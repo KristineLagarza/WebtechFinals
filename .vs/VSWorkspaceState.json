@@ -4,8 +4,9 @@
     "\\contentmanager",
     "\\contentmanager\\public",
     "\\contentmanager\\public\\stylesheets",
+    "\\contentmanager\\uploads",
     "\\contentmanager\\views"
   ],
-  "SelectedNode": "\\contentmanager\\views\\arrangement.ejs",
+  "SelectedNode": "\\contentmanager\\views\\upload.ejs",
   "PreviewInSolutionExplorer": false
 }

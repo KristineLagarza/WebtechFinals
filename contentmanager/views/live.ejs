@@ -1,126 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Dashboard</title>
-        <link rel="stylesheet" href="stylesheets/test.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html;
+      charset=UTF-8">
+        <base href=".">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+      shrink-to-fit=no">
+        <title>Live</title>
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage"
+            content="assets/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="/assets/simplebar.css">
+        <link rel="stylesheet" href="/assets/simplebar(1).css">
+
+        <link href="/assets/style.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="/assets/prism.css">
+        <link href="/assets/examples.css" rel="stylesheet">
+        <script type="text/javascript" async src="/assets/js"></script>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+        <style>
+                .sidebar {
+                    --cui-sidebar-bg: #244271 !important;
+                }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
-        <div id="viewport">
-            <!-- Sidebar -->
-            <div id="sidebar">
-                <header>
-                    <a href="#">Content Manager</a>
-                </header>
-                <ul class="nav">
-                    <li>
-                        <a href="/dashboard">
-                            <i class="zmdi zmdi-view-dashboard"></i> Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/arrangement">
-                            <i class="zmdi zmdi-link"></i> Arrangement
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/upload">
-                            <i class="zmdi zmdi-widgets"></i> Upload
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/live">
-                            <i class="zmdi zmdi-calendar"></i> Live Stream
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/history">
-                            <i class="zmdi zmdi-info-outline"></i> History
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/record">
-                            <i class="record.html"></i> Record
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/logout">
-                            <i class="zmdi zmdi-comment-more"></i> Log out
-                        </a>
-                    </li>
-                </ul>
+        <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+            <div class="sidebar-brand d-none d-md-flex">
+                <h4 class="sidebar-brand-full"> Content Management</h4>
+                <h5 class="sidebar-brand-narrow"> Content Management</h5>
             </div>
-            <!-- Content -->
-            <div id="content">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="#">
-                                    <i
-                                        class="zmdi zmdi-notifications text-danger"></i>
-                                </a>
-                            </li>
-                            <li><a href="#">Manager</a></li>
-                        </ul>
-                    </div>
-                </nav>
+            <ul class="sidebar-nav" data-coreui="navigation"
+                data-simplebar="init"><div
+                    class="simplebar-wrapper" style="margin: 0px;"><div
+                        class="simplebar-height-auto-observer-wrapper"><div
+                            class="simplebar-height-auto-observer"></div></div><div
+                        class="simplebar-mask"><div class="simplebar-offset"
+                            style="right:
+              0px; bottom: 0px;"><div class="simplebar-content-wrapper"
+                                tabindex="0" role="region"
+                                aria-label="scrollable content"
+                                style="height: 100%; overflow: hidden scroll;"><div
+                                    class="simplebar-content"
+                                    style="padding: 0px;">
+                                    <li class="nav-item"><a
+                                            class="nav-link "
+                                            href="/dashboard">
+                                            <i
+                                                class="nav-icon zmdi zmdi-view-dashboard"></i>
+                                            Dashboard</a></li>
+                                    <li class="nav-item"><a
+                                            class="nav-link"
+                                            href="/arrangement">
+                                            <i class="nav-icon zmdi zmdi-link"></i>
+                                            Arrangement</a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/upload">
+                                            <i
+                                                class="nav-icon zmdi zmdi-widgets"></i>
+                                            Upload
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="/live">
+                                            <i
+                                                class="nav-icon zmdi zmdi-calendar"></i>
+                                            Live Stream
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/history">
+                                            <i
+                                                class="nav-icon zmdi zmdi-format-list-bulleted"></i>
+                                            History
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                            href="/record">
+                                            <i
+                                                class="nav-icon zmdi zmdi-mic"></i>
+                                            Record
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout">
+                                            <i
+                                                class="nav-icon zmdi zmdi-sign-in"></i>
+                                            Log Out
+                                        </a>
+                                    </li>
+                                </div></div></div></div><div
+                        class="simplebar-placeholder"
+                        style="width: 256px; height: 841px;"></div></div><div
+                    class="simplebar-track simplebar-horizontal"
+                    style="visibility:
+          hidden;"><div class="simplebar-scrollbar" style="width: 0px; display:
+            none;"></div></div><div class="simplebar-track simplebar-vertical"
+                    style="visibility: visible;"><div
+                        class="simplebar-scrollbar"
+                        style="height: 247px; transform: translate3d(0px, 0px, 0px);
+            display: block;"></div></div></ul>
+        </div>
+        <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+            <header class="header header-sticky mb-4">
                 <div class="container-fluid">
-                    <h1 class="centered-text">GO LIVE NOW</h1>
+                    <a class="header-brand d-md-none">
+                        <i class="zmdi zmdi-menu"></i></a>
+                    <ul class="header-nav d-none d-md-flex">
+                    </ul>
+                    <ul class="header-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link"
+                                href>
+                                <svg class="icon icon-lg">
+                                    <use
+                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                                </svg></a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href>
+                                <svg class="icon icon-lg">
+                                    <use
+                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                                </svg></a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href>
+                                <svg class="icon icon-lg">
+                                    <use
+                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                                </svg></a></li>
+                    </ul>
+                    <ul class="header-nav ms-3">
+                        <li class="nav-item"><a class="nav-link"
+                                href="#"><i
+                                    class="icon me-2 zmdi zmdi-notifications text-danger"></i></a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href>Manager</a></li>
+                    </ul>
                 </div>
-                <div class="video-container">
-                    <video id="user-video" autoplay></video>
+            </header>
+            <div class="body flex-grow-1 px-3">
+                <div class="container-lg">
+                    <div class="col-lg-12">
+                        <center>
+                            <div class="container-fluid">
+                                <h1 class="centered-text">GO LIVE NOW</h1>
+                            </div>
+                            <div class="video-container">
+                                <video id="user-video" autoplay></video>
+                            </div>
+                            <button class="btn btn-primary" id="start-stream"
+                                onclick="startStreaming()">Go
+                                Live</button>
+                            <button class="btn btn-danger" id="end-stream"
+                                onclick="endStreaming()"
+                                style="display: none;">End Streaming</button>
+                        </center>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <center>
+                            <!-- Existing Code - Dashboard Structure -->
+                            <!-- Video container for the media platform's video -->
+                            <div class="media-platform-video-container">
+                                <!-- You may use an iframe, video tag, or other suitable HTML elements -->
+                                <!-- Example using an iframe for embedding a video from a media platform -->
+                                <iframe src=""
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </center>
+                    </div>
                 </div>
-                <button id="start-stream" onclick="startStreaming()">Go Live</button>
-                <button id="end-stream" onclick="endStreaming()"
-                    style="display: none;">End Streaming</button>
             </div>
         </div>
-        <center>
-            <!-- Existing Code - Dashboard Structure -->
-            <!-- Video container for the media platform's video -->
-            <div class="media-platform-video-container">
-                <!-- You may use an iframe, video tag, or other suitable HTML elements -->
-                <!-- Example using an iframe for embedding a video from a media platform -->
-                <iframe src="AIzaSyDh12GC9LMLU5Qkix1XRAVgm0nVUONBwbM"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-        </center>
 
-        <!-- Rest of your existing code -->
-        <!-- Sidebar, navigation, live streaming buttons, etc. -->
-
+        <script src="/assets/coreui.bundle.min.js.download"></script>
+        <script src="/assets/simplebar.min.js.download"></script>
+        <script src="/assets/coreui-utils.js.download"></script>
+        <script src="/assets/main.js.download"></script>
         <script>
-        // Your existing JavaScript code for accessing the device's camera and live streaming functionality
-    </script>
-
-        <script>
-        let stream;
-
-        async function startStreaming() {
-            try {
-                stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-                const videoElement = document.getElementById('user-video');
-                videoElement.srcObject = stream;
-                videoElement.play();
-                document.getElementById('start-stream').style.display = 'none';
-                document.getElementById('end-stream').style.display = 'block';
-            } catch (err) {
-                console.error('Error accessing webcam:', err);
+            let stream;
+    
+            async function startStreaming() {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                    const videoElement = document.getElementById('user-video');
+                    videoElement.srcObject = stream;
+                    videoElement.play();
+                    document.getElementById('start-stream').style.display = 'none';
+                    document.getElementById('end-stream').style.display = 'block';
+                } catch (err) {
+                    console.error('Error accessing webcam:', err);
+                }
             }
-        }
-
-        function endStreaming() {
-            if (stream) {
-                stream.getTracks().forEach(track => track.stop());
-                document.getElementById('start-stream').style.display = 'block';
-                document.getElementById('end-stream').style.display = 'none';
+    
+            function endStreaming() {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                    document.getElementById('start-stream').style.display = 'block';
+                    document.getElementById('end-stream').style.display = 'none';
+                }
             }
-        }
-    </script>
+        </script>
     </body>
 </html>

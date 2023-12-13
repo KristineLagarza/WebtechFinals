@@ -1,238 +1,283 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="stylesheets/test.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-</head>
-<body>
-    <div id="viewport">
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <header>
-                <a href="#">Content Manager</a>
-            </header>
-            <ul class="nav">
-                <li>
-                    <a href="/dashboard">
-                        <i class="zmdi zmdi-view-dashboard"></i> Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="/arrangement">
-                        <i class="zmdi zmdi-link"></i> Arrangement
-                    </a>
-                </li>
-                <li>
-                    <a href="/upload">
-                        <i class="zmdi zmdi-widgets"></i> Upload
-                    </a>
-                </li>
-                <li>
-                    <a href="/live">
-                        <i class="zmdi zmdi-calendar"></i> Live Stream
-                    </a>
-                </li>
-                <li>
-                    <a href="/history">
-                        <i class="zmdi zmdi-info-outline"></i> History
-                    </a>
-                </li>
-                <li>
-                    <a href="/record">
-                        <i class="record.html"></i> Record
-                    </a>
-                </li>
-                <li>
-                    <a href="/logout">
-                        <i class="zmdi zmdi-comment-more"></i> Log out
-                    </a>
-                </li>
-            </ul>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html;
+      charset=UTF-8">
+        <base href=".">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+      shrink-to-fit=no">
+        <title>Dashboard</title>
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage"
+            content="assets/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="/assets/simplebar.css">
+        <link rel="stylesheet" href="/assets/simplebar(1).css">
+
+        <link href="/assets/style.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="/assets/prism.css">
+        <link href="/assets/examples.css" rel="stylesheet">
+        <script type="text/javascript" async src="/assets/js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+        <style>
+                .sidebar {
+                    --cui-sidebar-bg: #244271 !important;
+                }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+            <div class="sidebar-brand d-none d-md-flex">
+                <h4 class="sidebar-brand-full"> Content Management</h4>
+                <h5 class="sidebar-brand-narrow"> Content Management</h5>
+            </div>
+            <ul class="sidebar-nav" data-coreui="navigation"
+                data-simplebar="init"><div
+                    class="simplebar-wrapper" style="margin: 0px;"><div
+                        class="simplebar-height-auto-observer-wrapper"><div
+                            class="simplebar-height-auto-observer"></div></div><div
+                        class="simplebar-mask"><div class="simplebar-offset"
+                            style="right:
+              0px; bottom: 0px;"><div class="simplebar-content-wrapper"
+                                tabindex="0" role="region"
+                                aria-label="scrollable content"
+                                style="height: 100%; overflow: hidden scroll;"><div
+                                    class="simplebar-content"
+                                    style="padding: 0px;">
+                                    <li class="nav-item"><a
+                                            class="nav-link"
+                                            href="/dashboard">
+                                            <i
+                                                class="nav-icon zmdi zmdi-view-dashboard"></i>
+                                            Dashboard</a></li>
+                                    <li class="nav-item"><a
+                                            class="nav-link active"
+                                            href="/arrangement">
+                                            <i class="nav-icon zmdi zmdi-link"></i>
+                                            Arrangement</a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/upload">
+                                            <i
+                                                class="nav-icon zmdi zmdi-widgets"></i>
+                                            Upload
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/live">
+                                            <i
+                                                class="nav-icon zmdi zmdi-calendar"></i>
+                                            Live Stream
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/history">
+                                            <i
+                                                class="nav-icon zmdi zmdi-format-list-bulleted"></i>
+                                            History
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                            href="/record">
+                                            <i
+                                                class="nav-icon zmdi zmdi-mic"></i>
+                                            Record
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout">
+                                            <i
+                                                class="nav-icon zmdi zmdi-sign-in"></i>
+                                            Log Out
+                                        </a>
+                                    </li>
+                                </div></div></div></div><div
+                        class="simplebar-placeholder"
+                        style="width: 256px; height: 841px;"></div></div><div
+                    class="simplebar-track simplebar-horizontal"
+                    style="visibility:
+          hidden;"><div class="simplebar-scrollbar" style="width: 0px; display:
+            none;"></div></div><div class="simplebar-track simplebar-vertical"
+                    style="visibility: visible;"><div
+                        class="simplebar-scrollbar"
+                        style="height: 247px; transform: translate3d(0px, 0px, 0px);
+            display: block;"></div></div></ul>
         </div>
-        <!-- Content -->
-        <div id="content">
-            <nav class="navbar navbar-default">
+        <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+            <header class="header header-sticky mb-4">
                 <div class="container-fluid">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#">
-                                <i class="zmdi zmdi-notifications text-danger"></i>
-                            </a>
-                        </li>
-                        <li><a href="#">Manager</a></li>
+                    <a class="header-brand d-md-none">
+                        <i class="zmdi zmdi-menu"></i></a>
+                    <ul class="header-nav d-none d-md-flex">
+                    </ul>
+                    <ul class="header-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link"
+                                href>
+                                <svg class="icon icon-lg">
+                                    <use
+                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                                </svg></a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href>
+                                <svg class="icon icon-lg">
+                                    <use
+                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                                </svg></a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href>
+                                <svg class="icon icon-lg">
+                                    <use
+                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                                </svg></a></li>
+                    </ul>
+                    <ul class="header-nav ms-3">
+                        <li class="nav-item"><a class="nav-link"
+                                href="#"><i
+                                    class="icon me-2 zmdi zmdi-notifications text-danger"></i></a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href>Manager</a></li>
                     </ul>
                 </div>
-            </nav>
-        </div>
+            </header>
+            <div class="body flex-grow-1 px-3">
+                <div class="container-lg">
+                    <div class="row">
+                        <form id="myForm" action="/arrangement" method="post"
+                            enctype="application/x-www-form-urlencoded"
+                            onsubmit="return false">
+                            <div class="col-lg-12">
+                                <h1 class="centered-text">VIDEOS TO SHOW AND
+                                    DURATION</h1>
+                                <button class="btn btn-primary" id="btnSave"
+                                    onclick="saveArrangement()">Save</button>
+                                <br>
+                                <br>
+                                <label for="air-times">Select Air From Time:</label>
+                                <select class="form-control" id="air-times"
+                                    style="padding: 10px;" name="from">
+                                    <option value="8">8:00 AM</option>
+                                    <option value="9">9:00 AM</option>
+                                    <option value="10">10:00 AM</option>
+                                    <option value="11">11:00 AM</option>
+                                    <option value="12">12:00 PM</option>
+                                    <option value="13">1:00 PM</option>
+                                    <option value="14">2:00 PM</option>
+                                    <option value="15">3:00 PM</option>
+                                    <option value="16">4:00 PM</option>
+                                    <option value="17">5:00 PM</option>
+                                    <option value="18">6:00 PM</option>
+                                </select>
+                            </div>
 
-        <div class="container-fluid">
-    <h1 class="centered-text">VIDEOS TO SHOW AND DURATION</h1>
-    <label for="air-times">Select Air Time:</label>
-    <select id="air-times">
-        <option value="8">8:00 AM</option>
-        <option value="9">9:00 AM</option>
-        <option value="10">10:00 AM</option>
-        <option value="11">11:00 AM</option>
-        <option value="12">12:00 PM</option>
-        <option value="13">1:00 PM</option>
-        <option value="14">2:00 PM</option>
-        <option value="15">3:00 PM</option>
-        <option value="16">4:00 PM</option>
-        <option value="17">5:00 PM</option>
-        <option value="18">6:00 PM</option>
-    </select>
-    <body>
-  <div class="big-video-container">
-                <!-- Videos will be compiled here -->
-                <video id="defaultVideo" class="video-player" controls width="380">
-                    <source src="contentmanager/lupanghinirang.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
+                            <div class="col-lg-12">
+                                <label for="description">Description:</label>
+                                <br>
+                                <input class="form-control" type="text"
+                                    name="description" id>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="air-times">Select Air To Time:</label>
+                                <select class="form-control" id="air-times"
+                                    style="padding: 10px;" name="to">
+                                    <option value="8">8:00 AM</option>
+                                    <option value="9">9:00 AM</option>
+                                    <option value="10">10:00 AM</option>
+                                    <option value="11">11:00 AM</option>
+                                    <option value="12">12:00 PM</option>
+                                    <option value="13">1:00 PM</option>
+                                    <option value="14">2:00 PM</option>
+                                    <option value="15">3:00 PM</option>
+                                    <option value="16">4:00 PM</option>
+                                    <option value="17">5:00 PM</option>
+                                    <option value="18">6:00 PM</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row" style="padding: 10px;">
+                            <div class="col-lg-6" style="float: left;">
+                                <% uploadedVideos.forEach(function(row) { %>
+                                <label>
+                                    <input type="checkbox"
+                                        name="selectedVideos"
+                                        value="<%= row.historyID %>">
+                                    <%= row.fileName %>
+                                    <span><button class="btn btn-primary"
+                                            id="btnShow"
+                                            onclick="showPreview('<%= row.fileName %>')">Show
+                                            Preview</button></span>
+                                </label><br><br>
+                                <% }); %>
+                            </div>
+                        </form>
+                        <div class="col-lg-6"
+                            style="float: left;height:500px;">
+                            <div
+                                class="embed-responsive embed-responsive-1by1">
+                                <iframe id="myFrame"
+                                    class="embed-responsive-item"
+                                    src></iframe>
+                            </div>
+                            <button class="btn btn-danger" id="btnClear"
+                                style="display: none;"
+                                onclick="clearPreview()">Clear</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-
-
-            <button id="confirmCompilation">Confirm Compilation</button>
-   <div class="container-fluid">
-                <!-- 11 video containers with associated file inputs -->
-                <!-- Correcting data-container-id attributes -->
-                <div class="video-container" id="video-container-1">
-                    <input type="file" class="file-input" data-container-id="video-container-1">
-                    <video class="video-player" controls width="280">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="video-container" id="video-container-2">
-                    <input type="file" class="file-input" data-container-id="video-container-2">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <!-- ... Repeat for video-container-3 to video-container-11 -->
-                <div class="video-container" id="video-container-3">
-                    <input type="file" class="file-input" data-container-id="video-container-3">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="video-container" id="video-container-4">
-                    <input type="file" class="file-input" data-container-id="video-container-4">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="video-container" id="video-container-5">
-                    <input type="file" class="file-input" data-container-id="video-container-5">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="video-container" id="video-container-6">
-                    <input type="file" class="file-input" data-container-id="video-container-6">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="video-container" id="video-container-7">
-                    <input type="file" class="file-input" data-container-id="video-container-7">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="video-container" id="video-container-8">
-                    <input type="file" class="file-input" data-container-id="video-container-8">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="video-container" id="video-container-9">
-                    <input type="file" class="file-input" data-container-id="video-container-9">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="video-container" id="video-container-10">
-                    <input type="file" class="file-input" data-container-id="video-container-10">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="video-container" id="video-container-11">
-                    <input type="file" class="file-input" data-container-id="video-container-11">
-                    <video class="video-player" controls width="380">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                 <div class="compiled-video-frame">
-            <!-- Videos will be compiled here -->
         </div>
-                
-</body>
-</div>
-    <script>
-    // Function to compile uploaded videos into a single frame
-            function compileVideos() {
-                const videoContainer = document.querySelector('.big-video-container');
 
-                // Get all uploaded video elements
-                const uploadedVideos = document.querySelectorAll('.video-player');
-
-                // Create a container to hold all compiled videos
-                const compiledVideosContainer = document.createElement('div');
-                compiledVideosContainer.classList.add('compiled-videos');
-
-                // Loop through each uploaded video and append it to the compilation container
-                uploadedVideos.forEach((video) => {
-                    const clonedVideo = video.cloneNode(true); // Clone the uploaded video
-                    compiledVideosContainer.appendChild(clonedVideo);
-                });
-
-                // Clear previous videos before appending new ones
-                videoContainer.innerHTML = '';
-
-                // Append the compilation container to the main compiled video frame
-                videoContainer.appendChild(compiledVideosContainer);
+        <script src="/assets/coreui.bundle.min.js.download"></script>
+        <script src="/assets/simplebar.min.js.download"></script>
+        <script src="/assets/coreui-utils.js.download"></script>
+        <script src="/assets/main.js.download"></script>
+        <script>
+            function showPreview(fileName){
+                let myForm = document.getElementById('myForm');
+                myForm.removeAttribute("onsubmit");
+                myForm.setAttribute("onsubmit","return false");
+                if(fileName){
+                    let myFrame = document.getElementById('myFrame');
+                    myFrame.setAttribute("src",`/playVideo/${fileName}`);
+                    myFrame.setAttribute("style","height:300px;width:500px;margin-bottom:5px;");
+                    let btnClear = document.getElementById('btnClear');
+                    btnClear.removeAttribute("style");
+                    btnClear.setAttribute("style","color:white !important;");
+                }
+            }
+            function clearPreview(){
+                let myFrame = document.getElementById('myFrame');
+                myFrame.setAttribute("src",'');
+                myFrame.removeAttribute("style");
+                let btnClear = document.getElementById('btnClear');
+                btnClear.removeAttribute("style");
+                btnClear.setAttribute("style","display:none");
             }
 
-            // Event listener for the Confirm Compilation button
-            document.getElementById('confirmCompilation').addEventListener('click', function() {
-                compileVideos(); // Call the compileVideos function when the button is clicked
-            });
-
-
-              document.addEventListener('DOMContentLoaded', function() {
-                const fileInputs = document.querySelectorAll('.file-input');
-
-                // Function to handle file input change for video players
-                function handleFileInput(fileInput) {
-                    fileInput.addEventListener('change', function(event) {
-                        const file = event.target.files[0];
-                        const containerId = fileInput.getAttribute('data-container-id');
-                        const videoPlayer = document.querySelector(`#${containerId} .video-player`);
-
-                        if (file && videoPlayer) {
-                            const videoURL = URL.createObjectURL(file);
-                            videoPlayer.src = videoURL;
-                        }
-                    });
-                }
-
-    // Inside the DOMContentLoaded event listener
-document.addEventListener('DOMContentLoaded', function() {
-    // Existing code for handling file inputs...
-
-    // Call compileVideos function when the DOM content has loaded
-    compileVideos();
-});
-
-
-    // Add event listeners for file input changes for each video container
-    fileInputs.forEach(handleFileInput);
-});
-
-</script>
-  
-</body>
+            function saveArrangement(){
+                let myForm = document.getElementById('myForm');
+                myForm.removeAttribute("onsubmit");
+                let btnSave = document.getElementById('btnSave');
+                btnSave.click();
+            }
+        </script>
+        <% if (typeof arrangeError !== 'undefined' && arrangeError !== null) { %>
+        <script>
+             var jsArrangeError = '<%= arrangeError %>';
+                Swal.fire({
+                title: 'Error',
+                text: jsArrangeError,
+                icon: 'error',
+                showConfirmButton: false,
+                timer: 1500
+                })
+            </script>
+        <% } %>
+    </body>
 </html>

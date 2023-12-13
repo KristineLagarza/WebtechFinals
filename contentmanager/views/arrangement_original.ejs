@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="stylesheets/test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+</head>
+<body>
+    <div id="viewport">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <header>
+                <a href="#">Content Manager</a>
+            </header>
+            <ul class="nav">
+                <li>
+                    <a href="/dashboard">
+                        <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/arrangement">
+                        <i class="zmdi zmdi-link"></i> Arrangement
+                    </a>
+                </li>
+                <li>
+                    <a href="/upload">
+                        <i class="zmdi zmdi-widgets"></i> Upload
+                    </a>
+                </li>
+                <li>
+                    <a href="/live">
+                        <i class="zmdi zmdi-calendar"></i> Live Stream
+                    </a>
+                </li>
+                <li>
+                    <a href="/history">
+                        <i class="zmdi zmdi-info-outline"></i> History
+                    </a>
+                </li>
+                <li>
+                    <a href="/record">
+                        <i class="record.html"></i> Record
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <i class="zmdi zmdi-comment-more"></i> Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Content -->
+        <div id="content">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <i class="zmdi zmdi-notifications text-danger"></i>
+                            </a>
+                        </li>
+                        <li><a href="#">Manager</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container-fluid">
+    <h1 class="centered-text">VIDEOS TO SHOW AND DURATION</h1>
+    <label for="air-times">Select Air Time:</label>
+    <select id="air-times">
+        <option value="8">8:00 AM</option>
+        <option value="9">9:00 AM</option>
+        <option value="10">10:00 AM</option>
+        <option value="11">11:00 AM</option>
+        <option value="12">12:00 PM</option>
+        <option value="13">1:00 PM</option>
+        <option value="14">2:00 PM</option>
+        <option value="15">3:00 PM</option>
+        <option value="16">4:00 PM</option>
+        <option value="17">5:00 PM</option>
+        <option value="18">6:00 PM</option>
+    </select>
+    <body>
+  <div class="big-video-container">
+                <!-- Videos will be compiled here -->
+                <video id="defaultVideo" class="video-player" controls width="380">
+                    <source src="contentmanager/lupanghinirang.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+
+
+            <button id="confirmCompilation">Confirm Compilation</button>
+   <div class="container-fluid">
+                <!-- 11 video containers with associated file inputs -->
+                <!-- Correcting data-container-id attributes -->
+                <div class="video-container" id="video-container-1">
+                    <input type="file" class="file-input" data-container-id="video-container-1">
+                    <video class="video-player" controls width="280">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <div class="video-container" id="video-container-2">
+                    <input type="file" class="file-input" data-container-id="video-container-2">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <!-- ... Repeat for video-container-3 to video-container-11 -->
+                <div class="video-container" id="video-container-3">
+                    <input type="file" class="file-input" data-container-id="video-container-3">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <div class="video-container" id="video-container-4">
+                    <input type="file" class="file-input" data-container-id="video-container-4">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-5">
+                    <input type="file" class="file-input" data-container-id="video-container-5">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-6">
+                    <input type="file" class="file-input" data-container-id="video-container-6">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-7">
+                    <input type="file" class="file-input" data-container-id="video-container-7">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-8">
+                    <input type="file" class="file-input" data-container-id="video-container-8">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-9">
+                    <input type="file" class="file-input" data-container-id="video-container-9">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-10">
+                    <input type="file" class="file-input" data-container-id="video-container-10">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="video-container" id="video-container-11">
+                    <input type="file" class="file-input" data-container-id="video-container-11">
+                    <video class="video-player" controls width="380">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                 <div class="compiled-video-frame">
+            <!-- Videos will be compiled here -->
+        </div>
+                
+</body>
+</div>
+    <script>
+    // Function to compile uploaded videos into a single frame
+            function compileVideos() {
+                const videoContainer = document.querySelector('.big-video-container');
+
+                // Get all uploaded video elements
+                const uploadedVideos = document.querySelectorAll('.video-player');
+
+                // Create a container to hold all compiled videos
+                const compiledVideosContainer = document.createElement('div');
+                compiledVideosContainer.classList.add('compiled-videos');
+
+                // Loop through each uploaded video and append it to the compilation container
+                uploadedVideos.forEach((video) => {
+                    const clonedVideo = video.cloneNode(true); // Clone the uploaded video
+                    compiledVideosContainer.appendChild(clonedVideo);
+                });
+
+                // Clear previous videos before appending new ones
+                videoContainer.innerHTML = '';
+
+                // Append the compilation container to the main compiled video frame
+                videoContainer.appendChild(compiledVideosContainer);
+            }
+
+            // Event listener for the Confirm Compilation button
+            document.getElementById('confirmCompilation').addEventListener('click', function() {
+                compileVideos(); // Call the compileVideos function when the button is clicked
+            });
+
+
+              document.addEventListener('DOMContentLoaded', function() {
+                const fileInputs = document.querySelectorAll('.file-input');
+
+                // Function to handle file input change for video players
+                function handleFileInput(fileInput) {
+                    fileInput.addEventListener('change', function(event) {
+                        const file = event.target.files[0];
+                        const containerId = fileInput.getAttribute('data-container-id');
+                        const videoPlayer = document.querySelector(`#${containerId} .video-player`);
+
+                        if (file && videoPlayer) {
+                            const videoURL = URL.createObjectURL(file);
+                            videoPlayer.src = videoURL;
+                        }
+                    });
+                }
+
+    // Inside the DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing code for handling file inputs...
+
+    // Call compileVideos function when the DOM content has loaded
+    compileVideos();
+});
+
+
+    // Add event listeners for file input changes for each video container
+    fileInputs.forEach(handleFileInput);
+});
+
+</script>
+  
+</body>
+</html>

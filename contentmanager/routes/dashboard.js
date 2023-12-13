@@ -7,8 +7,7 @@ router.get("/", function (req, res, next) {
     req.session.destroy();
     return res.redirect("/");
   } else {
-    console.log(req.session);
-    const loginSuccess2 = req.session.loginSuccess | null;
+    const loginSuccess2 =  req.session.loginSuccess || null;
     delete req.session.loginSuccess;
     req.session.loginSuccess = null;
     req.session.save();
