@@ -26,6 +26,11 @@
     <title>Account Management</title>
 </head>
 <body>
+
+<div id="content-background">
+    <?php
+        if (isset($_GET['action']) && $_GET['action'] == 'add-user') {
+            ?>
 <div class="topnav">
     <ul class='navbar'>
         <span class="logo-title">
@@ -40,17 +45,13 @@
         </span>
     </ul>
 </div>
-
-<div id="content-background">
-    <?php
-        if (isset($_GET['action']) && $_GET['action'] == 'add-user') {
-            ?>
 <div class="sidebar">
     <a class="active" href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i> Account Management</a>
     <a href="#"><i class="fa-solid fa-user-pen"></i> Update Account</a>
     <a href="deleted_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Deleted Account</a>
     <a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Account</a>
 </div>
+
             <div class="container">
                 <form action="CRUD/create.php" method="post">
                     <h4 class="display-4 text-center">Create an Account</h4><hr><br>
@@ -222,16 +223,6 @@
                 include "CRUD/view.php";
                 global $row;
                 ?>
-                <div class="wrapper">
-                    <div class="sidebar">
-                    <ul>
-                        <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Account Management</a></li>
-                        <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New Account</a></li>
-                        <li class=""><a href="deleted_accounts.php"><i class="fa-solid fa-user-slash"></i> Deleted Account</a></li>
-                        <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Account</a></li>
-                    </ul>
-                    </div>
-                </div>
 
                 <div class="container">
                     <div class="box">
@@ -271,13 +262,25 @@
             }
         }  
         ?>
-            <div class="wrapper">
+        <div class="topnav">
+    <ul class='navbar'>
+        <span class="logo-title">
+            <li class="logo-image">
+                <a href="#">
+                    <img src="../images/favicon.png" alt="Logo Image">
+                </a>
+            </li>
+        </span>
+        <span class="menu">
+            <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </span>
+    </ul>
+</div>
+<div class="wrapper">
                 <div class="sidebar">
                     <ul>
                         <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
-                        <li class=""><a href="deleted_accounts.php"><i class="fa-solid fa-user-slash"></i> Deleted Users</a></li>
-                        <li class=""><a href="archived_accounts.php"><i class="fa-solid fa-user-slash"></i> Archived Users</a></li>
                     </ul>
                 </div>
             </div>
@@ -319,7 +322,9 @@
                             // Free the result set
                             mysqli_free_result($result);
                                 }
+                                include "CRUD/read.php";
                         ?>
+                        
                              <table class="table table-striped" id="table">
                                 <thead>
                                 <tr>

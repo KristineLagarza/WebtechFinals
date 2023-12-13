@@ -11,6 +11,10 @@
     background-color: #457B9D;
     overflow: hidden;
     border-bottom: 2px solid black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 ul.navbar {
@@ -127,6 +131,7 @@ button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 132px;
 }
 
 .container form {
@@ -412,6 +417,8 @@ section {
     position: fixed;
     height: 100%;
     overflow: auto;
+    top: 132px;
+    z-index: 999;
 }
 
 /* Profile image */
