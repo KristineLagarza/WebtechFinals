@@ -1,7 +1,6 @@
 <?php
     require("connection_db.php");
     session_start();
-    $errorMsg = urldecode($_GET['error']);
 
     /* Validation */
     if (isset($_SESSION['username'])) {
@@ -48,65 +47,58 @@
     }
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang ="en">
     <head>
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stylesheets/style.css">
-        <link rel="stylesheet" href="stylesheets/header_footer_sidebar.css">
-    </head>
-    <body>
-    
-        </header>
-        <div class="notification">
-            <?php if (isset($_GET['error'])) { ?>
-                <div id="alert-danger" role="alert">
-                    <?php echo $_GET['error']; ?>
-                </div>
+</head>
+<body>
+    <!-- Notification for invalid credentials--->
+    <div class="notification">
+        <?php if (isset($_GET['error'])) { ?>
+            <div id="alert-danger" role="alert">
+                <?php echo $_GET['error']; ?>
+            </div>
             <?php } ?>
         </div>
-
-
-            <div class="container">
-                <div class="form-box login">
-                    <form class="login-form" action="login.php" method="POST">
-                        <div class="img">
-                            <img src="images/user.png" id="icon" alt="User Icon" />
-                        </div>
-                        <h2>Sign In</h2>
-
-                        <div class="input-box">
-                            <span class="icon"><i class='bx bxs-id-card'></i></span>
-                            <input type="text" name="username" required>
-                            <label>Username</label>
-                        </div>
-
-                        <div class="input-box">
-                            <span class="icon"><i class='bx bxs-lock' ></i></span>
-                            <input type="password" name="password" required>
-                            <label>Password</label>
-                        </div>
-
-                        <input type="submit" class="btn" value="Sign In" name="submit">
-                    </form>
+    <!-- Login Form--->
+    <div class="container">
+        <div class="form-box login">
+            <form class="login-form" action="login.php" method="POST">
+                <div class="img">
+                    <img src="images/user.png" id="icon" alt="User Icon" />
                 </div>
-
+                <br>
+            <h2>LOGIN</h2>
+            <div class="input-box">
+                <span class="icon"><i class='bx bxs-id-card'></i></span>
+                <input type="text" name="username" required>
+                <label>Username</label>
             </div>
-            <footer>
-        <div class="footer-image">
-            <img src="images/favicon.png" alt="Singko">
-        </div>
-        <h5>&copy;  2023 Singko. All Rights Reserved</h5>
-        <div class="footer-right">
+            <div class="input-box">
+                <span class="icon"><i class='bx bxs-lock' ></i></span>
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+            <input type="submit" class="btn" value="Login" name="submit">
+        </form>
+    </div>
+</div>
+<footer>
+    <div class="footer-image">
+        <img src="images/favicon.png" alt="Singko">
+    </div>
+    <h5>&copy;  2023 Singko. All Rights Reserved</h5>
+    <div class="footer-right">
           <h6>Team Singko - 9481AB - IT312/312L</h6>
           <h6>AY 2023-2024</h6>
           <h6>IT Department</h6>
           <h6>School of Accountancy, Management, Computing and Information Studies</h6>
           <h6>Saint Louis University</h6>
         </div>
-    </footer>
-    </body>
-</html>
+</footer>
 
+</body>
+</html>    
