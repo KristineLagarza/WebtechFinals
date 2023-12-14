@@ -5,8 +5,9 @@
     "\\contentmanager\\public",
     "\\contentmanager\\public\\stylesheets",
     "\\contentmanager\\uploads",
-    "\\contentmanager\\views"
+    "\\contentmanager\\views",
+    "\\viewer"
   ],
-  "SelectedNode": "\\contentmanager\\connection.js",
+  "SelectedNode": "\\viewer\\viewer.php",
   "PreviewInSolutionExplorer": false
 }
