@@ -39,6 +39,44 @@
               padding: 0.5rem;
   overflow: scroll;
 }
+.footer {
+    background-color: #457B9D;
+    color: white;
+    padding: 20px 20px; /* Adjust the padding as needed */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    height: 172px;
+
+}
+.footer-image {
+    display: inherit;
+  }
+
+  .footer-image img {
+    width: 100%;
+    height: 100px;
+    padding-right: 10px;
+  }
+
+  footer h5 {
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    padding-right: 20px;
+  }
+
+  .footer-right {
+    border-left: 5px solid black;
+    height: 100px;
+    padding-left: 20px;
+    text-align: left;
+    font-size: 25px;
+  }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
@@ -178,7 +216,19 @@
                 </div>
             </div>
         </div>
-
+            <footer class ="footer">
+        <div class="footer-image">
+            <img src="images/favicon.png" alt="Singko">
+        </div>
+        <h5>&copy;  2023 Singko. All Rights Reserved</h5>
+        <div class="footer-right">
+          <h6>Team Singko - 9481AB - IT312/312L</h6>
+          <h6>AY 2023-2024</h6>
+          <h6>IT Department</h6>
+          <h6>School of Accountancy, Management, Computing and Information Studies</h6>
+          <h6>Saint Louis University</h6>
+        </div>
+    </footer>
 
         <script>
         const videoElem = document.getElementById("video");

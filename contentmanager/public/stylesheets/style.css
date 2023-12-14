@@ -6,3 +6,42 @@ body {
 a {
   color: #00B7FF;
 }
+
+/*------------------------------------ FOOTER -----------------------------------*/
+/*Author/s:  Kristine Anne Lagarza 
+/*CSS for the footer*/
+footer {
+    background-color: #D9EDFF;
+    padding: 20px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 121px;
+}
+
+.footer-image {
+    display: inherit;
+}
+
+    .footer-image img {
+        width: 100%;
+        height: 100px;
+        padding-right: 10px;
+    }
+
+footer h5 {
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    padding-right: 20px;
+}
+
+.footer-right {
+    border-left: 5px solid black;
+    height: 100px;
+    padding-left: 20px;
+    text-align: left;
+    font-size: 25px;
+}
