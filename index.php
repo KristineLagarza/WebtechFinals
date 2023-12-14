@@ -88,7 +88,7 @@
 </div>
 <footer>
     <div class="footer-image">
-        <img src="images/favicon.png" alt="Singko">
+        <img src="images/slu-logo.png" alt="Singko">
     </div>
     <h5>&copy;  2023 Singko. All Rights Reserved</h5>
     <div class="footer-right">
