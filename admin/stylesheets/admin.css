@@ -454,18 +454,20 @@ section {
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
     margin-left: 200px;
-    margin-bottom: 100px; /* Add margin at the bottom */
+    margin-bottom: 100px;
+    /* Add margin at the bottom */
     padding: 1px 16px;
     height: 1000px;
     box-sizing: border-box;
     overflow: hidden;
 }
 
-
+/*------------------------ FOOTER -----------------------------*/
 .footer {
     background-color: #457B9D;
     color: white;
-    padding: 20px 20px; /* Adjust the padding as needed */
+    padding: 20px 20px;
+    /* Adjust the padding as needed */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -475,31 +477,32 @@ div.content {
     height: 172px;
 
 }
+
 .footer-image {
     display: inherit;
-  }
-  
-  .footer-image img {
+}
+
+.footer-image img {
     width: 100%;
     height: 100px;
     padding-right: 10px;
-  }
-  
-  footer h5 {
+}
+
+footer h5 {
     color: black;
     font-size: 20px;
     font-weight: bolder;
     letter-spacing: 1px;
     padding-right: 20px;
-  }
-  
-  .footer-right {
+}
+
+.footer-right {
     border-left: 5px solid black;
     height: 100px;
     padding-left: 20px;
     text-align: left;
     font-size: 25px;
-  }
+}
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
