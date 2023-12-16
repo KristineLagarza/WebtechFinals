@@ -8,6 +8,6 @@
     "\\contentmanager\\views",
     "\\viewer"
   ],
-  "SelectedNode": "\\index.php",
+  "SelectedNode": "\\contentmanager\\views\\upload.ejs",
   "PreviewInSolutionExplorer": false
 }

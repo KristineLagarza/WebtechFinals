@@ -198,7 +198,7 @@
         <div class="container-lg">
             <div class="row">
                 <center>
-                    <h1 class="centered-text">RECORD AIRED SHOW</h1>
+                    <h1 class="centered-text">RECORDING AIRTIME SHOW</h1>
                     <p>
                         <button id="start">Start Capture</button>&nbsp;<button id="stop">Stop Capture</button>
                     </p>
@@ -236,12 +236,14 @@
         const startElem = document.getElementById("start");
         const stopElem = document.getElementById("stop");
 
-        const displayMediaOptions = {
-            video: {
-                displaySurface: "window",
-            },
-            audio: false,
-        };
+     const displayMediaOptions = {
+    video: {
+        displaySurface: "application", // Change this to "window" or "browser" for different capture modes
+        logicalSurface: true,
+        cursor: "always", // Options: "always", "motion", or "never"
+    },
+    audio: false, // This example doesn't capture audio
+};
 
         startElem.addEventListener(
             "click",
