@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
             </iframe>
         </div>
     </div>
-    <?php include('./header_sidebar_footer/footer.php') ?>
+    <?php include('./footer/footer.php') ?>
     <script>
         var video = document.getElementById("myVideo");
         var muteButton = document.getElementById("muteButton");
