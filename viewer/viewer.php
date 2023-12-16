@@ -40,6 +40,16 @@ if ($result->num_rows > 0) {
             ?>
 
         </div>
+        <div class="live">
+            <!-- change 'ipaddress:port' to their actual ipaddress and port number-->
+            <iframe
+            src="http://ipaddress.port/embed/video"
+            title="Owncast"
+            height="350px" width="550px"
+            referrerpolicy="origin"
+            allowfullscreen>
+            </iframe>
+        </div>
     </div>
     <?php include('./header_sidebar_footer/footer.php') ?>
     <script>
