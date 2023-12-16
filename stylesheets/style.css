@@ -13,7 +13,7 @@ body {
 
 /*------------------------------- LOGIN NOTIFICATION -----------------------------------*/
 /*Author/s: Allan Avila and Jemma Niduaza*/
-/*CSS fo the notification in the Login page is user inputs invalid credentials*/
+/*CSS for the notification in the Login page is user inputs invalid credentials*/
 div#alert-danger {
     font-size: 25px;
     color: red;
@@ -261,25 +261,27 @@ footer h5 {
 }
 
 /*-------------------------- LIVE -----------------------------*/
+/*Author/s: Odeneil Belen*/
+/*CSS for the Live Steam*/
 /* from Owncast */
 .live iframe {
-    border: none; 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
-    border-radius: 10px; 
-    overflow: hidden; 
-    background-color: #fff; 
-    margin: 0 auto; 
-  }
- 
- 
-.live  iframe[title="Owncast"] {
-    font-size: 18px; 
-    font-weight: bold; 
-    padding: 10px; 
-  }
- 
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+
+.live iframe[title="Owncast"] {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
 
 .live iframe[title="Owncast"] body {
-    margin: 0; 
-    padding: 10px; 
-  }
+    margin: 0;
+    padding: 10px;
+}

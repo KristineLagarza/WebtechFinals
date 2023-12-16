@@ -1,3 +1,5 @@
+<!------ Author/s: Allan Avila ------>
+<!------ PHP for the Admin Login ------>
 <?php
     global $data, $result, $conn, $row;
     include "../connection_db.php";
@@ -7,13 +9,14 @@
         header("Location: ../index.php");
         exit();
     }
-    //if user is not admin then destroy session
     if ($_SESSION['Type'] !== 'admin') {
         session_destroy();
     }
     
 ?>
 
+<!------ Author/s: Allan Avila and Jemma Niduaza ------>
+<!------ HTML for containing the PHP for the Admin ------>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,31 +30,12 @@
 </head>
 <body>
 
+<!------ Author/s: Allan Avila ------>
+<!------ Container and form for the adding/creating of a user ------>
 <div id="content-background">
     <?php
         if (isset($_GET['action']) && $_GET['action'] == 'add-user') {
             ?>
-<div class="topnav">
-    <ul class='navbar'>
-        <span class="logo-title">
-            <li class="logo-image">
-                <a href="#">
-                    <img src="../images/favicon.png" alt="Logo Image">
-                </a>
-            </li>
-        </span>
-        <span class="menu">
-            <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-        </span>
-    </ul>
-</div>
-<div class="sidebar">
-    <a class="active" href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i> Account Management</a>
-    <a href="#"><i class="fa-solid fa-user-pen"></i> Update Account</a>
-    <a href="deleted_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Deleted Account</a>
-    <a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Account</a>
-</div>
-
             <div class="container">
                 <form action="CRUD/create.php" method="post">
                     <h4 class="display-4 text-center">Create an Account</h4><hr><br>
@@ -140,12 +124,18 @@
                                placeholder="(Optional)">
                     </div>
                     <hr>
+
+<!------ Author/s: Allan Avila ------>
+<!------ Popup if the users wants to cancel the creation of a new user ------>
                     <div class="container text-center">
                         <a href="accounts_view.php" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel?')">Cancel</a>
                     </div>
                     <button type="submit" class="btn btn-success" name="create">Create</button><br><br>
                 </form>
             </div><br><br><br>
+
+<!------ Author/s: Allan Avila ------>
+<!------ PHP, container and form for updating a user ------>
             <?php
          } elseif (isset($_GET['action']) && $_GET['action'] == 'update-user') {
             if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -155,16 +145,6 @@
                 include "CRUD/update.php";
                 global $row;
                 ?>
-                <div class="wrapper">
-                    <div class="sidebar">
-                    <ul>
-                    <li class=""><a href="accounts_view.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fas fa-user"></i>Account Management</a></li>
-                        <li class="hover-link"><a href="#"><i class="fa-solid fa-user-pen"></i> Update Account</a></li>
-                        <li class=""><a href="deleted_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"></i> Deleted Account</a></li>
-                        <li class=""><a href="archived_accounts.php" onclick="return confirm('Are you sure you want to cancel?')"><i class="fa-solid fa-user-slash"></i> Archived Account</a></li>
-                    </ul>
-                    </div>
-                </div>
                 <div class="container">
                     <?php
                     if (isset($_GET['userID'])) {
@@ -214,6 +194,9 @@
                         <button type="submit" class="btn btn-primary" name="update">Update</button></br></br>
                     </form>
                 </div><br><br><br>
+
+<!------ Author/s: Allan Avila ------>
+<!------ PHP, container and table for viewing a user ------>
                 <?php
             }
         } elseif (isset($_GET['action']) && $_GET['action'] == 'view') {
@@ -262,12 +245,15 @@
             }
         }  
         ?>
+
+<!------ Author/s: Allan Avila and Jemma Niduaza ------>
+<!------ HTML of the top navigation bar ------>
         <div class="topnav">
     <ul class='navbar'>
         <span class="logo-title">
             <li class="logo-image">
                 <a href="#">
-                    <img src="../images/favicon.png" alt="Logo Image">
+                    <img src="../images/slu-logo.png" alt="Logo Image">
                 </a>
             </li>
         </span>
@@ -276,6 +262,9 @@
         </span>
     </ul>
 </div>
+
+<!------ Author/s: Allan Avila and Jemma Niduaza ------>
+<!------ HTML and PHP of the side navigation bar ------>
 <div class="wrapper">
                 <div class="sidebar">
                     <ul>
@@ -315,7 +304,6 @@
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     }
                         } else {
-                            // No rows found
                             echo "No rows found.";
                             }
 
@@ -324,7 +312,9 @@
                                 }
                                 include "CRUD/read.php";
                         ?>
-                        
+
+<!------ Author/s: Allan Avila ------>
+<!------ HTML and PHP of the table of the available users ------>
                              <table class="table table-striped" id="table">
                                 <thead>
                                 <tr>
@@ -363,12 +353,14 @@
                 
             </div>
     </div><br><br>
-
     </div>
 </body>
+
+<!------ Author/s: Jemma Niduaza ------>
+<!------ Footer of the Admin ------>
 <footer class ="footer">
         <div class="footer-image">
-            <img src="images/favicon.png" alt="Singko">
+            <img src="../images/slu-logo.png" alt="Singko">
         </div>
         <h5>&copy;  2023 Singko. All Rights Reserved</h5>
         <div class="footer-right">
