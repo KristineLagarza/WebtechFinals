@@ -121,7 +121,7 @@
                                name="contactNum"
                                value="<?php if(isset($_GET['contactNum']))
                                    echo($_GET['contactNum']); ?>"
-                               placeholder="(Optional)">
+                               placeholder="Enter Contact Number">
                     </div>
                     <hr>
 
@@ -158,7 +158,7 @@
                             </div>
                         <?php } ?>
                         <div class="form-group">
-                            <label for="fname">Username</label>
+                            <label for="username">Username</label>
                             <input type="text" class="form-control" id="updatedUserName" name="updatedUserName" value="<?= isset($row['username']) ? $row['username'] : ''?>" required>
                         </div>
                         <div class="form-group">
@@ -175,19 +175,19 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="<?= isset($row['email']) ? htmlspecialchars($row['email']) : '' ?>">
+                            <input type="email" class="form-control" id="email" name="email" value="<?= isset($row['email']) ? htmlspecialchars($row['email']) : '' ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" value="<?= isset($row['']) ? $row[''] : '' ?>">
+                            <input type="password" class="form-control" id="password" name="password" value="<?= isset($row['']) ? $row[''] : '' ?>" placeholder="Enter Password">
                         </div>
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" value="<?= isset($row['address']) ? $row['address'] : '' ?>">
+                            <input type="text" class="form-control" id="address" name="address" value="<?= isset($row['address']) ? $row['address'] : '' ?>" placeholder="Enter Address">
                         </div>
                         <div class="form-group">
                             <label for="contactNum">Contact Number</label>
-                            <input type="text" class="form-control" id="contactNum" name="contactNum" value="<?= isset($row['contactNum']) ? $row['contactNum'] : '' ?>">
+                            <input type="text" class="form-control" id="contactNum" name="contactNum" value="<?= isset($row['contactNum']) ? $row['contactNum'] : '' ?>" required  placeholder="Enter Contact Number">
                         </div>
                         <input type="text" name="userID" value="<?=$row['userID']?>" hidden>
                         <button href="../admin/accounts_view.php" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel update?')" name="cancel">Cancel</button></br></br>

@@ -17,7 +17,7 @@ if (isset($_POST['create'])) {
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
     $address = isset($_POST['address']) ? validate($_POST['address']) : null;
-    $contactNum = isset($_POST['contactNum']) ? validate($_POST['contactNum']) : null;
+    $contactNum = !empty($_POST['contactNum']) ? validate($_POST['contactNum']) : null;
 
     $user_data = 'fname=' . $fname . '&lname=' . $lname . '&type=' . $usertype . '&email=' . $email . '&username=' . $username . '';
 
