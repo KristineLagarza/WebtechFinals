@@ -25,8 +25,8 @@ if (isset($_POST['update'])) {
     include "read.php";
 
     $username = validate($_POST['updatedUserName']);
-    $fname = validate($_POST['updatedFirstName']);
-    $lname = validate($_POST['lname']);
+    $fName = validate($_POST['updatedFirstName']);
+    $lName = validate($_POST['lname']);
     $usertype = validate($_POST['type']);
     $email = validate($_POST['email']);
     $password = validate($_POST['password']);
@@ -47,8 +47,8 @@ if (isset($_POST['update'])) {
 
     // Compare the new data with the current data
     if (
-        $fname == $currentData['fname'] &&
-        $lname == $currentData['lname'] &&
+        $fName == $currentData['fName'] &&
+        $lName == $currentData['lName'] &&
         $email == $currentData['email'] &&
         $password == $currentData['password'] &&
         $address == $currentData['address'] &&
@@ -64,56 +64,54 @@ if (isset($_POST['update'])) {
     if (!empty($username)) {
         $sql .= " username='$username',";
     }
-    
-    if (!empty($fname)) {
-        $sql .= " fname='$fname',";
+
+    if (!empty($fName)) {
+        $sql .= " fName='$fName',";
     }
-    
-    if (!empty($lname)) {
-        $sql .= " lname='$lname',";
+
+    if (!empty($lName)) {
+        $sql .= " lName='$lName',";
     }
-    
+
     if (!empty($email)) {
-        $sql .= " email='$email',";
+        $sql .= " email='$newEmail',"; 
     }
-    
+
     if (!empty($address)) {
         $sql .= " address='$address',";
     }
-    
+
     if (!empty($contactNum)) {
         $sql .= " contactNum='$contactNum',";
     }
-    
+
     // Remove the trailing comma and complete the query
     $sql = rtrim($sql, ',');
     $sql .= " WHERE UserID=$id";
-    
-    
-    
+
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
         // Update admin table
         $sqlAdmin = "UPDATE admin SET
-                    fName = '$fname',
-                    lName = '$lname',
-                    email = '$email',
+                    fName = '$fName',
+                    lName = '$lName',
+                    email = '$newEmail', 
                     address = '$address',
                     contactNum = '$contactNum'
                     WHERE UserID=$id";
         $resultAdmin = mysqli_query($conn, $sqlAdmin);
-    
+
         // Update content_manager table
         $sqlContentManager = "UPDATE content_manager SET
-                    fName = '$fname',
-                    lName = '$lname',
-                    email = '$email',
+                    fName = '$fName',
+                    lName = '$lName',
+                    email = '$newEmail', 
                     address = '$address',
                     contactNum = '$contactNum'
                     WHERE UserID=$id";
         $resultContentManager = mysqli_query($conn, $sqlContentManager);
-    
+
         if ($resultAdmin && $resultContentManager) {
             header("Location: ../accounts_view.php?id=$id&success=Successfully Updated");
             exit();

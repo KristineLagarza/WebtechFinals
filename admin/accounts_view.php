@@ -175,7 +175,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="<?= isset($row['email']) ? $row['email'] : '' ?>">
+                            <input type="email" class="form-control" id="email" name="email" value="<?= isset($row['email']) ? htmlspecialchars($row['email']) : '' ?>">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
@@ -332,14 +332,14 @@
                                 foreach ($data as $row) {
                                     $i++;
                                     ?>
-                                    <tr>
-                                        <th scope="row"><?= $i ?></th>
-                                        <td><?= $row['username'] ?></td>
-                                        <td><?= $row['lname'] ?></td>
-                                        <td><?= $row['fname'] ?></td>
-                                        <td><?= $row['type'] ?></td>
-                                        <td><?= $row['status']?></td>
-                                        <td>
+                                <tr>
+                                    <th scope="row"><?= $i ?></th>
+                                    <td><?= htmlspecialchars($row['username']) ?></td>
+                                    <td><?= htmlspecialchars($row['lname']) ?></td>
+                                    <td><?= htmlspecialchars($row['fname']) ?></td>
+                                    <td><?= htmlspecialchars($row['type']) ?></td>
+                                    <td><?= htmlspecialchars($row['status']) ?></td>
+                                <td>
                                             <a href="accounts_view.php?action=view&id=<?= $row['userID'] ?>" class="btn btn-success"><i class="fa-solid fa-id-card"></i> View Profile</a>
                                             <a href="accounts_view.php?action=update-user&id=<?= $row['userID'] ?>" class="btn btn-info"><i class="fa-solid fa-user-pen"></i> Update Info</a>
                                             <a href="CRUD/delete.php?id=<?= $row['userID'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')"><i class="fa-solid fa-user-xmark"></i> Delete User</a>
