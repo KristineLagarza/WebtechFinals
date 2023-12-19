@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>View</title>
 </head>
@@ -50,8 +50,9 @@ if ($result->num_rows > 0) {
             allowfullscreen>
             </iframe>
         </div>
+        </div>
+        <?php include('./footer/footer.php') ?>
     </div>
-    <?php include('./footer/footer.php') ?>
     <script>
         var video = document.getElementById("myVideo");
         var muteButton = document.getElementById("muteButton");

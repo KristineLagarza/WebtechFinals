@@ -159,6 +159,74 @@ body .notification {
     transform: translate(-50%, -50%);
 }
 
+/*-------------------------- LIVE -----------------------------*/
+/*Author/s: Odeneil Belen*/
+/*CSS for the Live Steam*/
+/* from Owncast */
+.live iframe {
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 100px;
+}
+
+
+.live iframe[title="Owncast"] {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+
+.live iframe[title="Owncast"] body {
+    margin: 0;
+    padding: 10px;
+}
+
+/*---------------------------------- FOOTER -------------------------------------*/
+/*Author/s: Jemma Niduaza*/
+/*CSS for the footer*/
+footer {
+    background-color: #D9EDFF;
+    padding: 50px 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-image {
+    display: inherit;
+}
+
+.footer-image img {
+    width: 100%;
+    height: 100px;
+    padding-right: 10px;
+}
+
+footer h5 {
+    color: black;
+    font-size: 14px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    padding-right: 20px;
+}
+
+.footer-right {
+    border-left: 5px solid black;
+    height: 100px;
+    padding-left: 20px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-right h6 {
+    font-size: 12px;
+}
+
 /* Desktop screens (large screens) */
 @media screen and (min-width: 1200px) {
     .containerlogin {

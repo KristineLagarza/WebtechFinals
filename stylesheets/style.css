@@ -259,29 +259,3 @@ footer h5 {
         text-align: center;
     }
 }
-
-/*-------------------------- LIVE -----------------------------*/
-/*Author/s: Odeneil Belen*/
-/*CSS for the Live Steam*/
-/* from Owncast */
-.live iframe {
-    border: none;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-    margin: 0 auto;
-}
-
-
-.live iframe[title="Owncast"] {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px;
-}
-
-
-.live iframe[title="Owncast"] body {
-    margin: 0;
-    padding: 10px;
-}
