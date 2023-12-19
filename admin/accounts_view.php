@@ -12,7 +12,6 @@
     if ($_SESSION['Type'] !== 'admin') {
         session_destroy();
     }
-    
 ?>
 
 <!------ Author/s: Allan Avila and Jemma Niduaza ------>
@@ -47,82 +46,81 @@
                     <div class="form-group">
                         <label for="First Name">First Name</label>
                         <input type="text"
-                               class="form-control"
-                               id="fname"
-                               name="fname"
-                               value="<?php if(isset($_GET['fname']))
-                                   echo($_GET['fname']); ?>"
-                               placeholder="Enter first name" required>
+                            class="form-control"
+                            id="fname"
+                            name="fname"
+                            value="<?php echo isset($_GET['fname']) ? htmlspecialchars(strip_tags($_GET['fname']), ENT_QUOTES, 'UTF-8') : ''; ?>"
+                            placeholder="Enter first name" required>
                     </div>
                     <div class="form-group">
                         <label for="Last Name">Last Name</label>
                         <input type="text"
-                               class="form-control"
-                               id="lname"
-                               name="lname"
-                               value="<?php if(isset($_GET['lname']))
-                                   echo($_GET['lname']); ?>"
-                               placeholder="Enter last name" required>
+                            class="form-control"
+                            id="lname"
+                            name="lname"
+                            value="<?php if(isset($_GET['lname'])) echo htmlspecialchars($_GET['lname'], ENT_QUOTES, 'UTF-8'); ?>"
+                            placeholder="Enter last name" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="usertype">User Type</label></br>
+                        <label for="usertype">User Type</label><br>
                         <select name="type" class="form-box" required>
-                            <option value="">Select User Type</option>
-                            <option value="admin">Admin</option>
-                            <option value="content_manager">Content Manager</option>
+                        <option value="" <?php if(!isset($_GET['type']) || empty($_GET['type'])) echo 'selected'; ?>>Select User Type</option>
+                        <option value="admin" <?php if(isset($_GET['type']) && $_GET['type'] === 'admin') echo 'selected'; ?>>Admin</option>
+                        <option value="content_manager" <?php if(isset($_GET['type']) && $_GET['type'] === 'content_manager') echo 'selected'; ?>>Content Manager</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email"
-                               class="form-control"
-                               id="email"
-                               name="email"
-                               value="<?php if(isset($_GET['email']))
-                                   echo($_GET['email']); ?>"
-                               placeholder="Enter Email Address" required>
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            value="<?php if(isset($_GET['email'])) echo htmlspecialchars($_GET['email'], ENT_QUOTES, 'UTF-8'); ?>"
+                            placeholder="Enter Email Address" required>
                     </div>
                     <div class="form-group">
                         <label for="Username">Username</label>
                         <input type="text"
-                               class="form-control"
-                               id="username"
-                               name="username"
-                               value="<?php if(isset($_GET['username']))
-                                   echo($_GET['username']); ?>"
-                               placeholder="Add Username" required>
+                            class="form-control"
+                            id="username"
+                            name="username"
+                            value="<?php if(isset($_GET['username'])) echo htmlspecialchars($_GET['username'], ENT_QUOTES, 'UTF-8'); ?>"
+                            placeholder="Add Username" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="Password">Password</label>
-                        <input type="password"
-                               class="form-control"
-                               id="name"
-                               name="password"
-                               value="<?php if(isset($_GET['password'])) echo($_GET['password']); ?>"
-                               placeholder="Create password"
-                               required
-                               autocomplete="off">
+                    <label for="Password">Password</label>
+                    <input type="password"
+                        class="form-control"
+                        id="name"
+                        name="password"
+                        value="<?php if(isset($_GET['password'])) echo htmlspecialchars($_GET['password'], ENT_QUOTES, 'UTF-8'); ?>"
+                        placeholder="Create password"
+                        required
+                        autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
                         <input type="text"
-                               class="form-control"
-                               id="address"
-                               name="address"
-                               value="<?php if(isset($_GET['address']))
-                                   echo($_GET['address']); ?>"
-                               placeholder="(Optional)">
+                            class="form-control"
+                            id="address"
+                            name="address"
+                            value="<?php if(isset($_GET['address'])) echo htmlspecialchars($_GET['address'], ENT_QUOTES, 'UTF-8'); ?>"
+                            placeholder="(Optional)">
                     </div>
+
                     <div class="form-group">
                         <label for="contactNum">Contact Number</label>
                         <input type="text"
-                               class="form-control"
-                               id="contactNum"
-                               name="contactNum"
-                               value="<?php if(isset($_GET['contactNum']))
-                                   echo($_GET['contactNum']); ?>"
-                               placeholder="Enter Contact Number">
+                            class="form-control"
+                            id="contactNum"
+                            name="contactNum"
+                            value="<?php if(isset($_GET['contactNum'])) echo htmlspecialchars($_GET['contactNum'], ENT_QUOTES, 'UTF-8'); ?>"
+                            placeholder="Enter Contact Number">
                     </div>
+
                     <hr>
 
 <!------ Author/s: Allan Avila ------>
@@ -159,36 +157,47 @@
                         <?php } ?>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="updatedUserName" name="updatedUserName" value="<?= isset($row['username']) ? $row['username'] : ''?>" required>
+                            <<input type="text" class="form-control" id="updatedUserName" name="updatedUserName" value="<?= isset($row['username']) ? htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') : ''?>" required>
                         </div>
                         <div class="form-group">
                             <label for="fname">First name</label>
-                            <input type="text" class="form-control" id="updatedFirstName" name="updatedFirstName" value="<?= isset($row['fname']) ? $row['fname'] : ''?>" required>
+                            <input type="text" class="form-control" id="updatedFirstName" name="updatedFirstName" value="<?= isset($row['fname']) ? htmlspecialchars($row['fname'], ENT_QUOTES, 'UTF-8') : ''?>" required>
+
                         </div>
                         <div class="form-group">
                             <label for="lname">Last name</label>
-                            <input type="text" class="form-control" id="lname" name="lname" value="<?= isset($row['lname']) ? $row['lname'] : '' ?>">
+                            <input type="text" class="form-control" id="lname" name="lname" value="<?= isset($row['lname']) ? htmlspecialchars($row['lname'], ENT_QUOTES, 'UTF-8') : '' ?>">
                         </div>
                         <div class="form-group">
                             <label for="type">User Type</label><br>
-                            <input type="text" class="form-control" id="type" name="type" value="<?= isset($row['type']) ? $row['type'] : '' ?>" readonly>
+                            <input type="text" class="form-control" id="type" name="type" value="<?= isset($row['type']) ? htmlspecialchars($row['type'], ENT_QUOTES, 'UTF-8') : '' ?>" readonly>
+
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="<?= isset($row['email']) ? htmlspecialchars($row['email']) : '' ?>" readonly>
+                            <input type="email" class="form-control" id="email" name="email" value="<?= isset($row['email']) ? htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') : '' ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" value="<?= isset($row['']) ? $row[''] : '' ?>" placeholder="Enter Password">
+                            <input type="password" class="form-control" id="password" name="password" value="" placeholder="Enter Password">
                         </div>
+
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" value="<?= isset($row['address']) ? $row['address'] : '' ?>" placeholder="Enter Address">
+                            <input type="text" class="form-control" id="address" name="address" value="<?= isset($row['address']) ? htmlspecialchars($row['address'], ENT_QUOTES, 'UTF-8') : '' ?>" placeholder="Enter Address">
                         </div>
+
                         <div class="form-group">
                             <label for="contactNum">Contact Number</label>
-                            <input type="text" class="form-control" id="contactNum" name="contactNum" value="<?= isset($row['contactNum']) ? $row['contactNum'] : '' ?>" required  placeholder="Enter Contact Number">
+                            <input type="text"
+                                class="form-control"
+                                id="contactNum"
+                                name="contactNum"
+                                value="<?= isset($row['contactNum']) ? htmlspecialchars($row['contactNum'], ENT_QUOTES, 'UTF-8') : '' ?>"
+                                required
+                                placeholder="Enter Contact Number">
                         </div>
+
                         <input type="text" name="userID" value="<?=$row['userID']?>" hidden>
                         <button href="../admin/accounts_view.php" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel update?')" name="cancel">Cancel</button></br></br>
                         <button type="submit" class="btn btn-primary" name="update">Update</button></br></br>

@@ -1,5 +1,6 @@
 <?php
 require_once("../connection_db.php");
+/*Author: Marc Marron*/ 
 
 
 if (!$conn) {
@@ -16,7 +17,6 @@ if ($conn === null) {
     die("Connection not established.");
 }
 
-// Execute both queries
 if ($conn->query($deleteContentManagerQuery) === TRUE 
 && $conn->query($deleteAdminQuery) === TRUE
 && $conn->query($deleteUserQuery) === TRUE) {

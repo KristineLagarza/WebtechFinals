@@ -1,8 +1,7 @@
 <?php
 global $conn;
 include "../connection_db.php";
-
-// Combine all queries using UNION
+// Author: Marc Marron
 $sql = "(
     SELECT
         'content_manager' AS type,
@@ -34,17 +33,15 @@ ORDER BY lname";
 
 $result = mysqli_query($conn, $sql);
 
-$data = array(); // Initialize an array to store the data
+$data = array();
 
 if (!$result) {
-    // Query execution failed, handle the error
     echo "Error: " . mysqli_error($conn);
 } else {
-    // Query executed successfully
     $num_rows = mysqli_num_rows($result);
 
     if ($num_rows > 0) {
-        // Process and store the results in the data array
+        
         while ($row = mysqli_fetch_assoc($result)) {
             $data[] = $row;
         }

@@ -2,12 +2,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 global $conn;
-
-function validate($data)
-{
+/*Author: Marc Marron*/ 
+function validate($data) {
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+
+    if (!mb_detect_encoding($data, 'UTF-8', true)) {
+        $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    }
+
     return $data;
 }
 
@@ -46,7 +49,6 @@ if (isset($_POST['update'])) {
 
     $currentData = mysqli_fetch_assoc($resultFetch);
 
-    // Compare the new data with the current data
     if (
         $fName == $currentData['fName'] &&
         $lName == $currentData['lName'] &&
@@ -69,7 +71,6 @@ if (isset($_POST['update'])) {
                 contactNum = '$contactNum'
                 WHERE UserID=$id";
 
-        // Update content_manager table
         $sqlContentManager = "UPDATE content_manager SET
                     fName = '$fName',
                     lName = '$lName', 
@@ -78,7 +79,6 @@ if (isset($_POST['update'])) {
                     WHERE UserID=$id";
         $resultContentManager = mysqli_query($conn, $sqlContentManager);
 
-        // Update admin table
         $sqlAdmin = "UPDATE admin SET
                 fName = '$fName',
                 lName = '$lName',
