@@ -157,7 +157,7 @@
                         <?php } ?>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <<input type="text" class="form-control" id="updatedUserName" name="updatedUserName" value="<?= isset($row['username']) ? htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') : ''?>" required>
+                            <input type="text" class="form-control" id="updatedUserName" name="updatedUserName" value="<?= isset($row['username']) ? htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') : ''?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="fname">First name</label>
