@@ -1,4 +1,5 @@
 <?php
+// Author: Marc Marron
     global $conn, $result;
     include "./connection_db.php"; // Adjust the path if needed
 

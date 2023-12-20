@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 global $conn;
-/*Author: Marc Marron*/ 
+/*Author: Allan Avila & Marc Marron*/ 
 function validate($data) {
     $data = trim($data);
     $data = stripslashes($data);

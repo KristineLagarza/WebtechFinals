@@ -1,7 +1,7 @@
 <?php
 global $conn;
 include "../connection_db.php";
-// Author: Marc Marron
+// Author: Allan Avila
 $sql = "(
     SELECT
         'content_manager' AS type,

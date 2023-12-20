@@ -1,6 +1,6 @@
 <?php
 require_once("../connection_db.php");
-/*Author: Marc Marron*/ 
+/*Author: Allan Avila*/ 
 
 
 if (!$conn) {
