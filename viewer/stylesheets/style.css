@@ -161,7 +161,22 @@ body .notification {
 
 /*-------------------------- LIVE -----------------------------*/
 /*Author/s: Odeneil Belen*/
-/*CSS for the Live Steam*/
+/*CSS for the Live Stream*/
+
+.live-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.live {
+    margin-top: 50px;
+    width: 100%; 
+    max-width: 1280px; 
+    margin: 0 auto;
+}
+
 /* from Owncast */
 .live iframe {
     border: none;

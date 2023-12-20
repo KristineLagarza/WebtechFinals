@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
 </head>
 
 <body>
-    <div class="video-container">
+    <div class="video-container" id="video-container">
         <div class="video">
             <?php
             if ($data) {
@@ -38,22 +38,65 @@ if ($result->num_rows > 0) {
             </video>';
             }
             ?>
-
+            </div>
         </div>
-        <div class="live">
-            <!-- change 'ipaddress:port' to their actual ipaddress and port number-->
-            <iframe
-            src="http://ipaddress.port/embed/video"
-            title="Owncast"
-            height="350px" width="550px"
-            referrerpolicy="origin"
-            allowfullscreen>
-            </iframe>
-        </div>
-        </div>
-        <?php include('./footer/footer.php') ?>
+    <div id="live-container" class="live-container" >
+        <div class="live"></div>
     </div>
+    <button id="toggleContainer" class="btn btn-info text-black">Go to LIVE</button>
+    <?php include('./footer/footer.php') ?>
+    
     <script>
+        var liveContainer = document.getElementById("live-container");
+        var videoContainer = document.getElementById("video-container");
+        var toggleButton = document.getElementById("toggleContainer");
+
+        liveContainer.style.display = "none";
+
+        toggleButton.addEventListener("click", function() {
+
+            if (liveContainer.style.display === "none" || liveContainer.style.display === "") {
+                liveContainer.style.display = "block";
+                videoContainer.style.display = "none";
+                toggleButton.textContent = "Back";
+                video.muted = true;
+
+                addIframe();
+            } else {
+                video.muted = false;
+                liveContainer.style.display = "none";
+                videoContainer.style.display = "block"
+                toggleButton.textContent = "Go to LIVE";
+
+                removeIframe();
+            }
+        });
+
+        function addIframe() {
+            var container = document.getElementById('live-container');
+
+            var iframe = document.createElement('iframe');
+            iframe.id = 'liveVideo';
+            // change 'ipaddress:port' to their actual ipaddress and port number
+            iframe.src = 'http://ipaddress:port/embed/video';
+            iframe.title = 'Owncast';
+            iframe.height = '720px';
+            iframe.width = '1280px';
+            iframe.referrerpolicy = 'origin';
+            iframe.allowfullscreen = true;
+
+            container.appendChild(iframe);
+        }
+
+        function removeIframe() {
+            var iframe = document.getElementById('liveVideo');
+
+            if (iframe) {
+                var parent = iframe.parentNode;
+                parent.removeChild(iframe);
+            }
+        }
+
         var video = document.getElementById("myVideo");
         var muteButton = document.getElementById("muteButton");
 
@@ -68,5 +111,4 @@ if ($result->num_rows > 0) {
         });
     </script>
 </body>
-
 </html>
