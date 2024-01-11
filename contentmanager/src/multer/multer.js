@@ -28,7 +28,7 @@ let fileFilter = function (req, file, cb) {
 // Maximum file size is set to 50MB (adjust as needed)
 const uploadMulter = multer({
   storage: storage,
-  limits: { fileSize: 50 * 1024 * 1024 }, // 50MB limit for each file
+  limits: { fileSize: 150 * 1024 * 1024 }, // 150MB limit for each file
   fileFilter: fileFilter,
 }).array("files", 5); // Accepts up to 5 files, change as needed
 

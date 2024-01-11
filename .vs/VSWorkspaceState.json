@@ -1,13 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\admin",
     "\\contentmanager",
     "\\contentmanager\\public",
     "\\contentmanager\\public\\stylesheets",
+    "\\contentmanager\\routes",
     "\\contentmanager\\uploads",
     "\\contentmanager\\views",
     "\\viewer"
   ],
-  "SelectedNode": "\\contentmanager\\views\\upload.ejs",
+  "SelectedNode": "\\viewer\\baseURL.php",
   "PreviewInSolutionExplorer": false
 }

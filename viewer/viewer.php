@@ -6,11 +6,12 @@ $query = "SELECT content.ContentID, content.Title, content.Description, content.
 $result = $conn->query($query);
 $data = array();
 if ($result->num_rows > 0) {
-    
+
     while ($row = $result->fetch_assoc()) {
         array_push($data, $row);
     }
 }
+$jsonData = json_encode($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,15 +39,16 @@ if ($result->num_rows > 0) {
             </video>';
             }
             ?>
-            </div>
         </div>
-    <div id="live-container" class="live-container" >
+    </div>
+    <div id="live-container" class="live-container">
         <div class="live"></div>
     </div>
     <button id="toggleContainer" class="btn btn-info text-black">Go to LIVE</button>
     <?php include('./footer/footer.php') ?>
-    
+
     <script>
+        var videos = <?php echo $jsonData; ?>;
         var liveContainer = document.getElementById("live-container");
         var videoContainer = document.getElementById("video-container");
         var toggleButton = document.getElementById("toggleContainer");
@@ -101,14 +103,38 @@ if ($result->num_rows > 0) {
         var muteButton = document.getElementById("muteButton");
 
         muteButton.addEventListener("click", function() {
-            if (video.muted) {
+            try {
+                if (video.muted) {
+                    video.muted = false;
+                    muteButton.textContent = "Mute";
+                } else {
+                    video.muted = true;
+                    muteButton.textContent = "Unmute";
+                }
+            } catch (ex) {
                 video.muted = false;
                 muteButton.textContent = "Mute";
-            } else {
-                video.muted = true;
-                muteButton.textContent = "Unmute";
             }
         });
+
+        // var video = document.getElementById('myVideo');
+        video.addEventListener('canplaythrough', function() {
+            setTimeout(function() {
+                video.play()
+                    .then(() => {
+
+                    })
+                    .catch(error => {
+                        // Handle any errors that occurred during playback
+                        console.error('Error playing the video:', error);
+                    });
+            }, 10);
+        });
+
+        // setTimeout(function() {
+        //     muteButton.click();
+        // }, 10000);
     </script>
 </body>
+
 </html>

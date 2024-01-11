@@ -15,11 +15,11 @@ router.get("/", function (request, response, next) {
             response.setHeader("Expires", "0");
 
             // Redirect to index page
-            response.redirect("/index"); // Replace "/index" with your index route
+            response.redirect("/"); // Replace "/index" with your index route
         });
     } else {
         // If no session, redirect to index page
-        response.redirect("/index"); // Replace "/index" with your index route
+        response.redirect("/"); // Replace "/index" with your index route
     }
 });
 
