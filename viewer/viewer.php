@@ -1,18 +1,3 @@
-<?php
-require 'baseURL.php';
-require 'connect.php';
-
-$query = "SELECT content.ContentID, content.Title, content.Description, content.Type, content.`status`, duration.`from`, duration.`to`, history.fileName FROM content INNER JOIN duration ON content.durationID = duration.durationID INNER JOIN history ON content.historyID = history.historyID WHERE TIME(duration.from) <= TIME(NOW()) AND TIME(duration.to) >= TIME(NOW())";
-$result = $conn->query($query);
-$data = array();
-if ($result->num_rows > 0) {
-
-    while ($row = $result->fetch_assoc()) {
-        array_push($data, $row);
-    }
-}
-$jsonData = json_encode($data);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +7,33 @@ $jsonData = json_encode($data);
     <link rel="stylesheet" href="stylesheets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>View</title>
+
+    <script>
+        // Disables screenshot using the PrintScreen and F12 key 
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert("Screenshot is disabled.");
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'PrintScreen' || e.key === 'F12') {
+                e.preventDefault();
+                alert("Screenshot is disabled.");
+            }
+        });
+
+        window.addEventListener('keyup', function (e) {
+            if (e.key === 'PrintScreen' || e.key === 'F12') {
+                e.preventDefault();
+                alert("Screenshot is disabled.");
+            }
+        });
+
+        window.onbeforeprint = function () {
+            alert("Printing is disabled.");
+            return false; // Returning false is not guaranteed to prevent printing on all browsers.
+        };
+    </script>
 </head>
 
 <body>
@@ -41,10 +53,13 @@ $jsonData = json_encode($data);
             ?>
         </div>
     </div>
+
     <div id="live-container" class="live-container">
         <div class="live"></div>
     </div>
+
     <button id="toggleContainer" class="btn btn-info text-black">Go to LIVE</button>
+
     <?php include('./footer/footer.php') ?>
 
     <script>
@@ -55,7 +70,7 @@ $jsonData = json_encode($data);
 
         liveContainer.style.display = "none";
 
-        toggleButton.addEventListener("click", function() {
+        toggleButton.addEventListener("click", function () {
 
             if (liveContainer.style.display === "none" || liveContainer.style.display === "") {
                 liveContainer.style.display = "block";
@@ -102,7 +117,7 @@ $jsonData = json_encode($data);
         var video = document.getElementById("myVideo");
         var muteButton = document.getElementById("muteButton");
 
-        muteButton.addEventListener("click", function() {
+        muteButton.addEventListener("click", function () {
             try {
                 if (video.muted) {
                     video.muted = false;
@@ -117,9 +132,8 @@ $jsonData = json_encode($data);
             }
         });
 
-        // var video = document.getElementById('myVideo');
-        video.addEventListener('canplaythrough', function() {
-            setTimeout(function() {
+        video.addEventListener('canplaythrough', function () {
+            setTimeout(function () {
                 video.play()
                     .then(() => {
 
@@ -130,10 +144,6 @@ $jsonData = json_encode($data);
                     });
             }, 10);
         });
-
-        // setTimeout(function() {
-        //     muteButton.click();
-        // }, 10000);
     </script>
 </body>
 
