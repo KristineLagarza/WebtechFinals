@@ -1,15 +1,20 @@
 <?php
-// Author: Marc Marron
-    global $conn, $result;
-    include "./connection_db.php"; // Adjust the path if needed
+// Author: Allan Avila & Marc Marron
+global $conn, $result;
+include "../connection_db.php"; 
 
-    // Check if a user ID is provided in the URL
-    if (isset($_GET['id'])) {
-        $username = $_SESSION['username'];
+session_start(); 
 
-        // Query to fetch user information based on the user's userID
-        $sql = "
-        SELECT
+if (isset($_GET['id'])) {
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../login_users.php");
+        exit();
+    }
+
+    $username = $_SESSION['username'];
+
+    $sql = "
+    SELECT
         'Admin' AS type,
         a.userID,
         u.username,
@@ -18,25 +23,26 @@
         a.email,
         a.address,
         a.contactNum
-        FROM admin a
-        INNER JOIN users u ON a.userID = u.userID
-        WHERE u.username = $username";
-        $result = mysqli_query($conn, $sql);
+    FROM admin a
+    INNER JOIN user u ON a.userID = u.userID
+    WHERE u.username = '$username'"; 
 
-        $data = array(); // Initialize an array to store the data
+    $result = mysqli_query($conn, $sql);
 
-        if (!$result) {
-            die("Error: " . mysqli_error($conn));
-        }
+    $data = array(); 
 
-        // Check if the user exists
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_assoc($result);
-            // You can access user information like $row['userID'], $row['adID'], etc.
-        } else {
-            // User not found, handle it as needed
-            echo "User not found.";
-            exit();
-        }
+    if (!$result) {
+        die("Error: " . mysqli_error($conn));
     }
+
+    // Check if the user exists
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        // You can access user information like $row['userID'], $row['adID'], etc.
+    } else {
+        // User not found, handle it as needed
+        echo "User not found.";
+        exit();
+    }
+}
 ?>

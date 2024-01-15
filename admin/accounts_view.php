@@ -301,7 +301,16 @@
                             </div>
                         <?php } ?>
                         <?php
-                         $result = mysqli_query($conn, "SELECT * FROM user");
+                        if (isset($_GET['username'])) {
+    
+                        $username = $_GET['username'];
+
+                        $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
+    
+                        if ($stmt) {
+                        $stmt->bind_param("s", $username);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
 
                         if ($result === false) {
                                  // Handle the error, you can print the error message or log it
@@ -320,6 +329,16 @@
                             mysqli_free_result($result);
                                 }
                                 include "CRUD/read.php";
+
+                                $stmt->close();
+                            } else {
+
+                                echo "Error: " . mysqli_error($conn);
+                            }
+                        } else {
+
+                            echo "Username is not set in the URL.";
+                        }
                         ?>
 
 <!------ Author/s: Allan Avila ------>
@@ -348,12 +367,14 @@
                                     <td><?= htmlspecialchars($row['fname']) ?></td>
                                     <td><?= htmlspecialchars($row['type']) ?></td>
                                     <td><?= htmlspecialchars($row['status']) ?></td>
-                                <td>
-                                            <a href="accounts_view.php?action=view&id=<?= $row['userID'] ?>" class="btn btn-success"><i class="fa-solid fa-id-card"></i> View Profile</a>
-                                            <a href="accounts_view.php?action=update-user&id=<?= $row['userID'] ?>" class="btn btn-info"><i class="fa-solid fa-user-pen"></i> Update Info</a>
-                                            <a href="CRUD/delete.php?id=<?= $row['userID'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')"><i class="fa-solid fa-user-xmark"></i> Delete User</a>
-                                        </td>
-                                    </tr>
+                                    <td>
+                                <a href="accounts_view.php?action=view&id=<?= $row['userID'] ?>" class="btn btn-success"><i class="fa-solid fa-id-card"></i> View Profile</a>
+                                <a href="accounts_view.php?action=update-user&id=<?= $row['userID'] ?>" class="btn btn-info"><i class="fa-solid fa-user-pen"></i> Update Info</a>
+                                <a href="CRUD/delete.php?id=<?= $row['userID'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')"><i class="fa-solid fa-user-xmark"></i> Delete User</a>
+                                <?php if ($row['status'] === 'Active') { ?>
+                                <a href="CRUD/deactivate.php?id=<?= $row['userID'] ?>" class="btn btn-warning" onclick="return confirm('Are you sure you want to deactivate this user?')">Deactivate User</a> <!-- Added Deactivate User button -->
+                                <?php } ?>
+                                </tr>
                                 <?php } ?>
                                 </tbody>
                             </table>
