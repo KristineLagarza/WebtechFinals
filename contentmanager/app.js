@@ -13,6 +13,7 @@ var recordRouter = require("./routes/record");
 var uploadRouter = require("./routes/upload");
 var arrangementRouter = require("./routes/arrangement");
 var durationRouter = require("./routes/duration");
+var videoLogRouter = require("./routes/logs");
 const logoutRouter = require("./routes/logout");
 const playVideoRouter = require("./routes/playVideo");
 const crypto = require("crypto");
@@ -20,6 +21,7 @@ const generateSecretKey = () => {
   return crypto.randomBytes(32).toString("hex");
 };
 const secretKey = generateSecretKey();
+const cors = require('cors');
 
 // const { v4: uuidv4 } = require("uuid");
 var app = express();
@@ -34,8 +36,8 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 60 * 60 * 1000 // 30 minutes
-      },
+      maxAge: 60 * 60 * 1000, // 30 minutes
+    },
   })
 );
 
@@ -44,7 +46,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(cors());
 app.use("/", indexRouter);
 app.use("/login", indexRouter);
 app.use("/users", usersRouter);
@@ -57,6 +59,8 @@ app.use("/arrangement", arrangementRouter);
 app.use("/duration", durationRouter);
 app.use("/logout", logoutRouter);
 app.use("/playVideo", playVideoRouter);
+app.use("/logs", videoLogRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
