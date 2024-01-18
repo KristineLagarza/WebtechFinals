@@ -26,6 +26,10 @@ if (isset($_POST['username'])) {
             exit(); 
         }
     }
+    if ($row['status'] === 'Inactive') {
+        header("Location: login_users?id=$Username&error=Inactive Account");
+        exit();
+    }
 
     $st->close();
 

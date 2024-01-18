@@ -279,6 +279,7 @@
                     <ul>
                         <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
+                        <li><a href="deactivated_users.php"><i class="fas-solid fa-user-plus"></i> Deactivated Users</a></li>
                     </ul>
                 </div>
             </div>
@@ -351,6 +352,7 @@
                                     <th scope="col">Last Name</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Level</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
