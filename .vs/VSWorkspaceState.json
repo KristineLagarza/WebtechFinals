@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\admin",
-    "\\contentmanager",
-    "\\contentmanager\\public",
-    "\\contentmanager\\public\\stylesheets",
-    "\\contentmanager\\routes",
-    "\\contentmanager\\uploads",
-    "\\contentmanager\\views",
     "\\viewer"
   ],
-  "SelectedNode": "\\viewer\\baseURL.php",
+  "SelectedNode": "\\contentmanager",
   "PreviewInSolutionExplorer": false
 }

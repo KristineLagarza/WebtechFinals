@@ -1,3 +1,18 @@
+<?php
+require 'baseURL.php';
+require 'connect.php';
+
+$query = "SELECT content.ContentID, content.Title, content.Description, content.Type, content.`status`, duration.`from`, duration.`to`, history.fileName FROM content INNER JOIN duration ON content.durationID = duration.durationID INNER JOIN history ON content.historyID = history.historyID WHERE TIME(duration.from) <= TIME(NOW()) AND TIME(duration.to) >= TIME(NOW())";
+$result = $conn->query($query);
+$data = array();
+if ($result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+        array_push($data, $row);
+    }
+}
+$jsonData = json_encode($data);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,33 +22,6 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>View</title>
-
-    <script>
-        // Disables screenshot using the PrintScreen and F12 key 
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-            alert("Screenshot is disabled.");
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'PrintScreen' || e.key === 'F12') {
-                e.preventDefault();
-                alert("Screenshot is disabled.");
-            }
-        });
-
-        window.addEventListener('keyup', function (e) {
-            if (e.key === 'PrintScreen' || e.key === 'F12') {
-                e.preventDefault();
-                alert("Screenshot is disabled.");
-            }
-        });
-
-        window.onbeforeprint = function () {
-            alert("Printing is disabled.");
-            return false; // Returning false is not guaranteed to prevent printing on all browsers.
-        };
-    </script>
 </head>
 
 <body>
@@ -53,13 +41,10 @@
             ?>
         </div>
     </div>
-
     <div id="live-container" class="live-container">
         <div class="live"></div>
     </div>
-
     <button id="toggleContainer" class="btn btn-info text-black">Go to LIVE</button>
-
     <?php include('./footer/footer.php') ?>
 
     <script>
@@ -70,7 +55,7 @@
 
         liveContainer.style.display = "none";
 
-        toggleButton.addEventListener("click", function () {
+        toggleButton.addEventListener("click", function() {
 
             if (liveContainer.style.display === "none" || liveContainer.style.display === "") {
                 liveContainer.style.display = "block";
@@ -117,7 +102,7 @@
         var video = document.getElementById("myVideo");
         var muteButton = document.getElementById("muteButton");
 
-        muteButton.addEventListener("click", function () {
+        muteButton.addEventListener("click", function() {
             try {
                 if (video.muted) {
                     video.muted = false;
@@ -132,11 +117,33 @@
             }
         });
 
-        video.addEventListener('canplaythrough', function () {
-            setTimeout(function () {
+        // var video = document.getElementById('myVideo');
+        video.addEventListener('canplaythrough', function() {
+            setTimeout(function() {
                 video.play()
                     .then(() => {
-
+                        fetch('http://127.0.0.1:3000/logs/insert', {
+                                method: 'POST', // You can adjust the method based on your server's expectations
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'x-api-key': '52fdecfa-d755-4426-88ee-53c4753e9e44'
+                                },
+                                body: JSON.stringify({
+                                    userID: 0,
+                                    action: 'Viewer visits the page and played a video'
+                                }),
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                // You can add further handling if needed
+                                console.log('Video playback logged successfully');
+                            })
+                            .catch(error => {
+                                // Handle any errors that occurred during the HTTP request
+                                console.error('Error logging video playback:', error);
+                            });
                     })
                     .catch(error => {
                         // Handle any errors that occurred during playback
@@ -144,6 +151,10 @@
                     });
             }, 10);
         });
+
+        // setTimeout(function() {
+        //     muteButton.click();
+        // }, 10000);
     </script>
 </body>
 
