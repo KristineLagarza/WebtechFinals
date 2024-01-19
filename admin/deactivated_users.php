@@ -23,6 +23,20 @@
     <title>Deactivated Users</title>
 </head>
 <body>
+<div class="topnav">
+    <ul class='navbar'>
+        <span class="logo-title">
+            <li class="logo-image">
+                <a href="#">
+                    <img src="../images/slu-logo.png" alt="Logo Image">
+                </a>
+            </li>
+        </span>
+        <span class="menu">
+            <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </span>
+    </ul>
+</div>
     <div id="content-background">
         <?php
         if (isset($_GET['action']) && $_GET['action'] == 'view') {
@@ -34,29 +48,11 @@
                     <ul>
                         <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
-                        <li><a href="accounts_view.php?deactivated_users.php"><i class="fas-solid fa-user-plus"></i> Deactivated Users</a></li>
+                        <li><a href="accounts_view.php?deactivated_users.php"><i class="fa-solid fa-user-xmark"></i> Deactivated Users</a></li>
                     </ul>
                 </div>
             </div>
             </div>
-            <header>
-                <nav>
-                <ul class='navbar'>
-                    <span class="logo-title">
-                    <li class="logo-image">
-                    <a href="#">
-                    <img src="../images/slu-logo.png" alt="Logo Image">
-                    </a>
-                </li>
-                </span>
-                        <input type='checkbox' id='check'/>
-                        <span class="menu">
-                        <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-                        </span>
-                        <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-                    </ul>
-                </nav>
-            </header>
             <div class="container">
                 <div class="box">
                     <br>
@@ -100,28 +96,10 @@
                         <ul>
                         <li class="hover-link"><a href="accounts_view.php"><i class="fas fa-user"></i>Accounts Management</a></li>
                         <li><a href="accounts_view.php?action=add-user"><i class="fa-solid fa-user-plus"></i> Add New User</a></li>
-                        <li><a href="accounts_view.php?deactivated_users.php"><i class="fas-solid fa-user-plus"></i> Deactivated Users</a></li>
+                        <li><a href="accounts_view.php?deactivated_users.php"><i class="fa-solid fa-user-xmark"></i> Deactivated Users</a></li>
                         </ul>
                     </div>
                 </div>
-                <header>
-                    <nav>
-                    <ul class='navbar'>
-                    <span class="logo-title">
-                        <li class="logo-image">
-                    <a href="#">
-                    <img src="../images/slu-logo.png" alt="Logo Image">
-                        </a>
-                    </li>
-                </span>
-                            <input type='checkbox' id='check'/>
-                            <span class="menu">
-                            <li><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-                                </span>
-                            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-                        </ul>
-                    </nav>
-                </header>
                 <div class="container">
                     <div class="box">
                         <div class="document-content">
