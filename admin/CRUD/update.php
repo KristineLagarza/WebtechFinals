@@ -36,7 +36,8 @@ if (isset($_POST['update'])) {
     $id = validate($_POST['userID']);
     $address = validate($_POST['address']);
     $contactNum = !empty($_POST['contactNum']) ? validate($_POST['contactNum']) : null;
-
+    
+  
 
     $sqlFetch = "SELECT * FROM user WHERE userID=$id";
     $resultFetch = mysqli_query($conn, $sqlFetch);
@@ -61,8 +62,13 @@ if (isset($_POST['update'])) {
         exit();
     }
 
-
+    $sql = "UPDATE user SET
+    username = '$username',
+    password = '$password',
+    contactNum = '$contactNum'
+    WHERE UserID=$id";
     $result = mysqli_query($conn, $sql);
+    
 
     if ($result) {  
         $sqluser = "UPDATE user SET
@@ -102,5 +108,7 @@ if (isset($_POST['update'])) {
         header("Location: ../accounts_view.php?action=update-user&id=$id&error=$errorMessage");
         exit();
     }
+    
 }
+
 ?>
