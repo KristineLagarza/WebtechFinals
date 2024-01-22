@@ -33,16 +33,16 @@ router.post("/", (req, res) => {
       req.session.loginSuccess = true;
       req.session.save();
 
-      let uType = data[0].Type;
+      // let uType = data[0].Type;
 
-      if (uType === "content_manager") {
-        saveLogToDB(
-          data[0].UserID,
-          `Content Manager UserID:${data[0].UserID} Logged In`
-        );
-      } else if (uType === "admin") {
-        saveLogToDB(data[0].UserID, "Admin Logged In");
-      }
+      // if (uType === "content_manager") {
+      //   saveLogToDB(
+      //     data[0].UserID,
+      //     `Content Manager UserID:${data[0].UserID} Logged In`
+      //   );
+      // } else if (uType === "admin") {
+      //   saveLogToDB(data[0].UserID, "Admin Logged In");
+      // }
 
       console.log("\n=====================================");
       console.log("Date: " + req.session.user.date);

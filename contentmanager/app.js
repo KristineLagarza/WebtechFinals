@@ -21,7 +21,7 @@ const generateSecretKey = () => {
   return crypto.randomBytes(32).toString("hex");
 };
 const secretKey = generateSecretKey();
-const cors = require('cors');
+const cors = require("cors");
 
 // const { v4: uuidv4 } = require("uuid");
 var app = express();
@@ -61,7 +61,6 @@ app.use("/logout", logoutRouter);
 app.use("/playVideo", playVideoRouter);
 app.use("/logs", videoLogRouter);
 
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -73,6 +72,9 @@ app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
+  if (err) {
+    console.log(err);
+  }
   // render the error page
   res.status(err.status || 500);
   res.render("error");
