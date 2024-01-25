@@ -6,6 +6,6 @@
     "\\contentmanager\\routes",
     "\\viewer"
   ],
-  "SelectedNode": "\\viewer\\viewer.php",
+  "SelectedNode": "\\contentmanager\\routes\\logs.js",
   "PreviewInSolutionExplorer": false
 }

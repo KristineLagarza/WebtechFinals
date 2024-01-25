@@ -49,6 +49,11 @@ $jsonData = json_encode($data);
 
     <script>
         var videos = <?php echo $jsonData; ?>;
+        var fileName = <?php if ($data) {
+                            echo "'" . $data[0]['fileName'] . "'";
+                        } else {
+                            echo "''";
+                        } ?>;
         var liveContainer = document.getElementById("live-container");
         var videoContainer = document.getElementById("video-container");
         var toggleButton = document.getElementById("toggleContainer");
@@ -122,28 +127,32 @@ $jsonData = json_encode($data);
             setTimeout(function() {
                 video.play()
                     .then(() => {
-                        fetch('http://127.0.0.1:3000/logs/insert', {
-                                method: 'POST', // You can adjust the method based on your server's expectations
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'x-api-key': '52fdecfa-d755-4426-88ee-53c4753e9e44'
-                                },
-                                body: JSON.stringify({
-                                    userID: 0,
-                                    action: 'Viewer visits the page and played a video'
-                                }),
-                            })
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Network response was not ok');
-                                }
-                                // You can add further handling if needed
-                                console.log('Video playback logged successfully');
-                            })
-                            .catch(error => {
-                                // Handle any errors that occurred during the HTTP request
-                                console.error('Error logging video playback:', error);
-                            });
+                        if (fileName != "") {
+                            fetch('http://127.0.0.1:3000/logs/insert', {
+                                    method: 'POST', // You can adjust the method based on your server's expectations
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'x-api-key': '52fdecfa-d755-4426-88ee-53c4753e9e44'
+                                    },
+                                    body: JSON.stringify({
+                                        userID: 0,
+                                        action: `Viewer visits the page and played a video`,
+                                        video: `${fileName}`,
+                                    }),
+                                })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    // You can add further handling if needed
+                                    console.log('Video playback logged successfully');
+                                })
+                                .catch(error => {
+                                    // Handle any errors that occurred during the HTTP request
+                                    console.error('Error logging video playback:', error);
+                                });
+                        }
+
                     })
                     .catch(error => {
                         // Handle any errors that occurred during playback
