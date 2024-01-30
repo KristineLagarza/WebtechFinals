@@ -4,8 +4,11 @@
     "\\admin",
     "\\contentmanager",
     "\\contentmanager\\routes",
+    "\\contentmanager\\src",
+    "\\contentmanager\\views",
+    "\\images",
     "\\viewer"
   ],
-  "SelectedNode": "\\contentmanager\\routes\\logs.js",
+  "SelectedNode": "\\contentmanager\\package.json",
   "PreviewInSolutionExplorer": false
 }

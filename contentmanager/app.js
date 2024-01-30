@@ -17,6 +17,9 @@ var videoLogRouter = require("./routes/logs");
 const logoutRouter = require("./routes/logout");
 const playVideoRouter = require("./routes/playVideo");
 const crypto = require("crypto");
+const { setIO } = require('./src/socket.io/socket-setup')
+const { loadVideo } = require('./src/services/fileTransferService')
+
 const generateSecretKey = () => {
   return crypto.randomBytes(32).toString("hex");
 };
@@ -61,6 +64,7 @@ app.use("/logout", logoutRouter);
 app.use("/playVideo", playVideoRouter);
 app.use("/logs", videoLogRouter);
 
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -79,5 +83,17 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+let io = setIO();
+io.on('connection', socket => {
+  console.log('websocket established');
+  socket.emit('testing', 'Hello world');
+  loadVideo();
+})
+
+app.listen(3000, ()=>{
+  console.log('Node Server Running::Port: 3000')
+})
+
 
 module.exports = app;

@@ -145,17 +145,22 @@ body .notification {
 /*------------------------ VIEWER -----------------------------*/
 .video-container {
     height: 100vh;
-    width: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #003049;
-    align-content: center;
 }
 
 .video {
     width: 885px;
     height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 40%;
-    left: 47%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
