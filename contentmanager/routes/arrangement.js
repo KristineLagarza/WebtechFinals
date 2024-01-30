@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 var database = require("../connection");
+const webSocket = require("../src/socket.io/socket-setup");
+const sendFeedBack = require("../src/services/fileTransferService");
+const { scheduleTask, deleteTask } = require("../src/services/jobSchedulerService");
+const moment = require("moment");
 var session;
 
 /* GET home page. */
@@ -153,6 +157,19 @@ router.post("/", function (req, res, next) {
 });
 
 function deleteArrangement(id) {
+  const queryString =
+    "SELECT content.durationID, duration.`from`, duration.`to` FROM content INNER JOIN duration ON content.durationID = duration.durationID WHERE ContentID=?";
+  //Cancel the task before deleting
+  database.query(queryString, [id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      if (result.length > 0){
+        deleteTask(result);
+      }
+    }
+  });
+
   return new Promise((resolves, rejects) => {
     database.query(
       "DELETE FROM content WHERE ContentID=?",
@@ -169,7 +186,8 @@ function deleteArrangement(id) {
 }
 
 function saveArrangement(durationID, title, description, historyID) {
-  return new Promise((resolves, reject) => {
+
+  var promise = new Promise((resolves, reject) => {
     checkIfExist(parseInt(durationID))
       .then((d) => {
         reject("Air Time Exist");
@@ -188,6 +206,23 @@ function saveArrangement(durationID, title, description, historyID) {
         );
       });
   });
+
+    database.query(
+      "SELECT * FROM duration WHERE `durationID`=?",
+      [parseInt(durationID)],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          if(result.length > 0){
+            scheduleTask(result);
+          }
+        }
+      }
+    );
+
+
+  return promise;
 }
 
 function checkIfExist(durationID) {

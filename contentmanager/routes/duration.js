@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 var database = require("../connection");
+const moment = require('moment');
+const { scheduleTask, cancelTask, deleteTask } = require('../src/services/jobSchedulerService');
+const connection = require("../connection");
 
 router.get("/", (req, res, next) => {
   const user = req.session.user || null;
@@ -149,6 +152,20 @@ router.post("/", function (req, res, next) {
 });
 
 function deleteDuration(id) {
+  const queryString =
+  "SELECT durationID, `from`, `to` FROM duration WHERE duration.durationID=?";
+//Cancel the task before deleting
+database.query(queryString, [id], (err, result) => {
+  if (err) {
+    console.log(err);
+  } else {
+    if (result.length > 0){
+      deleteTask(result);
+    }
+  }
+});
+
+
   return new Promise((resolve, reject) => {
     database.query(
       "DELETE FROM duration WHERE `durationID`=?",
@@ -165,7 +182,7 @@ function deleteDuration(id) {
 }
 
 function updateDuration(id, from, to, description) {
-  return new Promise((resolve, reject) => {
+  var promise = new Promise((resolve, reject) => {
     database.query(
       "UPDATE duration Set `from`=?,`to`=?,`description`=? WHERE `durationID`=?",
       [from, to, description, parseInt(id)],
@@ -178,6 +195,26 @@ function updateDuration(id, from, to, description) {
       }
     );
   });
+
+  let durationID = id;
+  cancelTask(id);
+  const duration = [{durationID, from, to, description}];
+  const queryString =
+  "SELECT ContentID FROM content WHERE `durationID`=?";
+  connection.query(queryString,
+  [id], (err, result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      if(result.length > 0){
+        cancelTask(parseInt(duration[0].durationID));
+        scheduleTask(duration);
+      }
+    }
+  });
+
+  return promise;
+
 }
 
 function saveDuration(from, to, description) {
@@ -229,6 +266,7 @@ function checkIfExist(from, to) {
     );
   });
 }
+
 
 function getDurations() {
   return new Promise((resolve, reject) => {

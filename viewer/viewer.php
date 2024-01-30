@@ -1,18 +1,3 @@
-<?php
-require 'baseURL.php';
-require 'connect.php';
-
-$query = "SELECT content.ContentID, content.Title, content.Description, content.Type, content.`status`, duration.`from`, duration.`to`, history.fileName FROM content INNER JOIN duration ON content.durationID = duration.durationID INNER JOIN history ON content.historyID = history.historyID WHERE TIME(duration.from) <= TIME(NOW()) AND TIME(duration.to) >= TIME(NOW())";
-$result = $conn->query($query);
-$data = array();
-if ($result->num_rows > 0) {
-
-    while ($row = $result->fetch_assoc()) {
-        array_push($data, $row);
-    }
-}
-$jsonData = json_encode($data);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,21 +10,19 @@ $jsonData = json_encode($data);
 </head>
 
 <body>
+</div>
+<?php include('./spinner/spinner.php')?>
     <div class="video-container" id="video-container">
         <div class="video">
-            <?php
-            if ($data) {
-                echo '<video id="myVideo" autoplay muted loop width="110%" height="110%">
-                <source src="' . $baseUrl . '/playVideo/' . $data[0]['fileName'] . '" type="video/mp4">
-            </video><br><button id="muteButton" class="btn btn-info text-white">Mute/Unmute</button>';
-            } else {
-                echo '<video id="myVideo" autoplay muted loop width="110%" height="110%" >
+            <video id="myVideo" src="" type="video/mp4" autoplay muted loop width="110%" height="110%">
+                <span style="display: none;">Your browser does not support the video tag.</span>
+            </video>
+            <button style="display: none;" id="muteButton" class="btn btn-info text-white">Mute/Unmute</button>';
+         <!-- <video id="myVideo" autoplay muted loop width="110%" height="110%" >
                 <source src="" type="video/mp4" alt="ERROR">
-                Your browser does not support the video tag.
-            </video>';
-            }
-            ?>
+        </video> -->
         </div>
+        
     </div>
     <div id="live-container" class="live-container">
         <div class="live"></div>
@@ -48,12 +31,7 @@ $jsonData = json_encode($data);
     <?php include('./footer/footer.php') ?>
 
     <script>
-        var videos = <?php echo $jsonData; ?>;
-        var fileName = <?php if ($data) {
-                            echo "'" . $data[0]['fileName'] . "'";
-                        } else {
-                            echo "''";
-                        } ?>;
+       let fileName = "";
         var liveContainer = document.getElementById("live-container");
         var videoContainer = document.getElementById("video-container");
         var toggleButton = document.getElementById("toggleContainer");
@@ -107,7 +85,8 @@ $jsonData = json_encode($data);
         var video = document.getElementById("myVideo");
         var muteButton = document.getElementById("muteButton");
 
-        muteButton.addEventListener("click", function() {
+        if(muteButton){
+            muteButton.addEventListener("click", function() {
             try {
                 if (video.muted) {
                     video.muted = false;
@@ -120,8 +99,9 @@ $jsonData = json_encode($data);
                 video.muted = false;
                 muteButton.textContent = "Mute";
             }
-        });
-
+        }); 
+        }
+       
         // var video = document.getElementById('myVideo');
         video.addEventListener('canplaythrough', function() {
             setTimeout(function() {
@@ -165,6 +145,10 @@ $jsonData = json_encode($data);
         //     muteButton.click();
         // }, 10000);
     </script>
+    <script defer src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
+    <script defer type="text/javascript" src="scripts/filetransferReciever.js"></script>
+
+
 </body>
 
 </html>
