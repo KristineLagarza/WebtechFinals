@@ -17,7 +17,7 @@
             <video id="myVideo" src="" type="video/mp4" autoplay muted loop width="110%" height="110%">
                 <span style="display: none;">Your browser does not support the video tag.</span>
             </video>
-            <button style="display: none;" id="muteButton" class="btn btn-info text-white">Mute/Unmute</button>';
+            <button style="display: none;" id="muteButton" class="btn btn-info text-white">Mute/Unmute</button>
          <!-- <video id="myVideo" autoplay muted loop width="110%" height="110%" >
                 <source src="" type="video/mp4" alt="ERROR">
         </video> -->
@@ -25,7 +25,14 @@
         
     </div>
     <div id="live-container" class="live-container">
-        <div class="live"></div>
+        <iframe
+            id="LiveVideo"
+            src=""
+            title="Owncast"
+            height="200px" width="350px"
+            referrerpolicy="origin"
+            allowfullscreen>
+        </iframe>
     </div>
     <button id="toggleContainer" class="btn btn-info text-black">Go to LIVE</button>
     <?php include('./footer/footer.php') ?>
@@ -50,7 +57,7 @@
             } else {
                 video.muted = false;
                 liveContainer.style.display = "none";
-                videoContainer.style.display = "block"
+                videoContainer.style.display = "block";
                 toggleButton.textContent = "Go to LIVE";
 
                 removeIframe();
@@ -60,26 +67,16 @@
         function addIframe() {
             var container = document.getElementById('live-container');
 
-            var iframe = document.createElement('iframe');
-            iframe.id = 'liveVideo';
+            var iframe = document.getElementById('LiveVideo');
+    
             // change 'ipaddress:port' to their actual ipaddress and port number
-            iframe.src = 'http://ipaddress:port/embed/video';
-            iframe.title = 'Owncast';
-            iframe.height = '720px';
-            iframe.width = '1280px';
-            iframe.referrerpolicy = 'origin';
-            iframe.allowfullscreen = true;
+            iframe.src = 'http://192.168.1.60:8080/embed/video';
 
-            container.appendChild(iframe);
         }
 
         function removeIframe() {
-            var iframe = document.getElementById('liveVideo');
-
-            if (iframe) {
-                var parent = iframe.parentNode;
-                parent.removeChild(iframe);
-            }
+            var iframe = document.getElementById('LiveVideo');
+            iframe.src = "";
         }
 
         var video = document.getElementById("myVideo");

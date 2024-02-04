@@ -168,39 +168,25 @@ body .notification {
 /*Author/s: Odeneil Belen*/
 /*CSS for the Live Stream*/
 
-.live-container {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-}
-
-.live {
-    margin-top: 50px;
-    width: 100%; 
-    max-width: 1280px; 
-    margin: 0 auto;
-}
-
 /* from Owncast */
-.live iframe {
+.live-container iframe {
     border: none;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 
-.live iframe[title="Owncast"] {
+.live-container iframe[title="Owncast"] {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
 }
 
 
-.live iframe[title="Owncast"] body {
+.live-container iframe[title="Owncast"] body {
     margin: 0;
     padding: 10px;
 }
@@ -247,6 +233,39 @@ footer h5 {
     font-size: 12px;
 }
 
+
+@media screen and (min-width: 1600px) {
+    /*Author/s: Odeneil Belen*/
+    .live-container {
+        /* margin-top: 50px; */
+        margin-left: 210px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    #LiveVideo {
+        width: 1280px;
+        height: 720px;
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width:1599px){
+    /*Author/s: Odeneil Belen*/
+    .live-container {
+        /* margin-top: 50px; */
+        margin-left: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    #LiveVideo {
+        width: 1280px;
+        height: 720px;
+    }
+}
+
 /* Desktop screens (large screens) */
 @media screen and (min-width: 1200px) {
     .containerlogin {
@@ -269,6 +288,24 @@ footer h5 {
 
     .form-box h2 {
         font-size: 32px;
+    }
+
+
+}
+
+/*Author/s: Odeneil Belen*/
+@media screen and (min-width: 720px) and (max-width: 1280px) {
+    
+    .live-container {
+        /* margin-top: 50px; */
+        margin-left: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+    #LiveVideo {
+        width: 720px;
+        height: 420px;
     }
 }
 
@@ -329,8 +366,24 @@ footer h5 {
     .header {
         margin-bottom: 20px;
     }
+
+    /*Author/s: Odeneil Belen*/
+    .live-container {
+        /* margin-top: 50px; */
+        margin-left: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
 }
 
+@media screen and (min-width: 550px) and (max-width: 720px) {
+    #LiveVideo {
+        width: 550px;
+        height: 350px;
+    }
+}
 
 /* Phones and small screens */
 @media screen and (max-width: 768px) {
@@ -382,5 +435,14 @@ footer h5 {
         background-position: center;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
+    }
+
+    /*Author/s: Odeneil Belen*/
+    .live-container {
+        /* margin-top: 50px; */
+        margin-left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
     }
 }
