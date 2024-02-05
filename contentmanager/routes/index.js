@@ -24,6 +24,11 @@ router.post("/", (req, res) => {
       console.error(error);
       res.render("error", { message: "Database error" });
     } else if (data.length === 1) {
+      if(data[0].status === "Inactive"){
+        res.render("error", { message: "User is inactive" })
+        return;
+      }
+      console.log('this shall not be printed');
       req.session.user = {
         date: new Date().toLocaleDateString(),
         username: username,
