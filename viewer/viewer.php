@@ -144,7 +144,7 @@
     </script>
     <script defer src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
     <script defer type="text/javascript" src="scripts/filetransferReciever.js"></script>
-
+    <script defer type="text/javascript" src="scripts/disableScreenshot.js"></script>
 
 </body>
 

@@ -1,388 +1,368 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html;
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;
       charset=UTF-8">
-        <base href=".">
+    <base href=".">
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
       shrink-to-fit=no">
-        <title>Logs</title>
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage"
-            content="assets/favicon/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
+    <title>Logs</title>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-        <link rel="stylesheet" href="/assets/simplebar.css">
-        <link rel="stylesheet" href="/assets/simplebar(1).css">
+    <link rel="stylesheet" href="/assets/simplebar.css">
+    <link rel="stylesheet" href="/assets/simplebar(1).css">
 
-        <link href="/assets/style.css" rel="stylesheet">
+    <link href="/assets/style.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="/assets/prism.css">
-        <link href="/assets/examples.css" rel="stylesheet">
-        <script type="text/javascript" async src="/assets/js"></script>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-        <style>
-                .sidebar {
-                    --cui-sidebar-bg: #0e284f !important;
-                }
-                .footer {
-                    background-color: #457B9D;
-                    color: white;
-                    padding: 20px 20px; /* Adjust the padding as needed */
-                    text-align: center;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    bottom: 0;
-                    width: 100%;
-                    height: 172px;
+    <link rel="stylesheet" href="/assets/prism.css">
+    <link href="/assets/examples.css" rel="stylesheet">
+    <script type="text/javascript" async src="/assets/js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <style>
+        .sidebar {
+            --cui-sidebar-bg: #0e284f !important;
+        }
 
-                }
-                .footer-image {
-                    display: inherit;
-                }
+        .footer {
+            background-color: #457B9D;
+            color: white;
+            padding: 20px 20px;
+            /* Adjust the padding as needed */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0;
+            width: 100%;
+            height: 172px;
 
-                .footer-image img {
-                    width: 100%;
-                    height: 100px;
-                    padding-right: 10px;
-                }
+        }
 
-                footer h5 {
-                    color: black;
-                    font-size: 20px;
-                    font-weight: bolder;
-                    letter-spacing: 1px;
-                    padding-right: 20px;
-                }
+        .footer-image {
+            display: inherit;
+        }
 
-                .footer-right {
-                    border-left: 5px solid black;
-                    height: 100px;
-                    padding-left: 20px;
-                    text-align: left;
-                    font-size: 25px;
-                }
-                .colorWhite{
-                    color: white !important;
-                }
-        </style>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    </head>
-    <body>
-        <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-            <div class="sidebar-brand d-none d-md-flex">
-                <h4 class="sidebar-brand-full"> Content Management</h4>
-                <h5 class="sidebar-brand-narrow"> Content Management</h5>
-            </div>
-            <ul class="sidebar-nav" data-coreui="navigation"
-                data-simplebar="init"><div
-                    class="simplebar-wrapper" style="margin: 0px;"><div
-                        class="simplebar-height-auto-observer-wrapper"><div
-                            class="simplebar-height-auto-observer"></div></div><div
-                        class="simplebar-mask"><div class="simplebar-offset"
-                            style="right:
-              0px; bottom: 0px;"><div class="simplebar-content-wrapper"
-                                tabindex="0" role="region"
-                                aria-label="scrollable content"
-                                style="height: 100%; overflow: hidden scroll;"><div
-                                    class="simplebar-content"
-                                    style="padding: 0px;">
-                                    <li class="nav-item"><a
-                                            class="nav-link"
-                                            href="/dashboard">
-                                            <i
-                                                class="nav-icon zmdi zmdi-view-dashboard"></i>
-                                            Dashboard</a></li>
-                                    <li class="nav-item"><a
-                                            class="nav-link"
-                                            href="/arrangement">
-                                            <i
-                                                class="nav-icon zmdi zmdi-link"></i>
-                                            Arrangement</a></li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/upload">
-                                            <i
-                                                class="nav-icon zmdi zmdi-widgets"></i>
-                                            Upload
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/live">
-                                            <i
-                                                class="nav-icon zmdi zmdi-calendar"></i>
-                                            Live Stream
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/history">
-                                            <i
-                                                class="nav-icon zmdi zmdi-format-list-bulleted"></i>
-                                            History
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link"
-                                            href="/record">
-                                            <i
-                                                class="nav-icon zmdi zmdi-mic"></i>
-                                            Record
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link"
-                                            href="/duration">
-                                            <i
-                                                class="nav-icon zmdi zmdi-time-interval"></i>
-                                            Air Time
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active"
-                                            href="/logs/view">
-                                            <i
-                                                class="nav-icon zmdi zmdi-collection-video"></i>
-                                            Logs
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/logout">
-                                            <i
-                                                class="nav-icon zmdi zmdi-sign-in"></i>
-                                            Log Out
-                                        </a>
-                                    </li>
-                                </div></div></div></div><div
-                        class="simplebar-placeholder"
-                        style="width: 256px; height: 841px;"></div></div><div
-                    class="simplebar-track simplebar-horizontal"
-                    style="visibility:
-          hidden;"><div class="simplebar-scrollbar" style="width: 0px; display:
-            none;"></div></div><div class="simplebar-track simplebar-vertical"
-                    style="visibility: visible;"><div
-                        class="simplebar-scrollbar"
-                        style="height: 247px; transform: translate3d(0px, 0px, 0px);
-            display: block;"></div></div></ul>
+        .footer-image img {
+            width: 100%;
+            height: 100px;
+            padding-right: 10px;
+        }
+
+        footer h5 {
+            color: black;
+            font-size: 20px;
+            font-weight: bolder;
+            letter-spacing: 1px;
+            padding-right: 20px;
+        }
+
+        .footer-right {
+            border-left: 5px solid black;
+            height: 100px;
+            padding-left: 20px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .colorWhite {
+            color: white !important;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+        <div class="sidebar-brand d-none d-md-flex">
+            <h4 class="sidebar-brand-full"> Content Management</h4>
+            <h5 class="sidebar-brand-narrow"> Content Management</h5>
         </div>
-        <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-            <header class="header header-sticky mb-4">
-                <div class="container-fluid">
-                    <a class="header-brand d-md-none">
-                        <i class="zmdi zmdi-menu"></i></a>
-                    <ul class="header-nav d-none d-md-flex">
-                    </ul>
-                    <ul class="header-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link"
-                                href>
-                                <svg class="icon icon-lg">
-                                    <use
-                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-                                </svg></a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href>
-                                <svg class="icon icon-lg">
-                                    <use
-                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
-                                </svg></a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href>
-                                <svg class="icon icon-lg">
-                                    <use
-                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-                                </svg></a></li>
-                    </ul>
-                    <ul class="header-nav ms-3">
-                        <li class="nav-item"><a class="nav-link"
-                                href="#"><i
-                                    class="icon me-2 zmdi zmdi-notifications text-danger"></i></a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href>Manager</a></li>
-                    </ul>
+        <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="init">
+            <div class="simplebar-wrapper" style="margin: 0px;">
+                <div class="simplebar-height-auto-observer-wrapper">
+                    <div class="simplebar-height-auto-observer"></div>
                 </div>
-            </header>
-            <div class="body flex-grow-1 px-3">
-                <div class="container-lg">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1>Video Logs</h1>
+                <div class="simplebar-mask">
+                    <div class="simplebar-offset" style="right:
+              0px; bottom: 0px;">
+                        <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                            aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                            <div class="simplebar-content" style="padding: 0px;">
+                                <li class="nav-item"><a class="nav-link" href="/dashboard">
+                                        <i class="nav-icon zmdi zmdi-view-dashboard"></i>
+                                        Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/arrangement">
+                                        <i class="nav-icon zmdi zmdi-link"></i>
+                                        Arrangement</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/upload">
+                                        <i class="nav-icon zmdi zmdi-widgets"></i>
+                                        Upload
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/live">
+                                        <i class="nav-icon zmdi zmdi-calendar"></i>
+                                        Live Stream
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/history">
+                                        <i class="nav-icon zmdi zmdi-format-list-bulleted"></i>
+                                        History
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/record">
+                                        <i class="nav-icon zmdi zmdi-mic"></i>
+                                        Record
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/duration">
+                                        <i class="nav-icon zmdi zmdi-time-interval"></i>
+                                        Air Time
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/logs/view">
+                                        <i class="nav-icon zmdi zmdi-collection-video"></i>
+                                        Logs
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logout">
+                                        <i class="nav-icon zmdi zmdi-sign-in"></i>
+                                        Log Out
+                                    </a>
+                                </li>
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <table class="table border mb-0">
-                                <thead class="table-light fw-semibold">
-                                    <tr class="align-middle">
-                                        <th>
-                                            Description
-                                        </th>
-                                        <th>
-                                            Video File
-                                        </th>
-                                        <th>
-                                            Timestamp
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% results.forEach(function(row) { %>
+                </div>
+                <div class="simplebar-placeholder" style="width: 256px; height: 841px;"></div>
+            </div>
+            <div class="simplebar-track simplebar-horizontal" style="visibility:
+          hidden;">
+                <div class="simplebar-scrollbar" style="width: 0px; display:
+            none;"></div>
+            </div>
+            <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                <div class="simplebar-scrollbar" style="height: 247px; transform: translate3d(0px, 0px, 0px);
+            display: block;"></div>
+            </div>
+        </ul>
+    </div>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+        <header class="header header-sticky mb-4">
+            <div class="container-fluid">
+                <a class="header-brand d-md-none">
+                    <i class="zmdi zmdi-menu"></i></a>
+                <ul class="header-nav d-none d-md-flex">
+                </ul>
+                <ul class="header-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href>
+                            <svg class="icon icon-lg">
+                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link" href>
+                            <svg class="icon icon-lg">
+                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link" href>
+                            <svg class="icon icon-lg">
+                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                            </svg></a></li>
+                </ul>
+                <ul class="header-nav ms-3">
+                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                class="icon me-2 zmdi zmdi-notifications text-danger"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href>Manager</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="body flex-grow-1 px-3">
+            <div class="container-lg">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Video Logs</h1>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table border mb-0">
+                            <thead class="table-light fw-semibold">
+                                <tr class="align-middle">
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Video File
+                                    </th>
+                                    <th>
+                                        Timestamp
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% results.forEach(function(row) { %>
                                     <tr>
-                                        <td><%= row.Action
-                                            %></td>
-                                        <td><%= row.Video %></td>
-                                        <td><%= new
-                                            Date(row.Timestamp).toISOString().replace('T',
-                                            ' ').replace(/\.\d{3}Z/, '') %></td>
+                                        <td>
+                                            <%= row.Action %>
+                                        </td>
+                                        <td>
+                                            <%= row.Video %>
+                                        </td>
+                                        <td>
+                                            <%= new Date(row.Timestamp).toISOString().replace('T', ' '
+                                                ).replace(/\.\d{3}Z/, '' ) %>
+                                        </td>
                                         <!-- <td><button
                                                 class="btn btn-danger colorWhite">Delete</button></td> -->
                                     </tr>
                                     <% }); %>
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal fade "
-            id="showListModal" tabindex="-1"
-            role="dialog"
-            aria-labelledby="showListModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"
-                            id="showListModalLabel">
-                            Logs
-                        </h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card mb-4">
-                                    <div class="card-body">
-                                        <br>
-                                        <div class="table-responsive">
-                                            <table class="table border mb-0">
-                                                <thead
-                                                    class="table-light fw-semibold">
-                                                    <tr class="align-middle">
-                                                        <th>
-                                                            Title
-                                                        </th>
-                                                        <th>
-                                                            Description
-                                                        </th>
-                                                        <th>
-                                                            Air Time
-                                                        </th>
-                                                        <th>
-                                                            Video Link
-                                                        </th>
-                                                        <th>
-                                                            Action
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+    </div>
+    <div class="modal fade " id="showListModal" tabindex="-1" role="dialog" aria-labelledby="showListModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showListModalLabel">
+                        Logs
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <br>
+                                    <div class="table-responsive">
+                                        <table class="table border mb-0">
+                                            <thead class="table-light fw-semibold">
+                                                <tr class="align-middle">
+                                                    <th>
+                                                        Title
+                                                    </th>
+                                                    <th>
+                                                        Description
+                                                    </th>
+                                                    <th>
+                                                        Air Time
+                                                    </th>
+                                                    <th>
+                                                        Video Link
+                                                    </th>
+                                                    <th>
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                                </tbody>
-                                            </table>
+                                            </tbody>
+                                        </table>
 
-                                        </div>
                                     </div>
-                                    <div class="card-footer"></div>
                                 </div>
+                                <div class="card-footer"></div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button"
-                                class="btn btn-secondary"
-                                data-coreui-dismiss="modal"
-                                style="color:white !important;">Close</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal"
+                            style="color:white !important;">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="footer-image">
-                <img src="images/favicon.png" alt="Singko">
-            </div>
-            <h5>&copy; 2023 Singko. All Rights Reserved</h5>
-            <div class="footer-right">
-                <h6>Team Singko - 9481AB - IT312/312L</h6>
-                <h6>AY 2023-2024</h6>
-                <h6>IT Department</h6>
-                <h6>School of Accountancy, Management, Computing and Information
-                    Studies</h6>
-                <h6>Saint Louis University</h6>
-            </div>
-        </footer>
-        <script src="/assets/coreui.bundle.min.js.download"></script>
-        <script src="/assets/simplebar.min.js.download"></script>
-        <script src="/assets/coreui-utils.js.download"></script>
-        <script src="/assets/main.js.download"></script>
-        <script>
-            function showPreview(fileName){
-                let myForm = document.getElementById('myForm');
-                myForm.removeAttribute("onsubmit");
-                myForm.setAttribute("onsubmit","return false");
-                if(fileName){
-                    let myFrame = document.getElementById('myFrame');
-                    myFrame.setAttribute("src",`/playVideo/${fileName}`);
-                    myFrame.setAttribute("style","height:300px;width:500px;margin-bottom:5px;");
-                    let btnClear = document.getElementById('btnClear');
-                    btnClear.removeAttribute("style");
-                    btnClear.setAttribute("style","color:white !important;");
-                }
-            }
-            function clearPreview(){
+    </div>
+    <footer class="footer">
+        <div class="footer-image">
+            <img src="../images/favicon.png" alt="Singko">
+        </div>
+        <h5>&copy; 2023 Singko. All Rights Reserved</h5>
+        <div class="footer-right">
+            <h6>Team Singko - 9481AB - IT312/312L</h6>
+            <h6>AY 2023-2024</h6>
+            <h6>IT Department</h6>
+            <h6>School of Accountancy, Management, Computing and Information
+                Studies</h6>
+            <h6>Saint Louis University</h6>
+        </div>
+    </footer>
+    <script src="/assets/coreui.bundle.min.js.download"></script>
+    <script src="/assets/simplebar.min.js.download"></script>
+    <script src="/assets/coreui-utils.js.download"></script>
+    <script src="/assets/main.js.download"></script>
+    <script>
+        function showPreview(fileName) {
+            let myForm = document.getElementById('myForm');
+            myForm.removeAttribute("onsubmit");
+            myForm.setAttribute("onsubmit", "return false");
+            if (fileName) {
                 let myFrame = document.getElementById('myFrame');
-                myFrame.setAttribute("src",'');
-                myFrame.removeAttribute("style");
+                myFrame.setAttribute("src", `/playVideo/${fileName}`);
+                myFrame.setAttribute("style", "height:300px;width:500px;margin-bottom:5px;");
                 let btnClear = document.getElementById('btnClear');
                 btnClear.removeAttribute("style");
-                btnClear.setAttribute("style","display:none");
+                btnClear.setAttribute("style", "color:white !important;");
             }
+        }
+        function clearPreview() {
+            let myFrame = document.getElementById('myFrame');
+            myFrame.setAttribute("src", '');
+            myFrame.removeAttribute("style");
+            let btnClear = document.getElementById('btnClear');
+            btnClear.removeAttribute("style");
+            btnClear.setAttribute("style", "display:none");
+        }
 
-            function saveArrangement(){
-                let myForm = document.getElementById('myForm');
-                myForm.removeAttribute("onsubmit");
-                let btnSave = document.getElementById('btnSave');
-                btnSave.click();
-            }
-        </script>>
+        function saveArrangement() {
+            let myForm = document.getElementById('myForm');
+            myForm.removeAttribute("onsubmit");
+            let btnSave = document.getElementById('btnSave');
+            btnSave.click();
+        }
+    </script>>
 
-        <% if (typeof arrangeSuccess !== 'undefined' &&
-        arrangeSuccess
-        !==null) { %>
+    <% if (typeof arrangeSuccess !=='undefined' && arrangeSuccess !==null) { %>
         <script>
-                Swal.fire({
+            Swal.fire({
                 title: 'Success',
                 text: 'Successfully Added Arrangement',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1500
-                })
-            </script>
+            })
+        </script>
         <% } %>
 
-        <% if (typeof deleteSuccess !== 'undefined' &&
-        deleteSuccess
-        !==null) { %>
-        <script>
-                Swal.fire({
-                title: 'Success',
-                text: 'Successfully Deleted Arrangement',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1500
-                })
-            </script>
-        <% } %>
-    </body>
+            <% if (typeof deleteSuccess !=='undefined' && deleteSuccess !==null) { %>
+                <script>
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Successfully Deleted Arrangement',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                </script>
+                <% } %>
+</body>
+
 </html>
