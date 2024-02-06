@@ -91,9 +91,9 @@ io.on('connection', socket => {
   loadVideo();
 })
 
-// app.listen(3000, ()=>{
-//   console.log('Node Server Running::Port: 3000')
-// })
+app.listen(3000, () => {
+    console.log('Node Server Running::Port: 3000')
+
+})
 
 
-module.exports = app;
