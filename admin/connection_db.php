@@ -1,15 +1,15 @@
 <?php
+$servername = "localhost";  // Replace with your database server name
+$username = "root";         // Replace with your database username
+$password = "";     // Replace with your database password
+$dbname = "videoplayer_db";     // Replace with your database name
 
-$db_host = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "finals_db";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-
-$conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-
-
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 ?>
