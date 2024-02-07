@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\admin",
+    "\\admin\\CRUD",
     "\\contentmanager",
     "\\contentmanager\\routes",
     "\\contentmanager\\src",
@@ -9,6 +10,6 @@
     "\\images",
     "\\viewer"
   ],
-  "SelectedNode": "\\contentmanager\\routes\\logout.js",
+  "SelectedNode": "\\contentmanager\\views\\error.ejs",
   "PreviewInSolutionExplorer": false
 }
