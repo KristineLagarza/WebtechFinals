@@ -4,6 +4,10 @@ var database = require("../connection");
 const moment = require('moment');
 const { scheduleTask, cancelTask, deleteTask } = require('../src/services/jobSchedulerService');
 const connection = require("../connection");
+const cacheControlMiddleware = require("../middleware/cacheControlMiddleware"); // Adjusted path
+
+// Use the cache control middleware for all routes in this file
+router.use(cacheControlMiddleware);
 
 router.get("/", (req, res, next) => {
   const user = req.session.user || null;

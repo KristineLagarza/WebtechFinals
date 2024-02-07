@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 var database = require("../connection");
+const cacheControlMiddleware = require("../middleware/cacheControlMiddleware"); // Adjusted path
+
+// Use the cache control middleware for all routes in this file
+router.use(cacheControlMiddleware);
 
 router.get("/view", function (req, res, next) {
   if (!req.session.user) {

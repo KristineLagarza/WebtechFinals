@@ -6,6 +6,10 @@ const sendFeedBack = require("../src/services/fileTransferService");
 const { scheduleTask, deleteTask } = require("../src/services/jobSchedulerService");
 const moment = require("moment");
 var session;
+const cacheControlMiddleware = require("../middleware/cacheControlMiddleware"); // Adjusted path
+
+// Use the cache control middleware for all routes in this file
+router.use(cacheControlMiddleware);
 
 /* GET home page. */
 router.get("/", function (req, res, next) {

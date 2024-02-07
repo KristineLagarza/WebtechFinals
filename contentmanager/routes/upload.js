@@ -4,6 +4,10 @@ var database = require("../connection");
 var session;
 const uploadMulter = require("../src/multer/multer");
 const fs = require("fs");
+const cacheControlMiddleware = require("../middleware/cacheControlMiddleware"); // Adjusted path
+
+// Use the cache control middleware for all routes in this file
+router.use(cacheControlMiddleware);
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
