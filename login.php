@@ -15,21 +15,27 @@ if (isset($_POST['username'])) {
         $user = $result->fetch_assoc();
 
         if ($user['Type'] == 'admin') {
+            if ($user['status'] === 'Inactive') {
+                header('location: contentmanager/views/error.ejs');
+                exit();
+            }
             $_SESSION['Username'] = $username;
             $_SESSION['Type'] = 'admin';
             header('Location: admin/accounts_view.php');
             exit(); 
         } elseif ($user['Type'] == 'content_manager') {
-            $_SESSION['Username'] = $username;
-            $_SESSION['Type'] = 'content_manager';
-            header('Location: contentmanager/views/dashboard.ejs');
+            if($user['status'] == 'Inactive'){
+                header('location: contentmanager/views/error.ejs');
+                exit();
+            }
+            // $_SESSION['Username'] = $username;
+            // $_SESSION['Type'] = 'content_manager';
+
+            header('Location: http://localhost:3000/dashboard');
             exit(); 
         }
     }
-    if ($row['status'] === 'Inactive') {
-        header("Location: login_users?id=$Username&error=Inactive Account");
-        exit();
-    }
+   
 
     $st->close();
 
