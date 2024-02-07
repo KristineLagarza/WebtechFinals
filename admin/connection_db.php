@@ -2,7 +2,7 @@
 $servername = "localhost";  // Replace with your database server name
 $username = "root";         // Replace with your database username
 $password = "";     // Replace with your database password
-$dbname = "videoplayer_db";     // Replace with your database name
+$dbname = "finals_db";     // Replace with your database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
